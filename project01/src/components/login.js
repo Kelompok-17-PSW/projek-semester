@@ -31,37 +31,43 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <Container>
-        <Row className="justify-content-center">
-          <Col md={6}>
+      <Container className="d-flex align-items-center justify-content-center min-vh-100">
+        <Row className="justify-content-center w-100">
+          <Col md={6} lg={4} className="px-4 py-5 shadow rounded bg-white">
             <div className="login-card">
               <h2 className="text-center mb-4">Login</h2>
+              {/* Display general error if any */}
               {error.form && <Alert variant="danger">{error.form}</Alert>}
               <Form onSubmit={handleLogin}>
-                <Form.Group controlId="formBasicEmail">
+                <Form.Group controlId="formBasicEmail" className="mb-3">
                   <Form.Label>Email/Nomor Telepon</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Masukkan email/nomor telepon"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    isInvalid={!!error.email}
                   />
                   {error.email && <small className="text-danger">{error.email}</small>}
                 </Form.Group>
-                <Form.Group controlId="formBasicPassword">
+
+                <Form.Group controlId="formBasicPassword" className="mb-4">
                   <Form.Label>Password</Form.Label>
                   <Form.Control
                     type="password"
                     placeholder="Masukkan password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    isInvalid={!!error.password}
                   />
                   {error.password && <small className="text-danger">{error.password}</small>}
                 </Form.Group>
-                <Button variant="primary" type="submit" className="w-100 mt-3">
+
+                <Button variant="primary" type="submit" className="w-100 mt-3 py-2">
                   Login
                 </Button>
               </Form>
+
               <p className="mt-3 text-center">
                 Belum punya akun? <Link to="/register">Daftar di sini</Link>
               </p>
