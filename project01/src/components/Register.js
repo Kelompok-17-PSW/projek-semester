@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import './pages.css';
+import '../css/LoginRegister.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     password: '',
-    dob: '',
   });
   const [error, setError] = useState({});
   const navigate = useNavigate();
@@ -23,18 +22,19 @@ const Register = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    const { username, email, password, dob } = formData;
+    const { username, email, password } = formData;
     const errorMessages = {};
 
     if (!username) errorMessages.username = 'Nama pengguna wajib diisi';
     if (!email) errorMessages.email = 'Email/Nomor Telepon wajib diisi';
     if (!password) errorMessages.password = 'Password wajib diisi';
-    if (!dob) errorMessages.dob = 'Tanggal lahir wajib diisi';
 
     if (Object.keys(errorMessages).length > 0) {
       setError(errorMessages);
       return;
     }
+
+    localStorage.setItem('userName', username); // Simpan username ke localStorage
 
     navigate('/login');
   };
@@ -46,7 +46,6 @@ const Register = () => {
           <Col md={6} lg={5} className="px-4 py-5 shadow rounded bg-white">
             <div className="register-card">
               <h2 className="text-center mb-4">Register</h2>
-              {/* Display general error if any */}
               {error.form && <Alert variant="danger">{error.form}</Alert>}
               <Form onSubmit={handleRegister}>
                 <Form.Group controlId="formBasicUsername" className="mb-3">
@@ -91,20 +90,6 @@ const Register = () => {
                   />
                   <Form.Control.Feedback type="invalid">
                     {error.password}
-                  </Form.Control.Feedback>
-                </Form.Group>
-
-                <Form.Group controlId="formBasicDate" className="mb-4">
-                  <Form.Label>Tanggal Lahir</Form.Label>
-                  <Form.Control
-                    type="date"
-                    name="dob"
-                    value={formData.dob}
-                    onChange={handleInputChange}
-                    isInvalid={!!error.dob}
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    {error.dob}
                   </Form.Control.Feedback>
                 </Form.Group>
 
