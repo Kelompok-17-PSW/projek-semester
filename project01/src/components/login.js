@@ -26,7 +26,9 @@ const Login = () => {
       return;
     }
 
-    // Simulate a successful login
+    const storedUserName = email.split('@')[0]; 
+    localStorage.setItem('userName', storedUserName);
+
     navigate('/dashboard');
   };
 
