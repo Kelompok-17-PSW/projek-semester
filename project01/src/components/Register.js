@@ -41,55 +41,81 @@ const Register = () => {
     <Container className="mt-4">
       <Row>
         <Col md={{ span: 6, offset: 3 }}>
-          <h2>Register</h2>
+          <h2 className="text-center mb-4">Register</h2>
+          
+          {/* Tampilkan error umum jika ada */}
           {error.form && <Alert variant="danger">{error.form}</Alert>}
+
           <Form onSubmit={handleRegister}>
-            <Form.Group controlId="formBasicUsername">
+            {/* Input Nama Pengguna */}
+            <Form.Group controlId="formBasicUsername" className="mb-3">
               <Form.Label>Nama Pengguna</Form.Label>
-              <Form.Control 
-                type="text" 
-                placeholder="Masukkan nama pengguna" 
-                value={username} 
-                onChange={(e) => setUsername(e.target.value)} 
+              <Form.Control
+                type="text"
+                placeholder="Masukkan nama pengguna"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                isInvalid={!!error.username}
               />
-              {error.username && <small className="text-danger">{error.username}</small>}
+              {error.username && (
+                <small className="text-danger">{error.username}</small>
+              )}
             </Form.Group>
-            <Form.Group controlId="formBasicEmail">
+
+            {/* Input Email/Nomor Telepon */}
+            <Form.Group controlId="formBasicEmail" className="mb-3">
               <Form.Label>Email/Nomor Telepon</Form.Label>
-              <Form.Control 
-                type="text" 
-                placeholder="Masukkan email/nomor telepon" 
-                value={email} 
-                onChange={(e) => setEmail(e.target.value)} 
+              <Form.Control
+                type="text"
+                placeholder="Masukkan email/nomor telepon"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                isInvalid={!!error.email}
               />
-              {error.email && <small className="text-danger">{error.email}</small>}
+              {error.email && (
+                <small className="text-danger">{error.email}</small>
+              )}
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+
+            {/* Input Password */}
+            <Form.Group controlId="formBasicPassword" className="mb-3">
               <Form.Label>Password</Form.Label>
-              <Form.Control 
-                type="password" 
-                placeholder="Masukkan password" 
-                value={password} 
-                onChange={(e) => setPassword(e.target.value)} 
+              <Form.Control
+                type="password"
+                placeholder="Masukkan password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                isInvalid={!!error.password}
               />
-              {error.password && <small className="text-danger">{error.password}</small>}
+              {error.password && (
+                <small className="text-danger">{error.password}</small>
+              )}
             </Form.Group>
-            <Form.Group controlId="formBasicDate">
+
+            {/* Input Tanggal Lahir */}
+            <Form.Group controlId="formBasicDate" className="mb-3">
               <Form.Label>Tanggal Lahir</Form.Label>
-              <Form.Control 
-                type="date" 
-                value={dob} 
-                onChange={(e) => setDob(e.target.value)} 
+              <Form.Control
+                type="date"
+                value={dob}
+                onChange={(e) => setDob(e.target.value)}
+                isInvalid={!!error.dob}
               />
               {error.dob && <small className="text-danger">{error.dob}</small>}
             </Form.Group>
-            <Button variant="primary" type="submit">Register</Button>
+
+            <Button variant="primary" type="submit" className="w-100 py-2">
+              Register
+            </Button>
           </Form>
-          <p className="mt-3">Sudah punya akun? <Link to="/login">Login di sini</Link></p>
+
+          <p className="mt-3 text-center">
+            Sudah punya akun? <Link to="/login">Login di sini</Link>
+          </p>
         </Col>
       </Row>
     </Container>
   );
-}
+};
 
 export default Register;
