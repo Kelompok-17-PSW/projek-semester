@@ -19,7 +19,6 @@ const Dashboard = () => {
     navigate("/login");
   };
 
-  // Fungsi untuk menavigasi ke halaman lain
   const handleNavigate = (path) => {
     navigate(path);
   };
@@ -100,7 +99,7 @@ const Dashboard = () => {
           </Card>
         </Col>
       </Row>
-      {/* Kartu lainnya tetap bisa menggunakan onClick yang sama */}
+      {}
       <Row>
         <Col md={6}>
           <Card className="mb-4" >
