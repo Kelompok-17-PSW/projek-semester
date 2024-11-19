@@ -1,24 +1,14 @@
 .login-container {
-  background: linear-gradient(135deg, #6c63ff, #4a47a3);
-  height: 100vh; 
+  background-color: #f8f9fa; 
+  min-height: 70vh; 
   display: flex;
   align-items: center; 
-  justify-content: center; 
-  padding: 20px;
-  margin: 0; 
-  box-sizing: border-box;
 }
 
 .login-card {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-  box-sizing: border-box; 
-  text-align: center;
+  padding: 80px; 
 }
+
 
 .login-card .form-label {
   font-weight: 600;
@@ -49,4 +39,8 @@
 
 .login-card a:hover {
   text-decoration: underline;
+}
+
+.animate__animated {
+  --animate-duration: 7.5s; /* Ubah durasi animasi */
 }
