@@ -7,7 +7,6 @@ import Register from './components/Register';
 import Materi from './components/Materi';
 import Informasi from './components/Informasi';
 import Navbar from './components/Navbar';
-import Narrative from './components/Narrative';
 
 const App = () => {
   return (
@@ -21,7 +20,6 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/materi" element={<Materi />} />
           <Route path="/informasi" element={<Informasi />} />
-          <Route path='/bab1' element={<Narrative />} />
         </Routes>
       </div>
     </Router>
