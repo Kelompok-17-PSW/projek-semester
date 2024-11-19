@@ -1,0 +1,44 @@
+.container-fluid {
+    padding: 20px;
+  }
+  
+  .welcome-card {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .welcome-content {
+    display: flex;
+    align-items: center;
+    margin-left: 240px;
+  }
+  
+  .welcome-image img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 50px;
+  }
+  
+  .welcome-text {
+    flex: 0.6;
+  }
+  
+  .welcome-text .display-4 {
+    font-size: 2.5rem;
+  }
+  
+  .welcome-text .lead {
+    font-size: 1.5rem;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-text {
+    color: #161616;
+  }
+  
