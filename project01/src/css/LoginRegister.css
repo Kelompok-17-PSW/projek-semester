@@ -1,3 +1,4 @@
+/* CSS untuk Form Login */
 .login-container {
   background-color: #f8f9fa; 
   min-height: 70vh; 
@@ -7,6 +8,7 @@
 
 .login-card {
   padding: 80px; 
+  margin-top: 75px;
 }
 
 
@@ -23,7 +25,7 @@
   font-size: 16px;
   font-weight: bold;
   border-radius: 5px;
-  transition: background 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
   width: 100%; 
 }
 
@@ -42,5 +44,22 @@
 }
 
 .animate__animated {
-  --animate-duration: 7.5s; /* Ubah durasi animasi */
+  --animate-duration: 7.5s; 
+}
+
+
+/* CSS untuk Register */
+.register-card button {
+  background: #6c63ff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+  width: 100%; 
+} 
+
+.register-card button:hover {
+  background: #4a47a3;
 }

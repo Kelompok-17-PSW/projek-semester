@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert, Card } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import './pages.css';
+import '../css/LoginRegister.css';
 
 const Login = () => {
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState({});
@@ -14,6 +15,9 @@ const Login = () => {
     e.preventDefault();
     let errorMessages = {};
 
+    if (!username) {
+      errorMessages.username = 'Username wajib diisi';
+    }
     if (!email) {
       errorMessages.email = 'Email/Nomor Telepon wajib diisi';
     }
@@ -26,8 +30,7 @@ const Login = () => {
       return;
     }
 
-    const storedUserName = email.split('@')[0]; 
-    localStorage.setItem('userName', storedUserName);
+    localStorage.setItem('userName', username);
 
     navigate('/dashboard');
   };
@@ -42,6 +45,17 @@ const Login = () => {
                 <h2 className="text-center mb-4">Login</h2>
                 {error.form && <Alert variant="danger">{error.form}</Alert>}
                 <Form onSubmit={handleLogin}>
+                  <Form.Group controlId="formBasicUsername">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Masukkan username"
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                      isInvalid={!!error.username}
+                    />
+                    {error.username && <Form.Control.Feedback type="invalid">{error.username}</Form.Control.Feedback>}
+                  </Form.Group>
                   <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email/Nomor Telepon</Form.Label>
                     <Form.Control
