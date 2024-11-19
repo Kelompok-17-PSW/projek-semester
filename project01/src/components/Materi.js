@@ -24,7 +24,7 @@ const Materi = () => {
           <h2 className="mb-4" style={{ textAlign: 'center', fontWeight: 'bold' }}>Materi</h2>
 
           {}
-          <Link to="/grammar" style={cardStyle}>
+          <Link to="/bab1" style={cardStyle}>
             <Card
               className="mb-4"
               style={cardStyle}
@@ -32,9 +32,9 @@ const Materi = () => {
               onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'} 
             >
               <Card.Body>
-                <Card.Title>Grammar Dasar</Card.Title>
+                <Card.Title>Narrative Text</Card.Title>
                 <Card.Text>
-                  Pelajari dasar-dasar grammar bahasa Inggris untuk pemahaman yang lebih baik.
+                  Pelajari dasar-dasar Narrative text bahasa Inggris untuk pemahaman yang lebih baik.
                 </Card.Text>
               </Card.Body>
             </Card>
