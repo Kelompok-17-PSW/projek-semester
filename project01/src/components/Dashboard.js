@@ -11,11 +11,21 @@ const Dashboard = () => {
     navigate('/login');
   };
 
+  const navigateTo = (path) => {
+    navigate(path);
+  };
+
   return (
     <Container fluid className="mt-4">
       <Row>
         <Col md={2}>
-          <Card className="text-center mb-4">
+          <Card
+            className="text-center mb-4 clickable-card"
+            onClick={() => navigateTo('/aktivitas-mingguan')}
+            style={{ cursor: 'pointer', transition: 'transform 0.2s, box-shadow 0.2s' }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+          >
             <Card.Body>
               <FaBook size={50} color="#17a2b8" />
               <Card.Title>Aktivitas Mingguan</Card.Title>
@@ -24,7 +34,13 @@ const Dashboard = () => {
           </Card>
         </Col>
         <Col md={2}>
-          <Card className="text-center mb-4">
+          <Card
+            className="text-center mb-4 clickable-card"
+            onClick={() => navigateTo('/latihan-menulis')}
+            style={{ cursor: 'pointer', transition: 'transform 0.2s, box-shadow 0.2s' }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+          >
             <Card.Body>
               <FaPenFancy size={50} color="#28a745" />
               <Card.Title>Latihan Menulis</Card.Title>
@@ -33,7 +49,13 @@ const Dashboard = () => {
           </Card>
         </Col>
         <Col md={2}>
-          <Card className="text-center mb-4">
+          <Card
+            className="text-center mb-4 clickable-card"
+            onClick={() => navigateTo('/kuis')}
+            style={{ cursor: 'pointer', transition: 'transform 0.2s, box-shadow 0.2s' }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+          >
             <Card.Body>
               <FaQuestionCircle size={50} color="#ffc107" />
               <Card.Title>Kuis</Card.Title>
@@ -42,7 +64,13 @@ const Dashboard = () => {
           </Card>
         </Col>
         <Col md={2}>
-          <Card className="text-center mb-4">
+          <Card
+            className="text-center mb-4 clickable-card"
+            onClick={() => navigateTo('/materi')}
+            style={{ cursor: 'pointer', transition: 'transform 0.2s, box-shadow 0.2s' }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+          >
             <Card.Body>
               <FaBookOpen size={50} color="#6f42c1" />
               <Card.Title>Materi</Card.Title>
@@ -51,7 +79,13 @@ const Dashboard = () => {
           </Card>
         </Col>
         <Col md={2}>
-          <Card className="text-center mb-4">
+          <Card
+            className="text-center mb-4 clickable-card"
+            onClick={() => navigateTo('/forum-diskusi')}
+            style={{ cursor: 'pointer', transition: 'transform 0.2s, box-shadow 0.2s' }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+          >
             <Card.Body>
               <FaComments size={50} color="#007bff" />
               <Card.Title>Forum Diskusi</Card.Title>
@@ -60,7 +94,13 @@ const Dashboard = () => {
           </Card>
         </Col>
         <Col md={2}>
-          <Card className="text-center mb-4">
+          <Card
+            className="text-center mb-4 clickable-card"
+            onClick={() => navigateTo('/nilai-keseluruhan')}
+            style={{ cursor: 'pointer', transition: 'transform 0.2s, box-shadow 0.2s' }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+          >
             <Card.Body>
               <FaGraduationCap size={50} color="#dc3545" />
               <Card.Title>Nilai Keseluruhan</Card.Title>
@@ -156,13 +196,29 @@ const Dashboard = () => {
           </Card>
         </Col>
       </Row>
+
+      {/* Tombol Logout */}
       <Row>
         <Col className="text-right">
-          <Button variant="danger" onClick={handleLogout}>Logout</Button>
+          <Button
+            variant="danger"
+            onClick={handleLogout}
+            style={{
+              backgroundColor: '#ff4d4d',
+              border: 'none',
+              borderRadius: '5px',
+              padding: '10px 20px',
+              transition: 'background-color 0.2s',
+            }}
+            onMouseEnter={(e) => (e.target.style.backgroundColor = '#e60000')}
+            onMouseLeave={(e) => (e.target.style.backgroundColor = '#ff4d4d')}
+          >
+            Logout
+          </Button>
         </Col>
       </Row>
     </Container>
   );
-}
+};
 
 export default Dashboard;
