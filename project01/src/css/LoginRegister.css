@@ -43,10 +43,9 @@
   text-decoration: underline;
 }
 
-.animate__animated {
+.login-animate__animated {
   --animate-duration: 7.5s; 
 }
-
 
 /* CSS untuk Register */
 .register-card button {
