@@ -12,13 +12,6 @@ const Register = () => {
   const [error, setError] = useState({});
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const storedUserName = localStorage.getItem("userName");
-    if (storedUserName){
-      navigate ("/dashboard");
-    }
-  }, [navigate]);
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
