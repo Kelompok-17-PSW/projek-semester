@@ -59,7 +59,7 @@ const Login = () => {
                 {error.form && <Alert variant="danger">{error.form}</Alert>}
                 <Form onSubmit={handleLogin}>
                   <Form.Group controlId="formBasicUsername">
-                    <Form.Label>Username</Form.Label>
+                    <Form.Label>username</Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="Masukkan username"
@@ -87,7 +87,7 @@ const Login = () => {
                     {error.email && <Form.Control.Feedback type="invalid">{error.email}</Form.Control.Feedback>}
                   </Form.Group>
                   <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label>Password (EnglishGood)</Form.Label>
                     <Form.Control
                       type="password"
                       placeholder="Masukkan password"
