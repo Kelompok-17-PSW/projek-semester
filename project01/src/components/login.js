@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, {  useState } from 'react';
+=======
+import React, { useState } from 'react';
+>>>>>>> 9eb99835432acd643dc0903bf45a37791875e0d8
 import { Container, Row, Col, Form, Button, Alert, Card } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import '../css/LoginRegister.css';
@@ -8,8 +12,19 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState({});
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
+  const correctPassword = 'EnglishGood'; 
   const navigate = useNavigate();
+
+  const handleInputChange = () => {
+    const isInputValid =
+      username.trim() !== '' &&
+      email.trim() !== '' &&
+      password.trim() !== '';
+
+    setIsButtonDisabled(!isInputValid);
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -23,6 +38,8 @@ const Login = () => {
     }
     if (!password) {
       errorMessages.password = 'Password wajib diisi';
+    } else if (password !== correctPassword) {
+      errorMessages.password = 'Password salah';
     }
 
     if (Object.keys(errorMessages).length > 0) {
@@ -31,7 +48,6 @@ const Login = () => {
     }
 
     localStorage.setItem('userName', username);
-
     navigate('/dashboard');
   };
 
@@ -46,12 +62,15 @@ const Login = () => {
                 {error.form && <Alert variant="danger">{error.form}</Alert>}
                 <Form onSubmit={handleLogin}>
                   <Form.Group controlId="formBasicUsername">
-                    <Form.Label>Username</Form.Label>
+                    <Form.Label>username</Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="Masukkan username"
                       value={username}
-                      onChange={(e) => setUsername(e.target.value)}
+                      onChange={(e) => {
+                        setUsername(e.target.value);
+                        handleInputChange();
+                      }}
                       isInvalid={!!error.username}
                     />
                     {error.username && <Form.Control.Feedback type="invalid">{error.username}</Form.Control.Feedback>}
@@ -62,23 +81,34 @@ const Login = () => {
                       type="text"
                       placeholder="Masukkan email/nomor telepon"
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        handleInputChange();
+                      }}
                       isInvalid={!!error.email}
                     />
                     {error.email && <Form.Control.Feedback type="invalid">{error.email}</Form.Control.Feedback>}
                   </Form.Group>
                   <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label>Password (EnglishGood)</Form.Label>
                     <Form.Control
                       type="password"
                       placeholder="Masukkan password"
                       value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                        handleInputChange();
+                      }}
                       isInvalid={!!error.password}
                     />
                     {error.password && <Form.Control.Feedback type="invalid">{error.password}</Form.Control.Feedback>}
                   </Form.Group>
-                  <Button variant="primary" type="submit" className="w-100 mt-3">
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    className="w-100 mt-3"
+                    disabled={isButtonDisabled}
+                  >
                     Login
                   </Button>
                 </Form>
