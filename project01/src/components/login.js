@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert, Card } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import '../css/LoginRegister.css';
@@ -8,8 +8,20 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState({});
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
+  const correctPassword = '123456'; // Password yang benar untuk validasi
   const navigate = useNavigate();
+
+  const handleInputChange = () => {
+    // Validasi input secara dinamis
+    const isInputValid =
+      username.trim() !== '' &&
+      email.trim() !== '' &&
+      password.trim() !== '';
+
+    setIsButtonDisabled(!isInputValid);
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -23,6 +35,8 @@ const Login = () => {
     }
     if (!password) {
       errorMessages.password = 'Password wajib diisi';
+    } else if (password !== correctPassword) {
+      errorMessages.password = 'Password salah';
     }
 
     if (Object.keys(errorMessages).length > 0) {
@@ -31,7 +45,6 @@ const Login = () => {
     }
 
     localStorage.setItem('userName', username);
-
     navigate('/dashboard');
   };
 
@@ -51,7 +64,10 @@ const Login = () => {
                       type="text"
                       placeholder="Masukkan username"
                       value={username}
-                      onChange={(e) => setUsername(e.target.value)}
+                      onChange={(e) => {
+                        setUsername(e.target.value);
+                        handleInputChange();
+                      }}
                       isInvalid={!!error.username}
                     />
                     {error.username && <Form.Control.Feedback type="invalid">{error.username}</Form.Control.Feedback>}
@@ -62,7 +78,10 @@ const Login = () => {
                       type="text"
                       placeholder="Masukkan email/nomor telepon"
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        handleInputChange();
+                      }}
                       isInvalid={!!error.email}
                     />
                     {error.email && <Form.Control.Feedback type="invalid">{error.email}</Form.Control.Feedback>}
@@ -73,12 +92,20 @@ const Login = () => {
                       type="password"
                       placeholder="Masukkan password"
                       value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                        handleInputChange();
+                      }}
                       isInvalid={!!error.password}
                     />
                     {error.password && <Form.Control.Feedback type="invalid">{error.password}</Form.Control.Feedback>}
                   </Form.Group>
-                  <Button variant="primary" type="submit" className="w-100 mt-3">
+                  <Button
+                    variant="primary"
+                    type="submit"
+                    className="w-100 mt-3"
+                    disabled={isButtonDisabled}
+                  >
                     Login
                   </Button>
                 </Form>
