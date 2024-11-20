@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, {  useState } from 'react';
-=======
 import React, { useState } from 'react';
->>>>>>> 9eb99835432acd643dc0903bf45a37791875e0d8
 import { Container, Row, Col, Form, Button, Alert, Card } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import '../css/LoginRegister.css';
