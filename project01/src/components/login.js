@@ -10,7 +10,7 @@ const Login = () => {
   const [error, setError] = useState({});
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
-  const correctPassword = '123456'; // Password yang benar untuk validasi
+  const correctPassword = 'EnglishGood'; // Password yang benar untuk validasi
   const navigate = useNavigate();
 
   const handleInputChange = () => {
