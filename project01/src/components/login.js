@@ -10,11 +10,10 @@ const Login = () => {
   const [error, setError] = useState({});
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
-  const correctPassword = 'EnglishGood'; // Password yang benar untuk validasi
+  const correctPassword = 'EnglishGood'; 
   const navigate = useNavigate();
 
   const handleInputChange = () => {
-    // Validasi input secara dinamis
     const isInputValid =
       username.trim() !== '' &&
       email.trim() !== '' &&
