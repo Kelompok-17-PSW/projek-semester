@@ -67,7 +67,7 @@ const Dashboard = () => {
             <Card.Body>
               <FaQuestionCircle size={50} color="#ffc107" />
               <Card.Title>Kuis</Card.Title>
-              <Card.Text>Diikuti: 4 kuis</Card.Text>
+              <Card.Text>Tersedia: 4 kuis</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -94,7 +94,7 @@ const Dashboard = () => {
             <Card.Body>
               <FaGraduationCap size={50} color="#dc3545" />
               <Card.Title>Nilai Keseluruhan</Card.Title>
-              <Card.Text>Rata-rata: 88%</Card.Text>
+              <Card.Text>Rata-rata: 98%</Card.Text>
             </Card.Body>
           </Card>
         </Col>
