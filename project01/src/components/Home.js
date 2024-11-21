@@ -11,7 +11,7 @@ const Home = () => {
         <h1 className="display-1 fw-bold">Welcome to E-Learn</h1>
         <p className="display-5">The best English learning website for you</p>
         <p className="lead fw-bold">Khusus kelas 12 SMA</p>
-        <Button as={Link} to="/register" style={{ backgroundColor: 'black', borderColor: 'black' }} size="lg">
+        <Button as={Link} to="/login" style={{ backgroundColor: 'black', borderColor: 'black' }} size="lg">
           Mulai Sekarang
         </Button>
       </Container>
