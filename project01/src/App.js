@@ -6,6 +6,7 @@ import Login from './components/login';
 import Register from './components/Register';
 import Materi from './components/Materi';
 import Informasi from './components/Informasi';
+import Tips from './components/Tips';
 import Navbar from './components/Navbar';
 import Narrative from './components/Narrative';
 
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/materi" element={<Materi />} />
           <Route path="/informasi" element={<Informasi />} />
+          <Route path="/tips" element={<Tips />} />
           <Route path='/bab1' element={<Narrative />} />
         </Routes>
       </div>
