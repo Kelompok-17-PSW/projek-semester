@@ -45,7 +45,7 @@ const Register = () => {
         <Row className="justify-content-center w-100">
           <Col md={6} lg={5} className="px-4 py-5 shadow rounded bg-white">
             <div className="register-card">
-              <h2 className="text-center mb-4">Register</h2>
+              <h2 className="text-center mb-4">Register Now</h2>
               {error.form && <Alert variant="danger">{error.form}</Alert>}
               <Form onSubmit={handleRegister}>
                 <Form.Group controlId="formBasicUsername" className="mb-3">
