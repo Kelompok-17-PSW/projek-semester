@@ -94,7 +94,7 @@ const Dashboard = () => {
             <Card.Body>
               <FaGraduationCap size={50} color="#dc3545" />
               <Card.Title>Nilai Keseluruhan</Card.Title>
-              <Card.Text>Rata-rata: 98%</Card.Text>
+              <Card.Text>Rata-rata: 100%</Card.Text>
             </Card.Body>
           </Card>
         </Col>
