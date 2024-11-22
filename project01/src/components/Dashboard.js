@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import { FaBook, FaPenFancy, FaQuestionCircle, FaGraduationCap, FaBell, FaTasks, FaComments, FaLightbulb, FaBookOpen } from 'react-icons/fa';
+import { FaBook, FaPenFancy, FaQuestionCircle, FaGraduationCap, FaComments, FaLightbulb, FaBookOpen } from 'react-icons/fa';
 import { useNavigate } from "react-router-dom";
 import "../css/Dashboard.css";
 import studentsImage from "../images/students2.png";
