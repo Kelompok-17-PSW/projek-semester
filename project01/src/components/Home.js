@@ -11,9 +11,14 @@ const Home = () => {
         <h1 className="display-1 fw-bold">Welcome to E-Learn</h1>
         <p className="display-5">The best English learning website for you</p>
         <p className="lead fw-bold">Khusus kelas 12 SMA</p>
-        <Button as={Link} to="/login" style={{ backgroundColor: 'black', borderColor: 'black' }} size="lg">
-          Mulai Sekarang
-        </Button>
+        <div className="button-group">
+          <Button as={Link} to="/login" style={{ backgroundColor: 'black', borderColor: 'black' }} size="lg">
+            Login Now
+          </Button>
+          <Button as={Link} to="/Register" style={{ backgroundColor: 'black', borderColor: 'black' }} size="lg">
+            Registrasi Now
+          </Button>
+        </div>
       </Container>
     </div>
   );
