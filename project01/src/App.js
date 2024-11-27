@@ -9,6 +9,11 @@ import Informasi from './components/Informasi';
 import Tips from './components/Tips';
 import Navbar from './components/Navbar';
 import Narrative from './components/Narrative';
+import SimplePastTense from './components/MateriPastTense/SimplePastTense';
+import PastContinuousTense from './components/MateriPastTense/PastContinuousTense';
+import PastPerfectTense from './components/MateriPastTense/PastPerfectTense';
+import PastPerfectContinuousTense from './components/MateriPastTense/PastPerfectContinuousTense';
+
 
 const App = () => {
   return (
@@ -24,6 +29,10 @@ const App = () => {
           <Route path="/informasi" element={<Informasi />} />
           <Route path="/tips" element={<Tips />} />
           <Route path='/bab1' element={<Narrative />} />
+          <Route path='/simple-past-tense' element={<SimplePastTense />} />
+          <Route path='/past-continuous-tense' element={<PastContinuousTense />} />
+          <Route path='/past-perfect-tense' element={<PastPerfectTense />} />
+          <Route path='/past-perfect-continuous-tense' element={<PastPerfectContinuousTense />} />
         </Routes>
       </div>
     </Router>
