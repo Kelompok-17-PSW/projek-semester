@@ -9,6 +9,7 @@ import Informasi from './components/Informasi';
 import Tips from './components/Tips';
 import Navbar from './components/Navbar';
 import Narrative from './components/Narrative';
+import Tenses from './components/Tenses';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/informasi" element={<Informasi />} />
           <Route path="/tips" element={<Tips />} />
           <Route path='/bab1' element={<Narrative />} />
+          <Route path='/tenses' element={<Tenses />} />
         </Routes>
       </div>
     </Router>
