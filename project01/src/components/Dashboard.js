@@ -138,11 +138,15 @@ const Dashboard = () => {
           </Card>
         </Col>
       </Row>
-      <Row>
-        <Col className="text-right">
-          <Button variant="danger" onClick={handleLogout}>Logout</Button>
-        </Col>
-      </Row>
+      <div className="text-center mt-4">
+        <Button 
+          variant="danger" 
+          onClick={handleLogout} 
+          style={{ padding: "5px 20px", fontSize: "16px" }}
+        >
+          Logout
+        </Button>
+      </div>
     </Container>
   );
 }
