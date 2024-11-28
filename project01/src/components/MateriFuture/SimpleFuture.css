@@ -397,3 +397,25 @@ button:hover {
     width: 100%;
   }
 }
+
+button-container {
+  display: flex;
+  gap: 20px; /* Jarak antar tombol */
+  width: 100%;
+}
+
+.styled-button {
+  background-color: #0099ff; /* Warna biru yang sama */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2); /* Tambahan bayangan */
+}
+
+.styled-button:hover {
+  background-color: #0066cc; /* Warna biru lebih gelap saat hover */
+}
