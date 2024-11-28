@@ -45,11 +45,11 @@ const Dashboard = () => {
       </Row>
       <Row>
         <Col md={2}>
-          <Card className="text-center mb-4" onClick={() => handleNavigate("/aktivitas-mingguan")}>
+          <Card className="text-center mb-4" onClick={() => handleNavigate("/Tenses")}>
             <Card.Body>
               <FaBook size={50} color="#17a2b8" />
-              <Card.Title>Aktivitas Mingguan</Card.Title>
-              <Card.Text>Selesai: - pelajaran</Card.Text>
+              <Card.Title>Materi</Card.Title>
+              <Card.Text>Selesai: - Tenses</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -66,7 +66,7 @@ const Dashboard = () => {
           <Card className="text-center mb-4" onClick={() => handleNavigate("/kuis")}>
             <Card.Body>
               <FaQuestionCircle size={50} color="#ffc107" />
-              <Card.Title>Kuis</Card.Title>
+              <Card.Title>Quis</Card.Title>
               <Card.Text>Tersedia: 4 kuis</Card.Text>
             </Card.Body>
           </Card>
