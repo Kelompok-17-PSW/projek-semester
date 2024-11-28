@@ -141,6 +141,77 @@ const Materi = () => {
               </Collapse>
             </Card.Body>
           </Card>
+
+          <Card className="mb-4">
+            <Card.Body>
+              <Card.Title
+                onClick={() => setOpen(!open)} 
+                aria-controls="example-collapse-text"
+                aria-expanded={open}
+                style={{ cursor: 'pointer' }}
+              >
+                <span className="past-tense-link">Future Tense</span>
+              </Card.Title>
+              <Card.Text>Klik untuk melihat berbagai macam Future tense.</Card.Text>
+              <Collapse in={open}>
+                <div id="example-collapse-text">
+                  <Link to="/simple-future" style={cardStyle}>
+                    <Card
+                      className="mb-4"
+                      style={cardStyle}
+                      onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+                    >
+                      <Card.Body>
+                        <Card.Title>Simple Future Tense</Card.Title>
+                        <Card.Text>Pelajari lebih lanjut tentang Simple Past Tense.</Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Link>
+                  <Link to="/past-continuous-tense" style={cardStyle}>
+                    <Card
+                      className="mb-4"
+                      style={cardStyle}
+                      onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+                    >
+                      <Card.Body>
+                        <Card.Title>Past Continuous Tense</Card.Title>
+                        <Card.Text>Pelajari lebih lanjut tentang Past Continuous Tense.</Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Link>
+                  <Link to="/past-perfect-tense" style={cardStyle}>
+                    <Card
+                      className="mb-4"
+                      style={cardStyle}
+                      onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+                    >
+                      <Card.Body>
+                        <Card.Title>Past Perfect Tense</Card.Title>
+                        <Card.Text>Pelajari lebih lanjut tentang Past Perfect Tense.</Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Link>
+                  <Link to="/past-perfect-continuous-tense" style={cardStyle}>
+                    <Card
+                      className="mb-4"
+                      style={cardStyle}
+                      onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+                    >
+                      <Card.Body>
+                        <Card.Title>Past Perfect Continuous Tense</Card.Title>
+                        <Card.Text>Pelajari lebih lanjut tentang Past Perfect Continuous Tense.</Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Link>
+      
+                </div>
+              </Collapse>
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
     </Container>
