@@ -14,6 +14,7 @@ import SimplePastTense from './components/MateriPastTense/SimplePastTense';
 import PastContinuousTense from './components/MateriPastTense/PastContinuousTense';
 import PastPerfectTense from './components/MateriPastTense/PastPerfectTense';
 import PastPerfectContinuousTense from './components/MateriPastTense/PastPerfectContinuousTense';
+import SimpleFuture from './components/MateriFuture/SimpleFuture'
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
           <Route path="/past-continuous-tense" element={<PastContinuousTense />} />
           <Route path="/past-perfect-tense" element={<PastPerfectTense />} />
           <Route path="/past-perfect-continuous-tense" element={<PastPerfectContinuousTense />} />
+          <Route path="/Simple-Future" element={<SimpleFuture />} />
         </Routes>
       </div>
     </Router>
