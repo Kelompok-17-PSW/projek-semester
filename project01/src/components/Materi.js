@@ -185,7 +185,7 @@ const Materi = () => {
               <Card.Text>Klik untuk melihat berbagai macam Future tense.</Card.Text>
               <Collapse in={openSection === "future"}>
                 <div id="future-collapse">
-                  <Link to="/simple-future-tense" style={cardStyle}>
+                  <Link to="/simple-future" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
