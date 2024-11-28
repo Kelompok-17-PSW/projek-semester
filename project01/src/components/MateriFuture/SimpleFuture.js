@@ -280,7 +280,12 @@ const SimpleFuture = () => {
           )}
         </div>
       </section>
+      <p>Ingin lebih banyak latihan ayo melatih diri dengan quis</p>
+        <div class="button-container">
+        <a href="/kuis" class="styled-button">Quiz</a>
+        </div>
 </div>
+
   );
 };
 
