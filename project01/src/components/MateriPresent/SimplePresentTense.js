@@ -1,51 +1,115 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 
 const SimplePresentTense = () => {
+  const answer1Ref = useRef();
+  const answer2Ref = useRef();
+  const answer3Ref = useRef();
+
+  const correctAnswers = {
+    answer1: "walks",
+    answer2: "do not play",
+    answer3: "do you like",
+  };
+
+  const [feedback, setFeedback] = useState([]);
+
+  const handleSubmit = () => {
+    const answers = {
+      answer1: answer1Ref.current.value.trim(),
+      answer2: answer2Ref.current.value.trim(),
+      answer3: answer3Ref.current.value.trim(),
+    };
+
+    const newFeedback = [];
+
+    for (let key in answers) {
+      if (answers[key].toLowerCase() === correctAnswers[key].toLowerCase()) {
+        newFeedback.push(`${key}: Correct`);
+      } else {
+        newFeedback.push(`${key}: Incorrect (Correct answer: ${correctAnswers[key]})`);
+      }
+    }
+
+    setFeedback(newFeedback);
+  };
+
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-      <h1 style={{ color: "#6200ea" }}>Simple Present Tense</h1>
-      
-      <section style={{ marginBottom: "20px" }}>
-        <h2>What is Simple Present Tense?</h2>
-        <p>
-          The Simple Present Tense is used to describe actions that are 
-          habitual, facts, or general truths. It is one of the most basic tenses in English grammar.
-        </p>
-      </section>
-      
-      <section style={{ marginBottom: "20px" }}>
-        <h2>Formula</h2>
-        <ul>
-          <li><strong>Positive:</strong> Subject + Verb (Base Form) + Object</li>
-          <li><strong>Negative:</strong> Subject + Do/Does + Not + Verb (Base Form) + Object</li>
-          <li><strong>Question:</strong> Do/Does + Subject + Verb (Base Form) + Object?</li>
-        </ul>
+    <div className="container">
+      <header className="header">
+        <h2>Simple Present Tense</h2>
+      </header>
+
+      <section className="section info-section">
+        <div className="icon">📘</div>
+        <div className="content">
+          <h3>What is Simple Present Tense?</h3>
+          <p>
+            The Simple Present Tense is used to describe habitual actions, facts, or general truths. It is one of the most basic tenses in English grammar.
+          </p>
+        </div>
       </section>
 
-      <section style={{ marginBottom: "20px" }}>
-        <h2>Examples</h2>
-        <ul>
-          <li>He <strong>plays</strong> football every day. (Positive)</li>
-          <li>She <strong>does not like</strong> coffee. (Negative)</li>
-          <li><strong>Do</strong> they <strong>work</strong> on weekends? (Question)</li>
-        </ul>
-      </section>
+      <div className="container">
+        <h1>Simple Present Tense Formula</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Sentence Type</th>
+              <th>Formula</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Positive</td>
+              <td>Subject + Verb (Base Form) + Object</td>
+            </tr>
+            <tr>
+              <td>Negative</td>
+              <td>Subject + Do/Does + Not + Verb (Base Form) + Object</td>
+            </tr>
+            <tr>
+              <td>Question</td>
+              <td>Do/Does + Subject + Verb (Base Form) + Object?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <section style={{ marginBottom: "20px" }}>
+      <section className="activity-section">
         <h2>Practice Exercise</h2>
-        <p>
-          Fill in the blanks with the correct form of the verb in parentheses:
-        </p>
-        <ol>
-          <li>She __________ (walk) to school every day.</li>
-          <li>They __________ (not/play) basketball on weekdays.</li>
-          <li>__________ you __________ (like) ice cream?</li>
-        </ol>
-      </section>
+        <p>Fill in the blanks with the correct form of the verb in parentheses:</p>
+        <div className="word-list">
+          <div className="word-card">
+            <h3 className="word-title">Question 1</h3>
+            <p>She __________ (walk) to school every day.</p>
+            <input type="text" ref={answer1Ref} placeholder="Your answer" />
+          </div>
 
-      <footer style={{ marginTop: "20px", borderTop: "1px solid #ccc", paddingTop: "10px" }}>
-        <p style={{ color: "#555" }}>Learn more about tenses on our website!</p>
-      </footer>
+          <div className="word-card">
+            <h3 className="word-title">Question 2</h3>
+            <p>They __________ (not/play) basketball on weekdays.</p>
+            <input type="text" ref={answer2Ref} placeholder="Your answer" />
+          </div>
+
+          <div className="word-card">
+            <h3 className="word-title">Question 3</h3>
+            <p>__________ you __________ (like) ice cream?</p>
+            <input type="text" ref={answer3Ref} placeholder="Your answer" />
+          </div>
+
+          <button onClick={handleSubmit}>Submit Answers</button>
+        </div>
+
+        <div className="feedback">
+          {feedback.length > 0 && (
+            <ul>
+              {feedback.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </section>
     </div>
   );
 };
