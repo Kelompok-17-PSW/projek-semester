@@ -20,6 +20,7 @@ import FuturePerfect from './components/MateriFuture/FuturePerfect';
 import FuturePerfectContinuous from './components/MateriFuture/FuturePerfectContinuous';
 import Kuis from './components/Kuis';
 import SimplePresentTense from './components/MateriPresent/SimplePresentTense';
+import KuisSimpleFuture from './components/Quis/KuisSimpleFuture';
 
 const App = () => {
   return (
@@ -51,6 +52,7 @@ const App = () => {
                   <Route path='/future-perfect-continuous' element={<FuturePerfectContinuous />} />
                   <Route path="/simple-present-tense" element={<SimplePresentTense />} />
                   <Route path="/kuis" element={<Kuis />} />
+                  <Route path="/kuis-simple-future" element={<KuisSimpleFuture />} />
                 </Routes>
               </>
             }
