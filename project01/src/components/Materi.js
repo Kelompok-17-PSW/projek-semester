@@ -211,6 +211,19 @@ const Materi = () => {
                       </Card.Body>
                     </Card>
                   </Link>
+                  <Link to="/future-perfect-tense" style={cardStyle}>
+                    <Card
+                      className="mb-4"
+                      style={cardStyle}
+                      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+                      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                    >
+                      <Card.Body>
+                        <Card.Title>Future Perfect Tense</Card.Title>
+                        <Card.Text>Pelajari lebih lanjut tentang Future Continuous Tense.</Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Link>
                   {/* Tambahkan lainnya sesuai kebutuhan */}
                 </div>
               </Collapse>
