@@ -16,32 +16,43 @@ import PastPerfectTense from './components/MateriPastTense/PastPerfectTense';
 import PastPerfectContinuousTense from './components/MateriPastTense/PastPerfectContinuousTense';
 import SimpleFuture from './components/MateriFuture/SimpleFuture';
 import Kuis from './components/Kuis';
+import SimplePresentTense from './components/MateriPresent/SimplePresentTense';
 
 const App = () => {
   return (
     <Router>
       <div>
-        <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/materi" element={<Materi />} />
-          <Route path="/informasi" element={<Informasi />} />
-          <Route path="/tips" element={<Tips />} />
-          <Route path='/bab1' element={<Narrative />} />
-          <Route path='/tenses' element={<Tenses />} />
-          <Route path="/simple-past-tense" element={<SimplePastTense />} />
-          <Route path="/past-continuous-tense" element={<PastContinuousTense />} />
-          <Route path="/past-perfect-tense" element={<PastPerfectTense />} />
-          <Route path="/past-perfect-continuous-tense" element={<PastPerfectContinuousTense />} />
-          <Route path="/Simple-Future" element={<SimpleFuture />} />
-          <Route path="/kuis" element={<Kuis />} />
+          <Route
+            path="*"
+            element={
+              <>
+                {!["/login", "/register"].includes(window.location.pathname) && <Navbar />}
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/materi" element={<Materi />} />
+                  <Route path="/informasi" element={<Informasi />} />
+                  <Route path="/tips" element={<Tips />} />
+                  <Route path="/bab1" element={<Narrative />} />
+                  <Route path="/tenses" element={<Tenses />} />
+                  <Route path="/simple-past-tense" element={<SimplePastTense />} />
+                  <Route path="/past-continuous-tense" element={<PastContinuousTense />} />
+                  <Route path="/past-perfect-tense" element={<PastPerfectTense />} />
+                  <Route path="/past-perfect-continuous-tense" element={<PastPerfectContinuousTense />} />
+                  <Route path="/simple-future" element={<SimpleFuture />} />
+                  <Route path="/simple-present-tense" element={<SimplePresentTense />} />
+                  <Route path="/kuis" element={<Kuis />} />
+                </Routes>
+              </>
+            }
+          />
         </Routes>
       </div>
     </Router>
   );
-}
+};
 
 export default App;
