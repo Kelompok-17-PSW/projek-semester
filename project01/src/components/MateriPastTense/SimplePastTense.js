@@ -1,6 +1,6 @@
 import React, {useState, useRef} from "react";
 
-const SimpleFuture = () => {
+const SimplePast = () => {
   const answer1Ref = useRef();
   const answer2Ref = useRef();
   const answer3Ref = useRef();
@@ -12,14 +12,14 @@ const SimpleFuture = () => {
 
   // Jawaban yang benar
   const correctAnswers = {
-    answer1: "Arrive",
-    answer2: "Win",
-    answer3: "Continuing",
-    answer4: "Be here",
-    answer5: "will not snitch",
-    answer6: "will forget",
-    answer7: "will take",
-    answer8: "will tell",
+    answer1: "Arrived",
+    answer2: "Won",
+    answer3: "Continued",
+    answer4: "Was here",
+    answer5: "did not snitch",
+    answer6: "forgot",
+    answer7: "took",
+    answer8: "told",
   };
 
   // Menyimpan hasil pengecekan jawaban
@@ -55,22 +55,102 @@ const SimpleFuture = () => {
   return (
     <div className="container">
       <header className="header">
-        <h2>Simple Future Tense</h2>
+        <h2>Simple Past Tense</h2>
       </header>
 
       <section className="section info-section">
         <div className="icon">💡</div>
         <div className="content">
-          <h3>Did You Know?</h3>
+          <h3>What is the Simple Past Tense?</h3>
           <p>
-          Simple future tense is a form of tense to indicate an event that has not yet started and has just occurred in the future or in the future.
-          So, this tense refers to the action that will be taken after now. In addition to expressing this, you can also use the simple future tense to express a prediction and desire.
+          The simple past tense is a verb tense used to talk about something that happened or existed before the present. It communicates that the action or state of the verb occurred at a specific time in the past and then was completed. That specific time can be implicit or explicit.
           </p>
         </div>
       </section>
 
+      <section className="section info-section">
+  <div className="icon">💡</div>
+  <div className="content">
+    <h3>When to use the simple past tense?</h3>
+    <p><b>1. To talk about an act that already happened</b></p>
+    <p>The simple past tense usually communicates that the activity described by a verb both began and ended at a definite time in the past:</p>
+    <p style={{ marginTop: '10px' }}>
+      <i>Example: Paulus <b><i>admired</i></b> the way the light <b><i>glinted</i></b> off her medal.</i>
+    </p>
+    <p style={{ marginTop: '10px' }}>
+      It is the marked beginning and ending of the action that makes the simple past different from the past continuous tense, which is used to talk about past events that happened over a period of time or in an ongoing way.
+    </p>
+
+    <p><b>2. To talk about a past state of being</b></p>
+    <p>You can also use the simple past to talk about a past state of being, such as the way someone felt about something. This is often expressed with the simple past tense of the verb to be and an adjective, a noun, or a prepositional phrase. Here are some examples:</p>
+    <p style={{ marginTop: '10px' }}>
+      <i>-Paulus <b><i>was</i></b> proud of his achievements in the Mathematics Olympiad.</i><br/>
+      <i>-The concert <b><i>was</i></b> the higlight of her week </i><br/>
+      <i>-she <b><i>was</i></b> at her best the whole time </i>
+    </p>
+
+    <p><b>3. With adverbs and adverb phrases for past time</b></p>
+    <p>The simple past tense is frequently used with adverbs and adverbial phrases that modify the verb by identifying specifically when in the past its action occurred. Here are the example:</p>
+    <p style={{ marginTop: '10px' }}>
+    <i>-The package <b>asrrived yesterday</b></i> <br/>
+    <i>-<b>Last moth</b>, Paulus met his childhood friends at his birthday party</i><br/>
+    <i>-i last <b>saw</b> Christine <b>in March</b></i>
+    </p>
+  </div>
+</section>
+
+<section className="section info-section">
+  <div className="icon">💡</div>
+  <div className="content">
+    <h3>How to form the simple past tense</h3>
+    <p>The correct verb form in the simple past tense varies based on whether it is regular or irregular</p>
+    <p><b>1. Forming the simple past tense of regular verbs</b></p>
+    <p style={{ marginTop: '10px' }}>
+      Most verbs in the English language follow the same pattern in how they are conjugated (i.e., how they change form to show time with tense, as well as to show their other properties). These rule-following verbs are called regular verbs. To form the simple past tense of regular verbs, you add -ed to the root form of the verb. If the root form ends in e, you drop that e before adding the -ed: <br/>
+      <table>
+        <thead>
+          <tr>
+            <th>Root</th>
+            <th>Simple past tense</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>play</td>
+            <td>played</td>
+          </tr>
+          <tr>
+            <td>type</td>
+            <td>typed</td>
+          </tr>
+          <tr>
+            <td>listen</td>
+            <td>listened</td>
+          </tr>
+          <tr>
+            <td>push</td>
+            <td>pushed</td>
+          </tr>
+          <tr>
+            <td>love</td>
+            <td>loved</td>
+          </tr>
+          <tr>
+            <td>cook</td>
+            <td>cooked</td>
+          </tr>
+        </tbody>
+      </table>
+    </p>
+    <p style={{ marginTop: '10px' }}>
+      It is the marked beginning and ending of the action that makes the simple past different from the past continuous tense, which is used to talk about past events that happened over a period of time or in an ongoing way.
+    </p>
+
+  </div>
+</section>
+
       <div className="container">
-      <h1>Rumus Simple Future Tense</h1>
+      <h1>Rumus Simple Past Tense</h1>
       <table>
         <thead>
           <tr>
@@ -82,205 +162,168 @@ const SimpleFuture = () => {
           <tr>
             <td>(+) Affirmative/Positif</td>
             <td>
-              Subject + will/shall + V1 + Object <br />
-              Subject + to be (am/is/are) + going to + V1
+              Subject + V2 + Object <br />
+              Subject + was/were + Complement
             </td>
           </tr>
           <tr>
             <td>(-) Negative/Negatif</td>
             <td>
-              Subject + will/shall + not + V1 + Object <br />
-              Subject + to be (am/is/are) + not + going to + V1
+              Subject + did not + V1 + Object <br />
+              Subject + was/were + not + Complement
             </td>
           </tr>
           <tr>
             <td>(?) Interrogative/Tanya</td>
             <td>
-              Will/shall + Subject + V1 + Object <br />
-              To be (am/is/are) + Subject + going to + V1
+              Did + Subject + V1 + Object <br />
+              Was/Were + Subject + Complement
             </td>
           </tr>
         </tbody>
       </table>
     </div>
 
-      <section className="section characteristics">
-        <div className="icon">🎧</div>
-        <div className="content">
-          <h3>Use of will/shall</h3>
-          <p><strong>1. Stating an event that will occur in the future</strong></p>
-          <p>For this part, you can use the positive sentence formula with the will modal as the main function of the simple future tense. Examples of sentences include:</p>
-          <p>Beni will go to Turkey next month. (Beni akan berangkat ke Turki bulan depan.)</p>
-          <p>They will take the school examination tomorrow morning. (Mereka akan mengambil ujian besok pagi.)</p>
-          <p><strong>2. Expressing a decision to do something without a plan </strong></p>
-          <p>Not all activities we do are always planned. For example, you are sitting and relaxing, then suddenly at the next minute you have to open the door for guests is also part of the simple future tense. Example sentences:</p>
-          <p>A: Hello, is anyone home? The door is locked. (Halo, apakah ada orang di rumah? Pintunya terkunci.)</p>
-          <p>B: Wait a minute, I’ll open the door for you. (Tunggu sebentar, aku akan membukakan pintunya untukmu.)</p>
-          <p><strong>3. Expressing an emotion or feeling</strong></p>
-          <p>In this sentence, it will show the feelings that will appear in the future. Here are examples of its use:</p>
-          <p>My mom will love her new hermes bag. (Ibuku akan menyukai tas hermes barunya.)</p>
-          <p>I will love you just the way you are (Aku akan mencintaimu apa adanya.)</p>
-          <p><strong>4. Predicting future events</strong></p>
-          <p>Predictions in this case can be related to weather or circumstances. Example:</p>
-          <p>It will rain tomorrow. (Besok akan hujan.)</p>
-          <p><strong>5. Expressing willingness and unwillingness</strong></p>
-          <p>Yes, this function is almost the same as point number 2. But, try to differentiate it from the following example:</p>
-          <p>I will carry your suitcase for you. (Saya akan membawakan kopermu.)</p>
-          <p><strong>6. Inviting/inviting others</strong></p>
-          <p>You must have heard the following sentence, "Will you marry me?" which is usually expressed by a man or woman to their partner to invite them to marry. In this case, of course the capital you use is will.</p>
-          <p><strong>7. Expressing promises</strong></p>
-          <p>A promise is a long-term sentence that means it is related to the future. Example:</p>
-          <p>I won’t tell anyone your secret. (Aku tidak akan memberitahu rahasiamu pada siapapun.)</p>
-          <p><strong>8. Expressing threats</strong></p>
-          <p>Yes! In addition to promises, threats are also something that may happen in the future. You can see the following examples:</p>
-          <p>If you do that again, I’ll tell Mum. (Jika kamu melakukan hal itu lagi, aku akan memberitahu Ibu.)</p>
-        </div>
-      </section>
+    <section className="section characteristics">
+      <div className="icon">🎧</div>
+      <div className="content">
+        <h3>Penggunaan Simple Past Tense</h3>
+        <p><strong>1. Menyatakan kejadian di masa lalu</strong></p>
+        <p>Untuk bagian ini, Anda dapat menggunakan rumus kalimat positif dengan bentuk past simple. Contoh kalimat:</p>
+        <p>She traveled to Japan last year. (Dia bepergian ke Jepang tahun lalu.)</p>
+        <p>We watched a movie yesterday. (Kami menonton film kemarin.)</p>
+        <p><strong>2. Menyatakan kebiasaan di masa lalu</strong></p>
+        <p>Tindakan yang sering dilakukan di masa lalu juga menggunakan simple past tense. Contoh kalimat:</p>
+        <p>He always walked to school. (Dia selalu berjalan kaki ke sekolah.)</p>
+        <p>They played football every weekend. (Mereka bermain sepak bola setiap akhir pekan.)</p>
+        <p><strong>3. Menyatakan keadaan di masa lalu</strong></p>
+        <p>Tense ini juga digunakan untuk menyatakan keadaan atau situasi di masa lalu. Contoh:</p>
+        <p>She was very happy. (Dia sangat bahagia.)</p>
+        <p>The weather was cold. (Cuacanya dingin.)</p>
+      </div>
+    </section>
 
-      <section className="section structure">
-        <div className="icon">💬</div>
-        <div className="content">
-          <h3>Use of Shall</h3>
-          <p><strong>1. Showing a desire and a dislike</strong></p>
-          <p>I am going to his birthday party next month. (Aku akan pergi ke pesta ulang tahunnya bulan depan.)</p>
-          <p><strong>2. Expressing predictions based on evidence</strong></p>
-          <p>Different from function number four in the use of will, to be going to is used if there is a disclosure of evidence in the sentence. Example:</p>
-          <p>Look at those grey clouds. It’s definitely going to rain. (Lihatlah awan kelabu itu, pasti akan hujan.) </p>
-        </div>
-      </section>
-
-      <section className="section structure">
-        <div className="icon">💬</div>
-        <div className="content">
-          <h3>Use of Be going to</h3>
-          <p><strong>1. Expressing a desire but only as an intention</strong></p>
-          <p>I am going to his birthday party next month. (Aku akan pergi ke pesta ulang tahunnya bulan depan.)</p>
-          <p><strong>2. State an offer to others</strong></p>
-          <p>For this function, shall will change its meaning to "must" or "must". Example:</p>
-          <p>Shall I give you some money? (Perlukah aku memberimu sejumlah uang?) </p>
-          <p><strong>3. Asking for advice or instructions</strong></p>
-          <p>The modal that you can use in the simple future tense when asking for advice from others is shall with an interrogative sentence form. Example:</p>
-          <p>What shall I buy for dinner? (Apa yang harus aku beli untuk makan malam?)</p>
-        </div>
-      </section>
-
-      <section className="activity-section">
-        <h2>Activity</h2>
-        <p>Do the following questions as an exercise on the future continuous tense.</p>
-        <div className="word-list">
-          <div className="word-card">
-            <h3 className="word-title nailed">Question 1</h3>
-            <p className="word-meaning">
-            Addy and his brother will ___ at 10 o’clock. We need to hurry right now. 
-            </p>
-            <input
-              type="text"
-              ref={answer1Ref} // Menggunakan ref untuk menyimpan nilai
-              placeholder="Your answer"
-            />
-          </div>
-
-          <div className="word-card">
-            <h3 className="word-title beauty-pageant">Question 2</h3>
-            <p className="word-meaning">
-            My father thinks the prime minister will ___ in 2024’s election.
-            </p>
-            <input
-              type="text"
-              ref={answer2Ref}
-              placeholder="Your answer"
-            />
-          </div>
-
-          <div className="word-card">
-            <h3 className="word-title mind-blowing">Question 3</h3>
-            <p className="word-meaning">
-            She is a good kid. She will be ___ her father’s order. 
-            </p>
-            <input
-              type="text"
-              ref={answer3Ref}
-              placeholder="Your answer"
-            />
-          </div>
-
-          <div className="word-card">
-            <h3 className="word-title alarmed">Question 4</h3>
-            <p className="word-meaning">
-            Aaron and his brother will not ___ next month. They will fly to Boston this afternoon and stay there for several months. 
-            </p>
-            <input
-              type="text"
-              ref={answer4Ref}
-              placeholder="Your answer"
-            />
-          </div>
-
-          <div className="word-card">
-            <h3 className="word-title recruitment">Question 5</h3>
-            <p className="word-meaning">
-            I ___ if you tell me your little secret. 
-            </p>
-            <input
-              type="text"
-              ref={answer5Ref}
-              placeholder="Your answer"
-            />
-          </div>
-
-          <div className="word-card">
-            <h3 className="word-title upset">Question 6</h3>
-            <p className="word-meaning">
-            People ___ about this accident a year from now.
-            </p>
-            <input
-              type="text"
-              ref={answer6Ref}
-              placeholder="Your answer"
-            />
-          </div>
-
-          <div className="word-card">
-            <h3 className="word-title mean">Question 7</h3>
-            <p className="word-meaning">
-            The first-year students ___ an additional course next week.
-            </p>
-            <input
-              type="text"
-              ref={answer7Ref}
-              placeholder="Your answer"
-            />
-          </div>
-
-          <div className="word-card">
-            <h3 className="word-title not-visible">Question 8</h3>
-            <p className="word-meaning">
-            Stop playing around, or I ___ your mother to punish you
-            </p>
-            <input
-              type="text"
-              ref={answer8Ref}
-              placeholder="Your answer"
-            />
-          </div>
-
-          {/* Tombol submit untuk menampilkan hasil */}
-          <button onClick={handleSubmit}>Submit Answers</button>
+    <section className="activity-section">
+      <h2>Activity</h2>
+      <p>Jawablah pertanyaan berikut sebagai latihan simple past tense.</p>
+      <div className="word-list">
+        <div className="word-card">
+          <h3 className="word-title nailed">Question 1</h3>
+          <p className="word-meaning">
+          Addy and his brother ___ at 10 o’clock yesterday. We needed to hurry back then. 
+          </p>
+          <input
+            type="text"
+            ref={answer1Ref}
+            placeholder="Your answer"
+          />
         </div>
 
-        {/* Menampilkan hasil feedback */}
-        <div className="feedback">
-          {feedback.length > 0 && (
-            <ul>
-              {feedback.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          )}
+        <div className="word-card">
+          <h3 className="word-title beauty-pageant">Question 2</h3>
+          <p className="word-meaning">
+          My father thought the prime minister ___ in the last election.
+          </p>
+          <input
+            type="text"
+            ref={answer2Ref}
+            placeholder="Your answer"
+          />
         </div>
-      </section>
-</div>
+
+        <div className="word-card">
+          <h3 className="word-title mind-blowing">Question 3</h3>
+          <p className="word-meaning">
+          She was a good kid. She ___ her father’s orders. 
+          </p>
+          <input
+            type="text"
+            ref={answer3Ref}
+            placeholder="Your answer"
+          />
+        </div>
+
+        <div className="word-card">
+          <h3 className="word-title alarmed">Question 4</h3>
+          <p className="word-meaning">
+          Aaron and his brother were not ___ last month. They flew to Boston and stayed there for several months. 
+          </p>
+          <input
+            type="text"
+            ref={answer4Ref}
+            placeholder="Your answer"
+          />
+        </div>
+
+        <div className="word-card">
+          <h3 className="word-title recruitment">Question 5</h3>
+          <p className="word-meaning">
+          I ___ if you told me your little secret. 
+          </p>
+          <input
+            type="text"
+            ref={answer5Ref}
+            placeholder="Your answer"
+          />
+        </div>
+
+        <div className="word-card">
+          <h3 className="word-title upset">Question 6</h3>
+          <p className="word-meaning">
+          People ___ about this accident a year ago.
+          </p>
+          <input
+            type="text"
+            ref={answer6Ref}
+            placeholder="Your answer"
+          />
+        </div>
+
+        <div className="word-card">
+          <h3 className="word-title mean">Question 7</h3>
+          <p className="word-meaning">
+          The first-year students ___ an additional course last week.
+          </p>
+          <input
+            type="text"
+            ref={answer7Ref}
+            placeholder="Your answer"
+          />
+        </div>
+
+        <div className="word-card">
+          <h3 className="word-title not-visible">Question 8</h3>
+          <p className="word-meaning">
+          Stop playing around, or I ___ your mother to punish you.
+          </p>
+          <input
+            type="text"
+            ref={answer8Ref}
+            placeholder="Your answer"
+          />
+        </div>
+
+        {/* Tombol submit untuk menampilkan hasil */}
+        <button onClick={handleSubmit}>Submit Answers</button>
+      </div>
+
+      {/* Menampilkan hasil feedback */}
+      <div className="feedback">
+        {feedback.length > 0 && (
+          <ul>
+            {feedback.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </section>
+    <p>Ingin lebih banyak latihan? Ayo melatih diri dengan kuis</p>
+    <div class="button-container">
+      <a href="/kuis" class="styled-button">Quiz</a>
+    </div>
+  </div>
   );
 };
 
-export default SimpleFuture;
+export default SimplePast;
