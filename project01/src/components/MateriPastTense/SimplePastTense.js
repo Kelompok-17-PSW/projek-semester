@@ -13,14 +13,16 @@ const SimplePast = () => {
 
   // Jawaban yang benar
   const correctAnswers = {
-    answer1: "Arrived",
-    answer2: "Won",
-    answer3: "Continued",
-    answer4: "Was here",
+    answer1: "wrote",
+    answer2: "gave",
+    answer3: "sang",
+    answer4: "climbed",
     answer5: "did not snitch",
     answer6: "forgot",
     answer7: "took",
     answer8: "told",
+    answer9: "was",
+    answer10: "was",
   };
 
   // Menyimpan hasil pengecekan jawaban
@@ -417,7 +419,7 @@ const SimplePast = () => {
         <div className="word-card">
           <h3 className="word-title mean">Question 7</h3>
           <p className="word-meaning">
-          The first-year students ___ an additional course last week.
+          The students (not read) the text to discuss yesterday morning.
           </p>
           <input
             type="text"
@@ -429,7 +431,31 @@ const SimplePast = () => {
         <div className="word-card">
           <h3 className="word-title not-visible">Question 8</h3>
           <p className="word-meaning">
-          Stop playing around, or I ___ your mother to punish you.
+          The movie (begin) at nine o'clock.
+          </p>
+          <input
+            type="text"
+            ref={answer8Ref}
+            placeholder="Your answer"
+          />
+        </div>
+
+        <div className="word-card">
+          <h3 className="word-title not-visible">Question 9</h3>
+          <p className="word-meaning">
+          The movie (begin) at nine o'clock.
+          </p>
+          <input
+            type="text"
+            ref={answer8Ref}
+            placeholder="Your answer"
+          />
+        </div>
+
+        <div className="word-card">
+          <h3 className="word-title not-visible">Question 9</h3>
+          <p className="word-meaning">
+          She (cook) a delicious meal last Sunday.
           </p>
           <input
             type="text"
