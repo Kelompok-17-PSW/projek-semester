@@ -1,0 +1,13 @@
+.table-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .small-table {
+    width: 47%; 
+    margin-right: 10px; 
+    color: black;
+  }
+
+  
+  
