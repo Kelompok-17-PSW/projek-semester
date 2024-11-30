@@ -15,48 +15,41 @@ import PastContinuousTense from './components/MateriPastTense/PastContinuousTens
 import PastPerfectTense from './components/MateriPastTense/PastPerfectTense';
 import PastPerfectContinuousTense from './components/MateriPastTense/PastPerfectContinuousTense';
 import SimpleFuture from './components/MateriFuture/SimpleFuture';
-import FutureContinuous from './components/MateriFuture/FutureContinuous';
-import FuturePerfect from './components/MateriFuture/FuturePerfect';
-import FuturePerfectContinuous from './components/MateriFuture/FuturePerfectContinuous';
 import Kuis from './components/Kuis';
 import SimplePresentTense from './components/MateriPresent/SimplePresentTense';
-import KuisSimpleFuture from './components/Quis/KuisSimpleFuture';
+import PresentContinuousTense from './components/MateriPresent/PresentContinuousTense';
+import PresentPerfectContinuousTense from './components/MateriPresent/PresentPerfectContinuousTense';
+import PresentPerfectTense from './components/MateriPresent/PresentPerfectTense';
+
 
 const App = () => {
+  const isAuthPage = ["/login", "/register"].includes(window.location.pathname);
+
   return (
     <Router>
       <div>
+        {/* Navbar will only render if the current page is not login or register */}
+        {!isAuthPage && <Navbar />}
         <Routes>
-          <Route
-            path="*"
-            element={
-              <>
-                {!["/login", "/register"].includes(window.location.pathname) && <Navbar />}
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/register" element={<Register />} />
-                  <Route path="/materi" element={<Materi />} />
-                  <Route path="/informasi" element={<Informasi />} />
-                  <Route path="/tips" element={<Tips />} />
-                  <Route path="/bab1" element={<Narrative />} />
-                  <Route path="/tenses" element={<Tenses />} />
-                  <Route path="/simple-past-tense" element={<SimplePastTense />} />
-                  <Route path="/past-continuous-tense" element={<PastContinuousTense />} />
-                  <Route path="/past-perfect-tense" element={<PastPerfectTense />} />
-                  <Route path="/past-perfect-continuous-tense" element={<PastPerfectContinuousTense />} />
-                  <Route path="/simple-future" element={<SimpleFuture />} />
-                  <Route path="/future-continuous-tense" element={<FutureContinuous />} />
-                  <Route path='/future-perfect-tense' element={<FuturePerfect />} />
-                  <Route path='/future-perfect-continuous' element={<FuturePerfectContinuous />} />
-                  <Route path="/simple-present-tense" element={<SimplePresentTense />} />
-                  <Route path="/kuis" element={<Kuis />} />
-                  <Route path="/kuis-simple-future" element={<KuisSimpleFuture />} />
-                </Routes>
-              </>
-            }
-          />
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/materi" element={<Materi />} />
+          <Route path="/informasi" element={<Informasi />} />
+          <Route path="/tips" element={<Tips />} />
+          <Route path="/bab1" element={<Narrative />} />
+          <Route path="/tenses" element={<Tenses />} />
+          <Route path="/simple-past-tense" element={<SimplePastTense />} />
+          <Route path="/past-continuous-tense" element={<PastContinuousTense />} />
+          <Route path="/past-perfect-tense" element={<PastPerfectTense />} />
+          <Route path="/past-perfect-continuous-tense" element={<PastPerfectContinuousTense />} />
+          <Route path="/simple-future" element={<SimpleFuture />} />
+          <Route path="/simple-present-tense" element={<SimplePresentTense />} />
+          <Route path="/present-continuous-tense" element={<PresentContinuousTense />} />
+          <Route path="/present-perfect-tense" element={<PresentPerfectTense />} />
+          <Route path="/present-perfect-continuous-tense" element={<PresentPerfectContinuousTense />} />
+          <Route path="/kuis" element={<Kuis />} />
         </Routes>
       </div>
     </Router>
