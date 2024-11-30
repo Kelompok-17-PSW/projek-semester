@@ -20,15 +20,12 @@ const PresentPerfectContinuousTense = () => {
       answer3: answer3Ref.current.value.trim(),
     };
 
-    const newFeedback = [];
-
-    for (let key in answers) {
-      if (answers[key].toLowerCase() === correctAnswers[key].toLowerCase()) {
-        newFeedback.push(`${key}: Correct`);
-      } else {
-        newFeedback.push(`${key}: Incorrect (Correct answer: ${correctAnswers[key]})`);
+    const newFeedback = Object.entries(answers).map(([key, value]) => {
+      if (value.toLowerCase() === correctAnswers[key].toLowerCase()) {
+        return `${key}: Correct`;
       }
-    }
+      return `${key}: Incorrect (Correct answer: ${correctAnswers[key]})`;
+    });
 
     setFeedback(newFeedback);
   };
@@ -44,7 +41,9 @@ const PresentPerfectContinuousTense = () => {
         <div className="content">
           <h3>What is Present Perfect Continuous Tense?</h3>
           <p>
-            The Present Perfect Continuous Tense is used to describe actions that started in the past and are still continuing or have recently stopped. It is formed using "has/have been" + verb + -ing.
+            The Present Perfect Continuous Tense is used to describe actions
+            that started in the past and are still continuing or have recently
+            stopped. It is formed using "has/have been" + verb + -ing.
           </p>
         </div>
       </section>
