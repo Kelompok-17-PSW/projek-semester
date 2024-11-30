@@ -69,7 +69,7 @@ const Materi = () => {
                       </Card.Body>
                     </Card>
                   </Link>
-                  <Link to="/simple-present-tense" style={cardStyle}>
+                  <Link to="/present-perfect-tense" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
@@ -82,7 +82,7 @@ const Materi = () => {
                       </Card.Body>
                     </Card>
                   </Link>
-                  <Link to="/simple-present-tense" style={cardStyle}>
+                  <Link to="/present-perfect-continous-tense " style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
