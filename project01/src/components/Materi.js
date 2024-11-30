@@ -82,7 +82,7 @@ const Materi = () => {
                       </Card.Body>
                     </Card>
                   </Link>
-                  <Link to="/present-perfect-continous-tense " style={cardStyle}>
+                  <Link to="/present-perfect-continuous-tense" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
@@ -91,7 +91,9 @@ const Materi = () => {
                     >
                       <Card.Body>
                         <Card.Title>Present Perfect Continuous Tense</Card.Title>
-                        <Card.Text>Pelajari lebih lanjut tentang Present Perfect Continuous Tense.</Card.Text>
+                        <Card.Text>
+                          Pelajari lebih lanjut tentang Present Perfect Continuous Tense.
+                        </Card.Text>
                       </Card.Body>
                     </Card>
                   </Link>
@@ -153,7 +155,7 @@ const Materi = () => {
                       </Card.Body>
                     </Card>
                   </Link>
-                  <Link to="/present-perfect-continuous-tense" style={cardStyle}>
+                  <Link to="/past-perfect-continuous-tense" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
