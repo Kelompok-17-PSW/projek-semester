@@ -89,7 +89,7 @@ const SimplePast = () => {
             </td>
             <td>- I had completed my assignment before everyone else even started<br/>
             - I had eaten at that restaurant many times before it closed.<br/>
-            - Pritha had read the book before she watched the film adaptation.</td>
+            - I had always liked gentle men</td>
           </tr>
           <tr>
             <td>(-) Negative</td>
