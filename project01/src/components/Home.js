@@ -11,14 +11,14 @@ const Home = () => {
       <div className="overlay"></div> 
       <Container className="content">
         <h1 className="display-1 fw-bold">Welcome to E-Learn</h1>
-        <p className="display-5">The best English learning website for you</p>
-        <p className="lead fw-bold">Khusus kelas 12 SMA</p>
+        <p className="display-5 text-center mb-4">The best English learning website for you</p>
+        <p className="lead fw-bold text-center">Khusus kelas 12 SMA</p>
         <div className="button-group">
           <Button as={Link} to="/login" style={{ backgroundColor: 'black', borderColor: 'black' }} size="lg">
-            Login Now
+            Login
           </Button>
           <Button as={Link} to="/Register" style={{ backgroundColor: 'black', borderColor: 'black' }} size="lg">
-            Registrasi Now
+            Registration
           </Button>
         </div>
       </Container>
