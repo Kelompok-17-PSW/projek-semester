@@ -17,12 +17,12 @@ const SimplePast = () => {
     answer2: "gave",
     answer3: "sang",
     answer4: "climbed",
-    answer5: "did not snitch",
-    answer6: "forgot",
-    answer7: "took",
-    answer8: "told",
-    answer9: "was",
-    answer10: "was",
+    answer5: "did he speak",
+    answer6: "did the girls dance",
+    answer7: "did not read",
+    answer8: "began",
+    answer9: "studied",
+    answer10: "cooked",
   };
 
   // Menyimpan hasil pengecekan jawaban
@@ -274,70 +274,51 @@ const SimplePast = () => {
       </div>
     </section>
       <div className="container">
-      <h1>Rumus Simple Past Tense</h1>
+      <h1>Simple Past Tense Formula</h1>
       <table>
         <thead>
           <tr>
-            <th>Pola Kalimat</th>
-            <th>Rumus</th>
+            <th>Sentence patterns</th>
+            <th>Formula</th>
+            <th>Examples</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>(+) Affirmative/Positif</td>
+            <td>(+) Positive </td>
             <td>
               Subject + V2 + Object <br />
               Subject + was/were + Complement
             </td>
+            <td>- I met my wife 9 years ago<br/>
+            - She was very beautiful<br/>
+            - I loved her more than anything
+            </td>
           </tr>
           <tr>
-            <td>(-) Negative/Negatif</td>
+            <td>(-) Negative</td>
             <td>
               Subject + did not + V1 + Object <br />
               Subject + was/were + not + Complement
             </td>
+            <td>- I did not met my wife 9 years ago<br/>
+            - She was not beautiful<br/>
+            - I didn't love her</td>
           </tr>
           <tr>
-            <td>(?) Interrogative/Tanya</td>
+            <td>(?) Interrogative</td>
             <td>
               Did + Subject + V1 + Object <br />
               Was/Were + Subject + Complement
+            </td>
+            <td>- Did i met your wife 9 years ago?<br/>
+            - Was she beautiful? <br/>
+            - did you love her, dad?
             </td>
           </tr>
         </tbody>
       </table>
     </div>
-
-    <section className="section characteristics">
-      <div className="icon">🎧</div>
-      <div className="content">
-        <h3>Example</h3>
-        <p>(+)My uncle died last year<br/>
-        (-)My uncle didn't die last year<br/>
-        (?)Did my uncle die last year?<br/>
-        </p>
-
-        <p>(+)John arrived in Canberra last friday<br/>
-        (-)John didn't arrive in Canberra last friday <br/>
-        (?)Did John arrive in Canberra last friday?
-        </p>
-
-        <p>(+)I was born in 2006<br/>
-        (-)I wasn't born in 2006<br/>
-        (?)were you born in 2006?
-        </p>
-
-        <p>(+)You were my best buddies <br/>
-        (-)You were not my best buddies<br/>
-        (?)were you my best buddies?
-        </p>
-
-        <p>(+)we cut her hair yesterday at my house<br/>
-        (-)we didn't cut her hair yesterday<br/>
-        (?)did we cut her hair yesterday?
-        </p>
-      </div>
-    </section>
 
     <section className="activity-section">
       <h2>Activity</h2>
@@ -432,30 +413,6 @@ const SimplePast = () => {
           <h3 className="word-title not-visible">Question 8</h3>
           <p className="word-meaning">
           The movie (begin) at nine o'clock.
-          </p>
-          <input
-            type="text"
-            ref={answer8Ref}
-            placeholder="Your answer"
-          />
-        </div>
-
-        <div className="word-card">
-          <h3 className="word-title not-visible">Question 9</h3>
-          <p className="word-meaning">
-          The movie (begin) at nine o'clock.
-          </p>
-          <input
-            type="text"
-            ref={answer8Ref}
-            placeholder="Your answer"
-          />
-        </div>
-
-        <div className="word-card">
-          <h3 className="word-title not-visible">Question 9</h3>
-          <p className="word-meaning">
-          She (cook) a delicious meal last Sunday.
           </p>
           <input
             type="text"
