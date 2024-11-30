@@ -44,7 +44,7 @@ const PresentContinuousTense = () => {
         <div className="content">
           <h3>What is Present Continuous Tense?</h3>
           <p>
-            The Present Continuous Tense is used to describe actions that are happening right now, or for actions that are ongoing. It is formed using the verb "to be" (am/is/are) + verb + -ing.
+            The Present Continuous Tense is used to describe actions that are happening right now or for actions that are ongoing. It is formed using the verb "to be" (am/is/are) + verb + -ing.
           </p>
         </div>
       </section>
