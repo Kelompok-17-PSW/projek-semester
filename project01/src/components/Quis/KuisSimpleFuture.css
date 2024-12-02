@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  margin: right;
+  margin: center;
   text-align: center;
 }
 
@@ -142,7 +142,7 @@ body {
 }
 
 .quiz-container {
-  padding: 20px;
+  padding: 30px;
   text-align: center;
 }
 
