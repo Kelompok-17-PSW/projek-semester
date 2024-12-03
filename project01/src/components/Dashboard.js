@@ -16,7 +16,7 @@ const Dashboard = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("userName");
-    navigate("/login");
+    navigate("/");
   };
 
   const handleNavigate = (path) => {
@@ -138,15 +138,16 @@ const Dashboard = () => {
           </Card>
         </Col>
       </Row>
-      <div className="text-center mt-4">
-        <Button 
-          variant="danger" 
-          onClick={handleLogout} 
-          style={{ padding: "5px 20px", fontSize: "16px" }}
-        >
-          Logout
-        </Button>
-      </div>
+      <div className="logout-container">
+  <Button 
+    variant="danger" 
+    onClick={handleLogout} 
+    className="logout-button"
+  >
+    Logout
+  </Button>
+</div>
+
     </Container>
   );
 }
