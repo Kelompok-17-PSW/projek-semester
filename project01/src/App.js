@@ -15,6 +15,7 @@ import PastContinuousTense from './components/MateriPastTense/PastContinuousTens
 import PastPerfectTense from './components/MateriPastTense/PastPerfectTense';
 import PastPerfectContinuousTense from './components/MateriPastTense/PastPerfectContinuousTense';
 import SimpleFuture from './components/MateriFuture/SimpleFuture';
+import FuturePerfect from './components/MateriFuture/FuturePerfect';
 import FutureContinuous from './components/MateriFuture/FutureContinuous';
 import Kuis from './components/Kuis';
 import FuturePerfectContinuos from './components/MateriFuture/FuturePerfectContinuous';
@@ -55,6 +56,7 @@ const App = () => {
           <Route path="/present-perfect-continuous-tense" element={<PresentPerfectContinuousTense />} />
           <Route path="/kuis" element={<Kuis />} />
           <Route path="/kuis-simple-future" element={<KuisSimpleFuture />} />
+          <Route path="/future-perfect-tense" element={<FuturePerfect/>} />
           <Route path="/future-perfect-continuous" element={<FuturePerfectContinuos/>} />
         </Routes>
       </div>
