@@ -1,12 +1,14 @@
 .home-background {
-    background: url('../images/AnakSMA.png') no-repeat center center;
-    background-size: cover; 
-    height: 100vh; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
+  background: url('../images/AnakSMA.png') no-repeat center center; /* Ubah path gambar jika diperlukan */
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(12, 6, 6);
+  overflow: hidden;
+}
   
   .overlay {
     position: absolute;
@@ -19,14 +21,40 @@
   
   .content {
     z-index: 1; 
-    color: white; 
+    color: rgb(15, 1, 1); 
     text-align: center;
+    justify-content: center;
+  }
+
+  .content h1 {
+    font-size: 4rem; /* Ukuran besar untuk judul utama */
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .content p {
+    font-size: 1.5rem; /* Ukuran subtitle */
+    margin-bottom: 20px;
   }
 
   .button-group {
     display: flex;
     gap: 20px; 
     justify-content: center; 
-    margin-top: 20px; 
+    margin-top: 10px; 
   }
   
+  .button-group button {
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s;
+  }
+  
+.container::content {
+  color: black;
+  background: transparent;
+}
