@@ -23,10 +23,6 @@
     border-radius: 5px;
   }
   
-  .question-box.error {
-    border-color: red;
-  }
-  
   .validation-error {
     color: red;
     font-size: 0.9em;
@@ -45,13 +41,14 @@
     background: #5952cc;
   }
   
-  .result-section .feedback.correct {
+  .feedback.correct {
     color: green;
-  }
-  
-  .result-section .feedback.incorrect {
+}
+
+.feedback.incorrect {
     color: red;
-  }
+}
+
   
 
   
