@@ -159,6 +159,15 @@ body {
 .quiz-finish-container {
   text-align: center;
   margin-top: 50px;
+  background-image: url(''); /* Ganti dengan path gambar Anda */
+  background-size: cover; /* Menyesuaikan gambar agar menutupi seluruh area */
+  background-position: center; /* Menempatkan gambar di tengah */
+  min-height: 100vh; /* Membuat elemen mengambil seluruh tinggi layar */
+  color: #333; /* Memastikan teks terlihat jelas di atas gambar */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .quiz-finish-container h1 {
@@ -215,3 +224,4 @@ body {
 .menu-button:hover {
   background-color: #c62828;
 }
+
