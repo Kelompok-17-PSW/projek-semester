@@ -198,7 +198,7 @@ const Materi = () => {
                       </Card.Body>
                     </Card>
                   </Link>
-                  <Link to="/future-continuous-tense" style={cardStyle}>
+                  <Link to="/kuis-future-continuous" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
@@ -211,7 +211,7 @@ const Materi = () => {
                       </Card.Body>
                     </Card>
                   </Link>
-                  <Link to="/future-perfect-tense" style={cardStyle}>
+                  <Link to="/kuis-future-perfect" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
