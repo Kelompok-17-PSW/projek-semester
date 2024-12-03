@@ -50,7 +50,7 @@ const FuturePerfect = () => {
       }
     }
 
-    setFeedback(newFeedback); // Mengupdate feedback dengan hasil pemeriksaan
+    setFeedback(newFeedback); 
   };
 
 
@@ -211,7 +211,7 @@ const FuturePerfect = () => {
             </p>
             <input
               type="text"
-              ref={answer1Ref} // Menggunakan ref untuk menyimpan nilai
+              ref={answer1Ref}
               placeholder="Your answer"
             />
           </div>
@@ -302,11 +302,9 @@ const FuturePerfect = () => {
             />
           </div>
 
-          {/* Tombol submit untuk menampilkan hasil */}
           <button onClick={handleSubmit}>Submit Answers</button>
         </div>
 
-        {/* Menampilkan hasil feedback */}
         <div className="feedback">
           {feedback.length > 0 && (
             <ul>
