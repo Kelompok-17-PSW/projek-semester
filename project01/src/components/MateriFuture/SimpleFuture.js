@@ -23,10 +23,8 @@ const SimpleFuture = () => {
     answer8: "will tell",
   };
 
-  // Menyimpan hasil pengecekan jawaban
   const [feedback, setFeedback] = useState([]);
 
-  // Fungsi untuk memeriksa jawaban
   const handleSubmit = () => {
     const answers = {
       answer1: answer1Ref.current.value.trim(),
@@ -41,7 +39,6 @@ const SimpleFuture = () => {
 
     const newFeedback = [];
 
-    // Memeriksa setiap jawaban
     for (let key in answers) {
       if (answers[key].toLowerCase() === correctAnswers[key].toLowerCase()) {
         newFeedback.push(`${key}: Correct`);
@@ -50,7 +47,7 @@ const SimpleFuture = () => {
       }
     }
 
-    setFeedback(newFeedback); // Mengupdate feedback dengan hasil pemeriksaan
+    setFeedback(newFeedback); 
   };
 
   return (
@@ -176,7 +173,7 @@ const SimpleFuture = () => {
             </p>
             <input
               type="text"
-              ref={answer1Ref} // Menggunakan ref untuk menyimpan nilai
+              ref={answer1Ref} 
               placeholder="Your answer"
             />
           </div>
@@ -265,11 +262,9 @@ const SimpleFuture = () => {
             />
           </div>
 
-          {/* Tombol submit untuk menampilkan hasil */}
           <button onClick={handleSubmit}>Submit Answers</button>
         </div>
 
-        {/* Menampilkan hasil feedback */}
         <div className="feedback">
           {feedback.length > 0 && (
             <ul>
