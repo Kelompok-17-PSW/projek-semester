@@ -172,7 +172,7 @@ const SimpleFuture = () => {
           <div className="word-card">
             <h3 className="word-title nailed">Question 1</h3>
             <p className="word-meaning">
-            Addy and his brother will ___ at 10 o’clock. We need to hurry right now. 
+            Addy and his brother will ___ (Arrive)at 10 o’clock. We need to hurry right now. 
             </p>
             <input
               type="text"
@@ -184,7 +184,7 @@ const SimpleFuture = () => {
           <div className="word-card">
             <h3 className="word-title beauty-pageant">Question 2</h3>
             <p className="word-meaning">
-            My father thinks the prime minister will ___ in 2024’s election.
+            My father thinks the prime minister will ___ (win)in 2024’s election.
             </p>
             <input
               type="text"
@@ -196,7 +196,7 @@ const SimpleFuture = () => {
           <div className="word-card">
             <h3 className="word-title mind-blowing">Question 3</h3>
             <p className="word-meaning">
-            She is a good kid. She will be ___ her father’s order. 
+            She is a good kid. She will be ___ (Continuing)her father’s order. 
             </p>
             <input
               type="text"
@@ -208,7 +208,7 @@ const SimpleFuture = () => {
           <div className="word-card">
             <h3 className="word-title alarmed">Question 4</h3>
             <p className="word-meaning">
-            Aaron and his brother will not ___ next month. They will fly to Boston this afternoon and stay there for several months. 
+            Aaron and his brother will not ___ (be here)next month. They will fly to Boston this afternoon and stay there for several months. 
             </p>
             <input
               type="text"
@@ -220,7 +220,7 @@ const SimpleFuture = () => {
           <div className="word-card">
             <h3 className="word-title recruitment">Question 5</h3>
             <p className="word-meaning">
-            I ___ if you tell me your little secret. 
+            I ___ (snitch)if you tell me your little secret. 
             </p>
             <input
               type="text"
@@ -232,7 +232,7 @@ const SimpleFuture = () => {
           <div className="word-card">
             <h3 className="word-title upset">Question 6</h3>
             <p className="word-meaning">
-            People ___ about this accident a year from now.
+            People ___ (forget)about this accident a year from now.
             </p>
             <input
               type="text"
@@ -244,7 +244,7 @@ const SimpleFuture = () => {
           <div className="word-card">
             <h3 className="word-title mean">Question 7</h3>
             <p className="word-meaning">
-            The first-year students ___ an additional course next week.
+            The first-year students ___ (take)an additional course next week.
             </p>
             <input
               type="text"
@@ -256,7 +256,7 @@ const SimpleFuture = () => {
           <div className="word-card">
             <h3 className="word-title not-visible">Question 8</h3>
             <p className="word-meaning">
-            Stop playing around, or I ___ your mother to punish you
+            Stop playing around, or I ___ (tell)your mother to punish you
             </p>
             <input
               type="text"

@@ -2,55 +2,59 @@ import React, {useState, useRef} from "react";
 import "../MateriPastTense/PastTense.css";
 
 const SimplePast = () => {
-  const answer1Ref = useRef();
-  const answer2Ref = useRef();
-  const answer3Ref = useRef();
-  const answer4Ref = useRef();
-  const answer5Ref = useRef();
-  const answer6Ref = useRef();
-  const answer7Ref = useRef();
-  const answer8Ref = useRef();
+  const questionRefs = useRef([]);
+  const correctAnswers = [
+    { answer: "painting", explanation: "The correct verb form for the action is 'painting'." },
+    { answer: "was getting", explanation: "The correct form for past continuous tense is 'was getting'." },
+    { answer: "was giving", explanation: "The past continuous form of 'give' is 'was giving'." },
+    { answer: "were catching", explanation: "Plural subject requires 'were catching' in past continuous." },
+    { answer: "was wearing", explanation: "Past continuous of 'wear' is 'was wearing'." },
+    { answer: "was watering", explanation: "For singular subject, 'was watering' is the correct form." },
+    { answer: "was not confusing", explanation: "'Was not confusing' indicates a continuous negative action." },
+    { answer: "traveling", explanation: "Past continuous tense for 'travel' is 'traveling'." },
+    { answer: "was cooking", explanation: "The correct form for this situation is 'was cooking'." },
+    { answer: "were playing", explanation: "'Were playing' matches the plural subject and context." }
+  ];
 
-  // Jawaban yang benar
-  const correctAnswers = {
-    answer1: "painting",
-    answer2: "was getting",
-    answer3: "was giving",
-    answer4: "were catching",
-    answer5: "was wearing",
-    answer6: "was watering",
-    answer7: "was not confusing",
-    answer8: "traveling",
-  };
-
-  // Menyimpan hasil pengecekan jawaban
+  const [answers, setAnswers] = useState(Array(correctAnswers.length).fill(""));
+  const [errors, setErrors] = useState(Array(correctAnswers.length).fill(false));
+  const [score, setScore] = useState(null);
   const [feedback, setFeedback] = useState([]);
 
-  // Fungsi untuk memeriksa jawaban
+  const handleChange = (index, value) => {
+    const newAnswers = [...answers];
+    newAnswers[index] = value;
+    setAnswers(newAnswers);
+
+    const newErrors = [...errors];
+    newErrors[index] = value.trim() === "";
+    setErrors(newErrors);
+  };
+
   const handleSubmit = () => {
-    const answers = {
-      answer1: answer1Ref.current.value.trim(),
-      answer2: answer2Ref.current.value.trim(),
-      answer3: answer3Ref.current.value.trim(),
-      answer4: answer4Ref.current.value.trim(),
-      answer5: answer5Ref.current.value.trim(),
-      answer6: answer6Ref.current.value.trim(),
-      answer7: answer7Ref.current.value.trim(),
-      answer8: answer8Ref.current.value.trim(),
-    };
+    const newErrors = answers.map((answer) => answer.trim() === "");
+    setErrors(newErrors);
 
-    const newFeedback = [];
-
-    // Memeriksa setiap jawaban
-    for (let key in answers) {
-      if (answers[key].toLowerCase() === correctAnswers[key].toLowerCase()) {
-        newFeedback.push(`${key}: Correct`);
-      } else {
-        newFeedback.push(`${key}: Incorrect (Correct answer: ${correctAnswers[key]})`);
-      }
+    if (newErrors.some((error) => error)) {
+      setScore(null);
+      setFeedback([]);
+      return;
     }
 
-    setFeedback(newFeedback); // Mengupdate feedback dengan hasil pemeriksaan
+    let totalScore = 0;
+    const newFeedback = answers.map((answer, index) => {
+      const isCorrect =
+        answer.trim().toLowerCase() === correctAnswers[index].answer.toLowerCase();
+      if (isCorrect) totalScore += 10;
+
+      return {
+        isCorrect,
+        explanation: !isCorrect ? correctAnswers[index].explanation : null
+      };
+    });
+
+    setScore(totalScore);
+    setFeedback(newFeedback);
   };
 
   return (
@@ -175,127 +179,66 @@ const SimplePast = () => {
       </div>
     </section>
 
-    <section className="activity-section">
-      <h2>Activity</h2>
-      <p>
-      Rewrite the following sentences using past continuous tense.</p>
-      <div className="word-list">
-        <div className="word-card">
-          <h3 className="word-title nailed">Question 1</h3>
-          <p className="word-meaning">
-          Were you … this picture at 8 o’clock yesterday?  (paint)
-          </p>
-          <input
-            type="text"
-            ref={answer1Ref}
-            placeholder="Your answer"
-          />
+    <section className="section example-section">
+        <h3>Contoh Pengisian Soal</h3>
+        <div className="example-question">
+          <p>1. My sister … a cake when I arrived. (bake)</p>
+          <p>Jawaban: <b>was baking</b></p>
         </div>
-
-        <div className="word-card">
-          <h3 className="word-title beauty-pageant">Question 2</h3>
-          <p className="word-meaning">
-          This morning, Yesterday, The rain … Harder and harder. (get)
-          </p>
-          <input
-            type="text"
-            ref={answer2Ref}
-            placeholder="Your answer"
-          />
+        <div className="example-question">
+          <p>2. They … football at 3 p.m. yesterday. (play)</p>
+          <p>Jawaban: <b>were playing</b></p>
         </div>
-
-        <div className="word-card">
-          <h3 className="word-title mind-blowing">Question 3</h3>
-          <p className="word-meaning">
-          My mother …This fruit to Farikha at eight o’clock last night. (give)
-          </p>
-          <input
-            type="text"
-            ref={answer3Ref}
-            placeholder="Your answer"
-          />
+        <div className="example-question">
+          <p>3. I … in the garden when it started raining. (sit)</p>
+          <p>Jawaban: <b>was sitting</b></p>
         </div>
+      </section>
 
-        <div className="word-card">
-          <h3 className="word-title alarmed">Question 4</h3>
-          <p className="word-meaning">
-          We … the chicken in front of the bridge at seven o’clock last night. (catch)
-          </p>
-          <input
-            type="text"
-            ref={answer4Ref}
-            placeholder="Your answer"
-          />
-        </div>
-
-        <div className="word-card">
-          <h3 className="word-title recruitment">Question 5</h3>
-          <p className="word-meaning">
-          At this time last month, Farida … new clothes for this meeting. (wear)
-          </p>
-          <input
-            type="text"
-            ref={answer5Ref}
-            placeholder="Your answer"
-          />
-        </div>
-
-        <div className="word-card">
-          <h3 className="word-title upset">Question 6</h3>
-          <p className="word-meaning">
-          Reza Pahlevi … this flower at 7 o’clock yesterday. (water)
-          </p>
-          <input
-            type="text"
-            ref={answer6Ref}
-            placeholder="Your answer"
-          />
-        </div>
-
-        <div className="word-card">
-          <h3 className="word-title mean">Question 7</h3>
-          <p className="word-meaning">
-          My teacher taught me this formula yesterday, but Jane  … to understand it. He couldn’t use it. (confuse)
-          </p>
-          <input
-            type="text"
-            ref={answer7Ref}
-            placeholder="Your answer"
-          />
-        </div>
-
-        <div className="word-card">
-          <h3 className="word-title not-visible">Question 8</h3>
-          <p className="word-meaning">
-          were they... to the USA at this time last week? (travel)
-          </p>
-          <input
-            type="text"
-            ref={answer8Ref}
-            placeholder="Your answer"
-          />
-        </div>
-
-        {/* Tombol submit untuk menampilkan hasil */}
-        <button onClick={handleSubmit}>Submit Answers</button>
+    <h3>Activity: Complete the sentences below</h3>
+      <div className="questions-container">
+        {correctAnswers.map((question, index) => (
+          <div key={index} className={`question-box ${errors[index] ? "error" : ""}`}>
+            <h4>Question {index + 1}</h4>
+            <p>{`Insert the correct past continuous verb: ${
+              index === 0
+                ? "Were you ... this picture at 8 o’clock yesterday? (paint)"
+                : index === 1
+                ? "This morning, the rain ... harder and harder. (get)"
+                : index === 8
+                ? "The chef ... dinner while we waited. (cook)"
+                : index === 9
+                ? "The kids ... soccer in the park. (play)"
+                : "Refer to your content for additional sentences."
+            }`}</p>
+            <input
+              type="text"
+              placeholder="Your answer"
+              value={answers[index]}
+              onChange={(e) => handleChange(index, e.target.value)}
+              ref={(el) => (questionRefs.current[index] = el)}
+            />
+            {errors[index] && <p className="validation-error">This field is required!</p>}
+          </div>
+        ))}
       </div>
 
-      {/* Menampilkan hasil feedback */}
-      <div className="feedback">
-        {feedback.length > 0 && (
-          <ul>
-            {feedback.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </section>
-    <p>Ingin lebih banyak latihan? Ayo melatih diri dengan kuis</p>
-    <div class="button-container">
-      <a href="/kuis" class="styled-button">Quiz</a>
+      <button className="submit-button" onClick={handleSubmit}>
+        Submit Answers
+      </button>
+
+      {score !== null && (
+        <div className="result-section">
+          <h3>Your Score: {score} / {correctAnswers.length * 10}</h3>
+          {feedback.map((item, index) => (
+            <div key={index} className={`feedback ${item.isCorrect ? "correct" : "incorrect"}`}>
+              <h4>{`Question ${index + 1}: ${item.isCorrect ? "Correct!" : "Incorrect"}`}</h4>
+              {!item.isCorrect && <p>{`Explanation: ${item.explanation}`}</p>}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
-  </div>
   );
 };
 
