@@ -198,7 +198,7 @@ const SimplePast = () => {
 {correctAnswers.map((question, index) => (
   <div key={index} className={`question-box ${errors[index] ? "error" : ""}`}>
     <h4>Question {index + 1}</h4>
-    <p>{`Insert the correct past continuous verb: ${
+    <p>{` ${
       index === 0
         ? "Were you ... this picture at 8 o’clock yesterday? (paint)"
         : index === 1
