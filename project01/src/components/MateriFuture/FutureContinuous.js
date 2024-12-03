@@ -1,5 +1,5 @@
 import React, {useState, useRef} from "react";
-import "./FutureContinuous.css";
+import "./SimpleFuture.css";
 
 const FutureContinuous = () => {
   const answer1Ref = useRef();
