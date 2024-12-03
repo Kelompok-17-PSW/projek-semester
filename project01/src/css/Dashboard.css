@@ -64,3 +64,16 @@
 .card-body .fa {
   transition: color 0.3s ease;
 }
+
+.logout-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.logout-button {
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
