@@ -6,7 +6,6 @@ import Login from './components/login';
 import Register from './components/Register';
 import Materi from './components/Materi';
 import Vidio from './components/Vidio'
-import Tips from './components/Tips';
 import Navbar from './components/Navbar';
 import Narrative from './components/Narrative';
 import Tenses from './components/Tenses';
@@ -43,7 +42,6 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/materi" element={<Materi />} />
           <Route path="/vidio" element={<Vidio />} />
-          <Route path="/tips" element={<Tips />} />
           <Route path="/bab1" element={<Narrative />} />
           <Route path="/tenses" element={<Tenses />} />
           <Route path="/simple-past-tense" element={<SimplePastTense />} />

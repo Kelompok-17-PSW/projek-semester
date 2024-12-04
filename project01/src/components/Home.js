@@ -23,22 +23,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
-      {/* Tips & Trick */}
-      <div className="tips-container mt-5">
-        <div className="row align-items-center">
-          <div className="col-md-4">
-            <img src={tipsImage} className="img-fluid rounded mb-3" alt="Tips & Tricks"/>
-          </div>
-          <div className="col-md-8">
-            <h2 className="tips-title">
-              <Link to="/tips" className="tips-link">Tips & Trick Meningkatkan Kemampuan Berbahasa Inggris</Link>
-            </h2>
-            <p>Kamu kesulitan dalam meningkatkan skill berbahasa inggrismu? Ayo Ikuti tips & trick dari E-learn</p>
-            <Button as={Link} to="/tips" variant="primary">Let's Get Started</Button>
-          </div>
-        </div>
-      </div>
     </>
   );
 }
