@@ -1,33 +1,33 @@
 import React, { useState} from "react";
 import "./KuisSimplePast.css";
 
-function KuisSimpleFuture() {
+function KuisPerfectContinuous() {
   // Data pertanyaan dan pilihan jawaban
   const questions = [
     {
-      question: "I expect, they ... me this evening.(phone)",
-      options: ["Will not phone", "Will phone", "Would phone", "Are not phone"],
-      correctAnswer: "Will phone",
+      question: "They ... (study) English for three years by the time they finish their course.",
+      options: ["will have studied", "will have been waiting", "will be waiting", "will wait"],
+      correctAnswer: "will have been waiting",
     },
     {
-      question: "Don’t touch this plate, IF you touch it, you ... yourself. (burn)",
-      options: ["will not be burn", " Will not burn", "will be burn", "Will burn"],
-      correctAnswer: "Will burn",
+      question: "By the time you finish your dinner, I ... (clean) the house for two hours.",
+      options: ["will clean", "will have cleaned", "will have been cleaning", "will be cleaning"],
+      correctAnswer: "will have been cleaning",
     },
     {
-      question: "We ... house next month. (make)",
-      options: ["Will not make", "Will make", "is making", " would made"],
-      correctAnswer: "Will make",
+      question: "In two years, they ... (live) in this city for 15 years.",
+      options: ["shall live", "shall have lived", "shall be living", "shall have been living"],
+      correctAnswer: "shall have been living",
     },
     {
-      question: " My sister ... not ... to the concert tonight.",
-      options: ["Will/go", " Will/going", "Did/go", "Do/go"],
-      correctAnswer: "Will/go",
+      question: " In a few months, ... you ... (work) on this project for a year?",
+      options: ["shall / have been working", "shall / be working", "shall / have worked", "shall / work"],
+      correctAnswer: "shall / have been working",
     },
     {
-      question: " ... i help you to take dinner?",
-      options: ["is", "Am", "Shall", "Are"],
-      correctAnswer: "Shall",
+      question: "In two weeks, ... they ... (travel) for a month?",
+      options: ["will / travel", "will / have traveled", "will / have been traveling", "will / be traveling"],
+      correctAnswer: "will / have been traveling",
     },
   ];
 
@@ -69,7 +69,7 @@ function KuisSimpleFuture() {
   };
 
   const goToMenu = () => {
-    window.location.href = '/bab2';  
+    window.location.href = '/bab3';  
   };
 
   if (quizFinished) {
@@ -127,4 +127,4 @@ function KuisSimpleFuture() {
   );
 }
 
-export default KuisSimpleFuture;
+export default KuisPerfectContinuous;
