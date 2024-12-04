@@ -5,7 +5,7 @@ import Dashboard from './components/Dashboard';
 import Login from './components/login';
 import Register from './components/Register';
 import Materi from './components/Materi';
-import Informasi from './components/Informasi';
+import Vidio from './components/Vidio'
 import Tips from './components/Tips';
 import Navbar from './components/Navbar';
 import Narrative from './components/Narrative';
@@ -34,7 +34,6 @@ const App = () => {
   return (
     <Router>
       <div>
-        {/* Navbar will only render if the current page is not login or register */}
         {!isAuthPage && <Navbar />}
         <Routes>
           <Route path="/" element={<Home />} />
@@ -42,7 +41,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/materi" element={<Materi />} />
-          <Route path="/informasi" element={<Informasi />} />
+          <Route path="/vidio" element={<Vidio />} />
           <Route path="/tips" element={<Tips />} />
           <Route path="/bab1" element={<Narrative />} />
           <Route path="/tenses" element={<Tenses />} />
