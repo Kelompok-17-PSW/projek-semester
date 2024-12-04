@@ -17,8 +17,7 @@ const Vidio = () => {
               referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                
               <Card.Body>
                   <Card.Title>Simple Present Tense</Card.Title>
-                  <Card.Text>Video ini menjelaskan tentang berbagai jenis tenses 
-                    dalam bahasa Inggris.</Card.Text>
+                  <Card.Text>Video ini menjelaskan tentang Simple Present Tense.</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -32,7 +31,7 @@ const Vidio = () => {
               referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <Card.Body>
                   <Card.Title>Present Continuous Tense</Card.Title>
-                  <Card.Text>Video ini membahas tentang phrasal verbs yang penting untuk dipelajari.</Card.Text>
+                  <Card.Text>Video ini membahas tentang Present Continuous Tense yang penting untuk dipelajari.</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -49,7 +48,7 @@ const Vidio = () => {
               referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <Card.Body>
                   <Card.Title>Present Perfect Tense</Card.Title>
-                  <Card.Text>Video ini menjelaskan penggunaan preposisi dalam bahasa Inggris.</Card.Text>
+                  <Card.Text>Video ini menjelaskan Present Perfect Tense dalam bahasa Inggris.</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -63,7 +62,7 @@ const Vidio = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <Card.Body>
                   <Card.Title>Present Perfect Continuous Tense</Card.Title>
-                  <Card.Text>Video ini membahas tentang penggunaan passive voice dalam bahasa Inggris.</Card.Text>
+                  <Card.Text>Video ini membahas tentang Present Perfect Continuous Tense dalam bahasa Inggris.</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -80,7 +79,7 @@ const Vidio = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
               referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                   <Card.Title>Simple Past Tense</Card.Title>
-                  <Card.Text>Video ini menjelaskan tentang berbagai jenis tenses 
+                  <Card.Text>Video ini menjelaskan tentang Simple Past Tense 
                     dalam bahasa Inggris.</Card.Text>
               </Card>
             </Col>
@@ -95,7 +94,7 @@ const Vidio = () => {
               referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <Card.Body>
                   <Card.Title>Past Continuous Tense</Card.Title>
-                  <Card.Text>Video ini membahas tentang phrasal verbs yang penting untuk dipelajari.</Card.Text>
+                  <Card.Text>Video ini membahas tentang Past Continuous Tense yang penting untuk dipelajari.</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -110,7 +109,7 @@ const Vidio = () => {
               referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <Card.Body>
                   <Card.Title>Past Perfect Tense</Card.Title>
-                  <Card.Text>Video ini membahas tentang phrasal verbs yang penting untuk dipelajari.</Card.Text>
+                  <Card.Text>Video ini membahas tentang Past Perfect Tense yang penting untuk dipelajari.</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -125,7 +124,67 @@ const Vidio = () => {
               referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <Card.Body>
                   <Card.Title>Past Perfect Continuous Tense</Card.Title>
-                  <Card.Text>Video ini membahas tentang phrasal verbs yang penting untuk dipelajari.</Card.Text>
+                  <Card.Text>Video ini membahas tentang Past Perfect Continuous Tense yang penting untuk dipelajari.</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={6} className="mb-4">
+              <Card>
+              <iframe width="560" 
+              height="315" 
+              src="https://www.youtube.com/embed/CUdzz0jzK-Y?si=FH6rccaK6UINJGLE" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <Card.Body>
+                  <Card.Title>Simple Future Tense</Card.Title>
+                  <Card.Text>Video ini membahas tentang Simple Future Tense yang penting untuk dipelajari.</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={6} className="mb-4">
+              <Card>
+              <iframe width="560" 
+              height="315" 
+              src="https://www.youtube.com/embed/JUWVWd2LyJM?si=ViSiV1kdmOVAzhA2" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <Card.Body>
+                  <Card.Title>Future Continuous Tense</Card.Title>
+                  <Card.Text>Video ini membahas tentang Future Continuous Tense yang penting untuk dipelajari.</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={6} className="mb-4">
+              <Card>
+              <iframe width="560" 
+              height="315" 
+              src="https://www.youtube.com/embed/FdlA4jBfQiM?si=3NPoG3XIN9izGMO5" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <Card.Body>
+                  <Card.Title>Future Perfect Tense</Card.Title>
+                  <Card.Text>Video ini membahas tentang Future Perfect Tense yang penting untuk dipelajari.</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+            <Col md={6} className="mb-4">
+              <Card>
+              <iframe width="560" 
+              height="315" 
+              src="https://www.youtube.com/embed/dsMvg2_eGU0?si=h8rsPKrB5dcO6SmG" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <Card.Body>
+                  <Card.Title>Future Perfect Continuous Tense</Card.Title>
+                  <Card.Text>Video ini membahas tentang Future Perfect Continuous Tense yang penting untuk dipelajari.</Card.Text>
                 </Card.Body>
               </Card>
             </Col>

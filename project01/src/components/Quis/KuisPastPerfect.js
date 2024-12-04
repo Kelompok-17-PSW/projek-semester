@@ -1,57 +1,57 @@
 import React, { useState } from "react";
 import "../Quis/KuisSimplePast.css"; 
 
-const KuisSimplePastTense = () => {
+const KuisPastPerfectTense = () => {
   const questions = [
     {
-      question: "She ___ a letter yesterday. (write)",
-      options: ["wrote", "write", "written", "writes"],
-      correctAnswer: "wrote",
+      question: "By the time I arrived, they ___ (finish) the meeting.",
+      options: ["had finished", "finished", "have finished", "was finishing"],
+      correctAnswer: "had finished",
     },
     {
-      question: "They ___ to the cinema last night. (go)",
-      options: ["went", "go", "going", "gone"],
-      correctAnswer: "went",
+      question: "She ___ (leave) before I could speak to her.",
+      options: ["had left", "left", "have left", "was leaving"],
+      correctAnswer: "had left",
     },
     {
-      question: "I ___ the book on the table. (put)",
-      options: ["put", "puts", "putted", "putting"],
-      correctAnswer: "put",
+      question: "By the time we got to the station, the train ___ (depart).",
+      options: ["had departed", "departed", "have departed", "was departing"],
+      correctAnswer: "had departed",
     },
     {
-      question: "He ___ his homework last night. (do)",
-      options: ["did", "done", "does", "doing"],
-      correctAnswer: "did",
+      question: "I ___ (never, see) such a beautiful sunset before.",
+      options: ["had never seen", "never saw", "have never seen", "was never seeing"],
+      correctAnswer: "had never seen",
     },
     {
-      question: "We ___ a great time at the party. (have)",
-      options: ["had", "have", "having", "haved"],
-      correctAnswer: "had",
+      question: "She ___ (already, finish) her homework when I called her.",
+      options: ["had already finished", "finished already", "has already finished", "was already finishing"],
+      correctAnswer: "had already finished",
     },
     {
-      question: "You ___ the movie already. (see)",
-      options: ["saw", "seen", "seeing", "see"],
-      correctAnswer: "saw",
+      question: "They ___ (just, arrive) when the ceremony began.",
+      options: ["had just arrived", "arrived just", "have just arrived", "was just arriving"],
+      correctAnswer: "had just arrived",
     },
     {
-      question: "She ___ a new car last week. (buy)",
-      options: ["bought", "buys", "buyed", "buying"],
-      correctAnswer: "bought",
+      question: "I ___ (work) for that company for five years before I left.",
+      options: ["had worked", "worked", "have worked", "was working"],
+      correctAnswer: "had worked",
     },
     {
-      question: "They ___ the marathon. (run)",
-      options: ["ran", "run", "runned", "running"],
-      correctAnswer: "ran",
+      question: "By the time the movie started, we ___ (already, eat).",
+      options: ["had already eaten", "ate already", "have already eaten", "were already eating"],
+      correctAnswer: "had already eaten",
     },
     {
-      question: "I ___ breakfast early this morning. (eat)",
-      options: ["ate", "eats", "eaten", "eating"],
-      correctAnswer: "ate",
+      question: "He ___ (read) the book before he watched the movie.",
+      options: ["had read", "read", "has read", "was reading"],
+      correctAnswer: "had read",
     },
     {
-      question: "He ___ the ball to me. (throw)",
-      options: ["threw", "throwed", "throw", "throwing"],
-      correctAnswer: "threw",
+      question: "We ___ (wait) for over an hour before the bus finally arrived.",
+      options: ["had waited", "waited", "have waited", "were waiting"],
+      correctAnswer: "had waited",
     },
   ];
 
@@ -91,7 +91,7 @@ const KuisSimplePastTense = () => {
       <div className="quiz-finish-container">
         <h1>😊 Good Job</h1>
         <ul className="result-list">
-          <li>Pelajaran Ke : 1</li>
+          <li>Pelajaran Ke : 3</li>
           <li>Jumlah Soal : {questions.length}</li>
           <li>Jawaban Benar : {correctAnswers}</li>
           <li>Jawaban Salah : {wrongAnswers}</li>
@@ -139,4 +139,4 @@ const KuisSimplePastTense = () => {
   );
 };
 
-export default KuisSimplePastTense;
+export default KuisPastPerfectTense;

@@ -1,57 +1,57 @@
 import React, { useState } from "react";
 import "../Quis/KuisSimplePast.css"; 
 
-const KuisSimplePastTense = () => {
+const KuisPastContinuousTense = () => {
   const questions = [
     {
-      question: "She ___ a letter yesterday. (write)",
-      options: ["wrote", "write", "written", "writes"],
-      correctAnswer: "wrote",
+      question: "She ___ (study) when I called her.",
+      options: ["was studying", "is studying", "studied", "studies"],
+      correctAnswer: "was studying",
     },
     {
-      question: "They ___ to the cinema last night. (go)",
-      options: ["went", "go", "going", "gone"],
-      correctAnswer: "went",
+      question: "They ___ (watch) a movie when the lights went out.",
+      options: ["were watching", "watch", "were watched", "watched"],
+      correctAnswer: "were watching",
     },
     {
-      question: "I ___ the book on the table. (put)",
-      options: ["put", "puts", "putted", "putting"],
-      correctAnswer: "put",
+      question: "At this time last week, we ___ (eat) dinner.",
+      options: ["were eating", "are eating", "ate", "eat"],
+      correctAnswer: "were eating",
     },
     {
-      question: "He ___ his homework last night. (do)",
-      options: ["did", "done", "does", "doing"],
-      correctAnswer: "did",
+      question: "I ___ (do) my homework when you arrived.",
+      options: ["was doing", "is doing", "were doing", "did"],
+      correctAnswer: "was doing",
     },
     {
-      question: "We ___ a great time at the party. (have)",
-      options: ["had", "have", "having", "haved"],
-      correctAnswer: "had",
+      question: "They ___ (not work) when the boss came in.",
+      options: ["weren't working", "weren't work", "didn't work", "not working"],
+      correctAnswer: "weren't working",
     },
     {
-      question: "You ___ the movie already. (see)",
-      options: ["saw", "seen", "seeing", "see"],
-      correctAnswer: "saw",
+      question: "She ___ (talk) to her friend on the phone at 10 p.m.",
+      options: ["was talking", "talked", "is talking", "talks"],
+      correctAnswer: "was talking",
     },
     {
-      question: "She ___ a new car last week. (buy)",
-      options: ["bought", "buys", "buyed", "buying"],
-      correctAnswer: "bought",
+      question: "I ___ (read) a book when the phone rang.",
+      options: ["was reading", "am reading", "read", "reads"],
+      correctAnswer: "was reading",
     },
     {
-      question: "They ___ the marathon. (run)",
-      options: ["ran", "run", "runned", "running"],
-      correctAnswer: "ran",
+      question: "We ___ (play) football when it started to rain.",
+      options: ["were playing", "are playing", "played", "playing"],
+      correctAnswer: "were playing",
     },
     {
-      question: "I ___ breakfast early this morning. (eat)",
-      options: ["ate", "eats", "eaten", "eating"],
-      correctAnswer: "ate",
+      question: "At 8 o'clock, he ___ (sleep).",
+      options: ["was sleeping", "is sleeping", "sleeps", "sleeped"],
+      correctAnswer: "was sleeping",
     },
     {
-      question: "He ___ the ball to me. (throw)",
-      options: ["threw", "throwed", "throw", "throwing"],
-      correctAnswer: "threw",
+      question: "They ___ (not enjoy) the concert last night.",
+      options: ["weren't enjoying", "aren't enjoying", "didn't enjoy", "don't enjoy"],
+      correctAnswer: "weren't enjoying",
     },
   ];
 
@@ -91,7 +91,7 @@ const KuisSimplePastTense = () => {
       <div className="quiz-finish-container">
         <h1>😊 Good Job</h1>
         <ul className="result-list">
-          <li>Pelajaran Ke : 1</li>
+          <li>Pelajaran Ke : 2</li>
           <li>Jumlah Soal : {questions.length}</li>
           <li>Jawaban Benar : {correctAnswers}</li>
           <li>Jawaban Salah : {wrongAnswers}</li>
@@ -139,4 +139,4 @@ const KuisSimplePastTense = () => {
   );
 };
 
-export default KuisSimplePastTense;
+export default KuisPastContinuousTense;

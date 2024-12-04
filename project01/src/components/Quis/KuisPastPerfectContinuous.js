@@ -1,57 +1,57 @@
 import React, { useState } from "react";
 import "../Quis/KuisSimplePast.css"; 
 
-const KuisSimplePastTense = () => {
+const KuisPastPerfectContinuousTense = () => {
   const questions = [
     {
-      question: "She ___ a letter yesterday. (write)",
-      options: ["wrote", "write", "written", "writes"],
-      correctAnswer: "wrote",
+      question: "She ___ (study) for two hours when I called her.",
+      options: ["had been studying", "was studying", "has been studying", "studied"],
+      correctAnswer: "had been studying",
     },
     {
-      question: "They ___ to the cinema last night. (go)",
-      options: ["went", "go", "going", "gone"],
-      correctAnswer: "went",
+      question: "They ___ (wait) for an hour when the train finally arrived.",
+      options: ["had been waiting", "waited", "have been waiting", "were waiting"],
+      correctAnswer: "had been waiting",
     },
     {
-      question: "I ___ the book on the table. (put)",
-      options: ["put", "puts", "putted", "putting"],
-      correctAnswer: "put",
+      question: "I ___ (work) on the project all day before I took a break.",
+      options: ["had been working", "worked", "was working", "have been working"],
+      correctAnswer: "had been working",
     },
     {
-      question: "He ___ his homework last night. (do)",
-      options: ["did", "done", "does", "doing"],
-      correctAnswer: "did",
+      question: "We ___ (live) in that house for ten years before we moved.",
+      options: ["had been living", "lived", "have been living", "were living"],
+      correctAnswer: "had been living",
     },
     {
-      question: "We ___ a great time at the party. (have)",
-      options: ["had", "have", "having", "haved"],
-      correctAnswer: "had",
+      question: "By the time the meeting started, she ___ (talk) for an hour.",
+      options: ["had been talking", "talked", "has been talking", "was talking"],
+      correctAnswer: "had been talking",
     },
     {
-      question: "You ___ the movie already. (see)",
-      options: ["saw", "seen", "seeing", "see"],
-      correctAnswer: "saw",
+      question: "I ___ (try) to call you all morning, but your phone was off.",
+      options: ["had been trying", "tried", "have been trying", "was trying"],
+      correctAnswer: "had been trying",
     },
     {
-      question: "She ___ a new car last week. (buy)",
-      options: ["bought", "buys", "buyed", "buying"],
-      correctAnswer: "bought",
+      question: "He ___ (run) for an hour when he finally reached the finish line.",
+      options: ["had been running", "ran", "has been running", "was running"],
+      correctAnswer: "had been running",
     },
     {
-      question: "They ___ the marathon. (run)",
-      options: ["ran", "run", "runned", "running"],
-      correctAnswer: "ran",
+      question: "They ___ (plan) their trip for months before they actually booked the tickets.",
+      options: ["had been planning", "planned", "have been planning", "were planning"],
+      correctAnswer: "had been planning",
     },
     {
-      question: "I ___ breakfast early this morning. (eat)",
-      options: ["ate", "eats", "eaten", "eating"],
-      correctAnswer: "ate",
+      question: "She ___ (read) for over an hour before she decided to take a break.",
+      options: ["had been reading", "read", "has been reading", "was reading"],
+      correctAnswer: "had been reading",
     },
     {
-      question: "He ___ the ball to me. (throw)",
-      options: ["threw", "throwed", "throw", "throwing"],
-      correctAnswer: "threw",
+      question: "By the time the storm hit, we ___ (wait) for the bus for half an hour.",
+      options: ["had been waiting", "waited", "were waiting", "have been waiting"],
+      correctAnswer: "had been waiting",
     },
   ];
 
@@ -91,7 +91,7 @@ const KuisSimplePastTense = () => {
       <div className="quiz-finish-container">
         <h1>😊 Good Job</h1>
         <ul className="result-list">
-          <li>Pelajaran Ke : 1</li>
+          <li>Pelajaran Ke : 4</li>
           <li>Jumlah Soal : {questions.length}</li>
           <li>Jawaban Benar : {correctAnswers}</li>
           <li>Jawaban Salah : {wrongAnswers}</li>
@@ -139,4 +139,4 @@ const KuisSimplePastTense = () => {
   );
 };
 
-export default KuisSimplePastTense;
+export default KuisPastPerfectContinuousTense;
