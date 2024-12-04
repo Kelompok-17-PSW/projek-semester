@@ -26,6 +26,7 @@ import PresentPerfectTense from './components/MateriPresent/PresentPerfectTense'
 import KuisSimpleFuture from './components/Quis/KuisSimpleFuture';
 import KuisFuturePerfect from './components/Quis/KuisFuturePerfect';
 import KuisFutureContinuous from './components/Quis/KuisFutureContinuous';
+import KuisSimplePastTense from './components/Quis/KuisSimplePastTense';
 
 
 const App = () => {
@@ -62,6 +63,7 @@ const App = () => {
           <Route path="/future-perfect-continuous" element={<FuturePerfectContinuos/>} />
           <Route path="/kuis-future-perfect" element={<KuisFuturePerfect />} />
           <Route path="/kuis-future-continuous" element={<KuisFutureContinuous />} />
+          <Route path="/kuis-simple-past" element={<KuisSimplePastTense/>}/>
         </Routes>
       </div>
     </Router>
