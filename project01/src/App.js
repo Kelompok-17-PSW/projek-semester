@@ -19,6 +19,10 @@ import FutureContinuous from './components/MateriFuture/FutureContinuous';
 import Kuis from './components/Kuis';
 import FuturePerfectContinuos from './components/MateriFuture/FuturePerfectContinuous';
 import SimplePresentTense from './components/MateriPresent/SimplePresentTense';
+import KuisSimplePresent from './components/Quis/KuisSimplePresent'
+import KuisPresentPerfect from './components/Quis/KuisPresentPerfect';
+import KuisPresentContinuous from './components/Quis/KuisSimplePresent';
+import KuisPresentPerfectContinuous from './components/Quis/KuisPresentPerfectContinuous';
 import PresentContinuousTense from './components/MateriPresent/PresentContinuousTense';
 import PresentPerfectContinuousTense from './components/MateriPresent/PresentPerfectContinuousTense';
 import PresentPerfectTense from './components/MateriPresent/PresentPerfectTense';
@@ -59,6 +63,10 @@ const App = () => {
           <Route path="/present-perfect-continuous-tense" element={<PresentPerfectContinuousTense />} />
           <Route path="/kuis" element={<Kuis />} />
           <Route path="/kuis-simple-future" element={<KuisSimpleFuture />} />
+          <Route path="/kuis-simple-present" element={<KuisSimplePresent />} />
+          <Route path="/kuis-present-continuous" element={<KuisPresentContinuous />} />
+          <Route path="/kuis-present-perfect-continuous" element={<KuisPresentPerfectContinuous />} />
+          <Route path="/kuis-present-perfect" element={<KuisPresentPerfect />} />
           <Route path="/future-perfect-tense" element={<FuturePerfect/>} />
           <Route path="/future-perfect-continuous" element={<FuturePerfectContinuos/>} />
           <Route path="/kuis-future-perfect" element={<KuisFuturePerfect />} />
