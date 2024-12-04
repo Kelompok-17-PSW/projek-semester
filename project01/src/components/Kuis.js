@@ -28,78 +28,7 @@ const Kuis = () => {
             Kuis
           </h2>
 
-          {/* Card Present Tense */}
-          <Card className="mb-4">
-            <Card.Body>
-              <Card.Title
-                onClick={() => toggleSection("present")}
-                aria-controls="present-collapse"
-                aria-expanded={openSection === "present"}
-                style={{ cursor: "pointer" }}
-              >
-                <span>Present Tense</span>{" "}
-                {openSection === "present" ? "▲" : "▼"} {/* Ikon panah */}
-              </Card.Title>
-              <Card.Text>Klik untuk melihat berbagai macam Present tense.</Card.Text>
-              <Collapse in={openSection === "present"}>
-                <div id="present-collapse">
-                  <Link to="/kuis-simple-present" style={cardStyle}>
-                    <Card
-                      className="mb-4"
-                      style={cardStyle}
-                      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                    >
-                      <Card.Body>
-                        <Card.Title>Simple Present Tense</Card.Title>
-                        <Card.Text>Pelajari lebih lanjut tentang Simple Present Tense.</Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                  <Link to="/present-continuous-tense" style={cardStyle}>
-                    <Card
-                      className="mb-4"
-                      style={cardStyle}
-                      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                    >
-                      <Card.Body>
-                        <Card.Title>Present Continuous Tense</Card.Title>
-                        <Card.Text>Pelajari lebih lanjut tentang Present Continuous Tense.</Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                  <Link to="/simple-present-tense" style={cardStyle}>
-                    <Card
-                      className="mb-4"
-                      style={cardStyle}
-                      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                    >
-                      <Card.Body>
-                        <Card.Title>Present Perfect Tense</Card.Title>
-                        <Card.Text>Pelajari lebih lanjut tentang Present Perfect Tense.</Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                  <Link to="/simple-present-tense" style={cardStyle}>
-                    <Card
-                      className="mb-4"
-                      style={cardStyle}
-                      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                    >
-                      <Card.Body>
-                        <Card.Title>Present Perfect Continuous Tense</Card.Title>
-                        <Card.Text>Pelajari lebih lanjut tentang Present Perfect Continuous Tense.</Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                </div>
-              </Collapse>
-            </Card.Body>
-          </Card>
-
+        
           {/* Card Past Tense */}
           <Card className="mb-4">
             <Card.Body>
