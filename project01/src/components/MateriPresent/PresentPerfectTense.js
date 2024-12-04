@@ -8,10 +8,11 @@ const PresentPerfectTense = () => {
   const correctAnswers = {
     answer1: "has visited",
     answer2: "have not finished",
-    answer3: "have they seen",
+    answer3: "have/seen",
   };
 
   const [feedback, setFeedback] = useState([]);
+  const [error, setError] = useState("");
 
   const handleSubmit = () => {
     const answers = {
@@ -20,6 +21,13 @@ const PresentPerfectTense = () => {
       answer3: answer3Ref.current.value.trim(),
     };
 
+    if (!answers.answer1 || !answers.answer2 || !answers.answer3) {
+      setError("All questions must be answered.");
+      setFeedback([]);
+      return;
+    }
+
+    setError("");
     const newFeedback = [];
 
     for (let key in answers) {
@@ -56,20 +64,24 @@ const PresentPerfectTense = () => {
             <tr>
               <th>Sentence Type</th>
               <th>Formula</th>
+              <th>Example</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Positive</td>
               <td>Subject + Has/Have + Past Participle + Object</td>
+              <td>She has visited Paris.</td>
             </tr>
             <tr>
               <td>Negative</td>
               <td>Subject + Has/Have + Not + Past Participle + Object</td>
+              <td>We have not finished our homework.</td>
             </tr>
             <tr>
               <td>Question</td>
               <td>Has/Have + Subject + Past Participle + Object?</td>
+              <td>Have they seen the movie?</td>
             </tr>
           </tbody>
         </table>
@@ -78,6 +90,7 @@ const PresentPerfectTense = () => {
       <section className="activity-section">
         <h2>Practice Exercise</h2>
         <p>Fill in the blanks with the correct form of the verb in parentheses:</p>
+        {error && <p className="error-message">{error}</p>}
         <div className="word-list">
           <div className="word-card">
             <h3 className="word-title">Question 1</h3>

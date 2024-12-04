@@ -12,6 +12,7 @@ const SimplePresentTense = () => {
   };
 
   const [feedback, setFeedback] = useState([]);
+  const [error, setError] = useState("");
 
   const handleSubmit = () => {
     const answers = {
@@ -19,6 +20,14 @@ const SimplePresentTense = () => {
       answer2: answer2Ref.current.value.trim(),
       answer3: answer3Ref.current.value.trim(),
     };
+
+    // Check if any answer is empty
+    if (!answers.answer1 || !answers.answer2 || !answers.answer3) {
+      setError("All questions must be answered!");
+      return;
+    }
+
+    setError("");
 
     const newFeedback = [];
 
@@ -56,20 +65,24 @@ const SimplePresentTense = () => {
             <tr>
               <th>Sentence Type</th>
               <th>Formula</th>
+              <th>Example</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Positive</td>
               <td>Subject + Verb (Base Form) + Object</td>
+              <td>She walks to school.</td>
             </tr>
             <tr>
               <td>Negative</td>
               <td>Subject + Do/Does + Not + Verb (Base Form) + Object</td>
+              <td>They do not play basketball.</td>
             </tr>
             <tr>
               <td>Question</td>
               <td>Do/Does + Subject + Verb (Base Form) + Object?</td>
+              <td>Do you like ice cream?</td>
             </tr>
           </tbody>
         </table>
@@ -98,6 +111,7 @@ const SimplePresentTense = () => {
           </div>
 
           <button onClick={handleSubmit}>Submit Answers</button>
+          {error && <p className="error">{error}</p>}
         </div>
 
         <div className="feedback">

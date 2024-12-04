@@ -12,6 +12,7 @@ const PresentPerfectContinuousTense = () => {
   };
 
   const [feedback, setFeedback] = useState([]);
+  const [error, setError] = useState("");
 
   const handleSubmit = () => {
     const answers = {
@@ -19,6 +20,15 @@ const PresentPerfectContinuousTense = () => {
       answer2: answer2Ref.current.value.trim(),
       answer3: answer3Ref.current.value.trim(),
     };
+
+    // Check if all answers are provided
+    if (Object.values(answers).some((value) => value === "")) {
+      setError("All questions must be answered before submission.");
+      setFeedback([]);
+      return;
+    }
+
+    setError("");
 
     const newFeedback = Object.entries(answers).map(([key, value]) => {
       if (value.toLowerCase() === correctAnswers[key].toLowerCase()) {
@@ -55,20 +65,24 @@ const PresentPerfectContinuousTense = () => {
             <tr>
               <th>Sentence Type</th>
               <th>Formula</th>
+              <th>Example</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Positive</td>
               <td>Subject + Has/Have + Been + Verb (-ing) + Object</td>
+              <td>He has been running for two hours.</td>
             </tr>
             <tr>
               <td>Negative</td>
               <td>Subject + Has/Have + Not + Been + Verb (-ing) + Object</td>
+              <td>They have not been playing football.</td>
             </tr>
             <tr>
               <td>Question</td>
               <td>Has/Have + Subject + Been + Verb (-ing) + Object?</td>
+              <td>Have they been working on the project?</td>
             </tr>
           </tbody>
         </table>
@@ -98,6 +112,8 @@ const PresentPerfectContinuousTense = () => {
 
           <button onClick={handleSubmit}>Submit Answers</button>
         </div>
+
+        {error && <p className="error-message">{error}</p>}
 
         <div className="feedback">
           {feedback.length > 0 && (
