@@ -114,7 +114,7 @@ const Materi = () => {
               <Card.Text>Klik untuk melihat berbagai macam Past tense.</Card.Text>
               <Collapse in={openSection === "past"}>
                 <div id="past-collapse">
-                <Link to="/simple-past-tense" style={cardStyle}>
+                <Link to="/kuis-simple-past" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
