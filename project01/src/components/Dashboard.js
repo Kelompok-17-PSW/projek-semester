@@ -45,24 +45,6 @@ const Dashboard = () => {
       </Row>
       <Row>
         <Col md={2}>
-          <Card className="text-center mb-4" onClick={() => handleNavigate("/Tenses")}>
-            <Card.Body>
-              <FaBook size={50} color="#17a2b8" />
-              <Card.Title>Materi</Card.Title>
-              <Card.Text>Selesai: - Tenses</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={2}>
-          <Card className="text-center mb-4" onClick={() => handleNavigate("/latihan-menulis")}>
-            <Card.Body>
-              <FaPenFancy size={50} color="#28a745" />
-              <Card.Title>Latihan Menulis</Card.Title>
-              <Card.Text>Submit: 3 esai</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={2}>
           <Card className="text-center mb-4" onClick={() => handleNavigate("/kuis")}>
             <Card.Body>
               <FaQuestionCircle size={50} color="#ffc107" />
@@ -80,26 +62,7 @@ const Dashboard = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col md={2}>
-          <Card className="text-center mb-4" onClick={() => handleNavigate("/forum-diskusi")}>
-            <Card.Body>
-              <FaComments size={50} color="#007bff" />
-              <Card.Title>Forum Diskusi</Card.Title>
-              <Card.Text>Diskusi aktif: 12</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={2}>
-          <Card className="text-center mb-4" onClick={() => handleNavigate("/nilai")}>
-            <Card.Body>
-              <FaGraduationCap size={50} color="#dc3545" />
-              <Card.Title>Nilai Keseluruhan</Card.Title>
-              <Card.Text>Rata-rata: 100%</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
       </Row>
-      {}
       <Row>
         <Col md={6}>
           <Card className="mb-4" >
@@ -122,7 +85,6 @@ const Dashboard = () => {
           </Card>
         </Col>
       </Row>
-      {}
       <Row>
         <Col md={12}>
           <Card className="mb-4">
@@ -138,17 +100,33 @@ const Dashboard = () => {
           </Card>
         </Col>
       </Row>
+      <Row>
+        <Col md={12}>
+          <Card className="mb-4">
+            <Card.Body>
+              <Card.Title>Cara cepat</Card.Title>
+              <iframe width="560" 
+              height="315" 
+              src="https://www.youtube.com/embed/B2IldXHBDA0?si=bRRGQVNuoeetP0wZ" 
+              title="YouTube video player" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
       <div className="logout-container">
-  <Button 
-    variant="danger" 
-    onClick={handleLogout} 
-    className="logout-button"
-  >
-    Logout
-  </Button>
-</div>
-
+        <Button 
+          variant="danger" 
+          onClick={handleLogout} 
+          className="logout-button"
+        >
+          Logout
+        </Button>
+      </div>
     </Container>
   );
 }
- export default Dashboard;
+
+export default Dashboard;
