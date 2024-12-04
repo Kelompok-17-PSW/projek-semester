@@ -1,4 +1,4 @@
-import React, {useState, useRef} from "react";
+import React, { useState, useRef } from "react";
 import "./SimpleFuture.css";
 
 const FuturePerfect = () => {
@@ -50,18 +50,35 @@ const FuturePerfect = () => {
       }
     }
 
-    setFeedback(newFeedback); 
+    setFeedback(newFeedback);
   };
 
+  // Mengecek jika tombol submit bisa ditekan
+  const isSubmitDisabled = () => {
+    const allAnswersFilled = 
+      answer1Ref.current?.value.trim() &&
+      answer2Ref.current?.value.trim() &&
+      answer3Ref.current?.value.trim() &&
+      answer4Ref.current?.value.trim() &&
+      answer5Ref.current?.value.trim() &&
+      answer6Ref.current?.value.trim() &&
+      answer7Ref.current?.value.trim() &&
+      answer8Ref.current?.value.trim();
 
+    console.log('All answers filled:', allAnswersFilled);  // Debugging log
+    return !allAnswersFilled;
+  };
+
+  
   const adverbData = [
     { english: "By 5 p.m.", indonesian: "Menjelang jam 5 sore" },
     { english: "By Afternoon", indonesian: "Menjelang siang" },
     { english: "By Next Week", indonesian: "Menjelang minggu depan" },
-    { english: "By Sunday ", indonesian: "Menjelang hari Minggu" },
+    { english: "By Sunday", indonesian: "Menjelang hari Minggu" },
     { english: "By Tomorrow", indonesian: "Menjelang besok" },
     { english: "By Next Month", indonesian: "Menjelang bulan depan" },
   ];
+
 
   return (
     <div className="container">
@@ -202,12 +219,12 @@ const FuturePerfect = () => {
 
       <section className="activity-section">
         <h2>Activity</h2>
-        <p>Do the following questions as an exercise on the future continuous tense.</p>
+        <p>Do the following questions as an exercise on the future perfect tense.</p>
         <div className="word-list">
           <div className="word-card">
             <h3 className="word-title nailed">Question 1</h3>
             <p className="word-meaning">
-            They ... their study by evening.
+              They ... their study by evening.
             </p>
             <input
               type="text"
@@ -219,7 +236,7 @@ const FuturePerfect = () => {
           <div className="word-card">
             <h3 className="word-title beauty-pageant">Question 2</h3>
             <p className="word-meaning">
-            Merry ... the book before you ask her.
+              Merry ... the book before you ask her.
             </p>
             <input
               type="text"
@@ -231,7 +248,7 @@ const FuturePerfect = () => {
           <div className="word-card">
             <h3 className="word-title mind-blowing">Question 3</h3>
             <p className="word-meaning">
-             By the end of this month, I ... back from Singapore.
+              By the end of this month, I ... back from Singapore.
             </p>
             <input
               type="text"
@@ -243,7 +260,7 @@ const FuturePerfect = () => {
           <div className="word-card">
             <h3 className="word-title alarmed">Question 4</h3>
             <p className="word-meaning">
-            By this time next week, Jennifer ... in Oxford University for 3 years.
+              By this time next week, Jennifer ... in Oxford University for 3 years.
             </p>
             <input
               type="text"
@@ -255,7 +272,7 @@ const FuturePerfect = () => {
           <div className="word-card">
             <h3 className="word-title recruitment">Question 5</h3>
             <p className="word-meaning">
-            She ... in this company for ten years by the end of next month.
+              She ... in this company for ten years by the end of next month.
             </p>
             <input
               type="text"
@@ -279,8 +296,7 @@ const FuturePerfect = () => {
           <div className="word-card">
             <h3 className="word-title mean">Question 7</h3>
             <p className="word-meaning">
-            He is in the Hospital.
-           <p></p> Transform into the Future Perfect Tense
+              He is in the Hospital. <br /> Transform into the Future Perfect Tense
             </p>
             <input
               type="text"
@@ -292,8 +308,7 @@ const FuturePerfect = () => {
           <div className="word-card">
             <h3 className="word-title not-visible">Question 8</h3>
             <p className="word-meaning">
-            My father will have been sleeping.
-           <p></p> Transform into the Future Perfect Tense Question Form
+              My father will have been sleeping. <br /> Transform into the Future Perfect Tense Question Form
             </p>
             <input
               type="text"
@@ -302,7 +317,7 @@ const FuturePerfect = () => {
             />
           </div>
 
-          <button onClick={handleSubmit}>Submit Answers</button>
+          <button onClick={handleSubmit} disabled={isSubmitDisabled()}>Submit Answers</button>
         </div>
 
         <div className="feedback">
