@@ -2,59 +2,59 @@ import React, {useState, useRef} from "react";
 import "../MateriPastTense/PastTense.css";
 
 const SimplePast = () => {
-  const answer1Ref = useRef();
-  const answer2Ref = useRef();
-  const answer3Ref = useRef();
-  const answer4Ref = useRef();
-  const answer5Ref = useRef();
-  const answer6Ref = useRef();
-  const answer7Ref = useRef();
-  const answer8Ref = useRef();
+  const questionRefs = useRef([]);
+  const correctAnswers = [
+    { answer: "wrote"},
+    { answer: "was gave"},
+    { answer: "sang" },
+    { answer: "climbed" },
+    { answer: "did he speak"},
+    { answer: "did the girls dance" },
+    { answer: "did not read" },
+    { answer: "began" },
+    { answer: "walked" },
+    { answer: "did not watch" },
+  ];
 
-  // Jawaban yang benar
-  const correctAnswers = {
-    answer1: "wrote",
-    answer2: "gave",
-    answer3: "sang",
-    answer4: "climbed",
-    answer5: "did he speak",
-    answer6: "did the girls dance",
-    answer7: "did not read",
-    answer8: "began",
-    answer9: "studied",
-    answer10: "cooked",
+  const [answers, setAnswers] = useState(Array(correctAnswers.length).fill(""));
+  const [errors, setErrors] = useState(Array(correctAnswers.length).fill(false));
+  const [feedback, setFeedback] = useState(Array(correctAnswers.length).fill({ isCorrect: null, explanation: "" }));
+  const [score, setScore] = useState(null);
+
+  const handleChange = (index, value) => {
+    const newAnswers = [...answers];
+    newAnswers[index] = value;
+    setAnswers(newAnswers);
+
+    const newErrors = [...errors];
+    newErrors[index] = value.trim() === "";
+    setErrors(newErrors);
   };
 
-  // Menyimpan hasil pengecekan jawaban
-  const [feedback, setFeedback] = useState([]);
-
-  // Fungsi untuk memeriksa jawaban
   const handleSubmit = () => {
-    const answers = {
-      answer1: answer1Ref.current.value.trim(),
-      answer2: answer2Ref.current.value.trim(),
-      answer3: answer3Ref.current.value.trim(),
-      answer4: answer4Ref.current.value.trim(),
-      answer5: answer5Ref.current.value.trim(),
-      answer6: answer6Ref.current.value.trim(),
-      answer7: answer7Ref.current.value.trim(),
-      answer8: answer8Ref.current.value.trim(),
-    };
+    const newErrors = answers.map((answer) => answer.trim() === "");
+    setErrors(newErrors);
 
-    const newFeedback = [];
-
-    // Memeriksa setiap jawaban
-    for (let key in answers) {
-      if (answers[key].toLowerCase() === correctAnswers[key].toLowerCase()) {
-        newFeedback.push(`${key}: Correct`);
-      } else {
-        newFeedback.push(`${key}: Incorrect (Correct answer: ${correctAnswers[key]})`);
-      }
+    if (newErrors.some((error) => error)) {
+      setFeedback(Array(correctAnswers.length).fill({ isCorrect: null, explanation: "" }));
+      setScore(null);
+      return;
     }
 
-    setFeedback(newFeedback); // Mengupdate feedback dengan hasil pemeriksaan
-  };
+    const newFeedback = answers.map((answer, index) => {
+      const isCorrect =
+        answer.trim().toLowerCase() === correctAnswers[index].answer.toLowerCase();
+      return {
+        isCorrect,
+        explanation: isCorrect ? "Correct!" : correctAnswers[index].explanation
+      };
+    });
 
+    const totalScore = newFeedback.reduce((acc, item) => acc + (item.isCorrect ? 10 : 0), 0);
+
+    setFeedback(newFeedback);
+    setScore(totalScore);
+  };
   return (
     <div className="container">
       <header className="header">
@@ -320,128 +320,64 @@ const SimplePast = () => {
       </table>
     </div>
 
-    <section className="activity-section">
-      <h2>Activity</h2>
-      <p>
-      Rewrite the following sentences using Simple Past Tense.</p>
-      <div className="word-list">
-        <div className="word-card">
-          <h3 className="word-title nailed">Question 1</h3>
-          <p className="word-meaning">
-          My Mom (write) a letter to Aunt Tina in Japan yesterday. 
-          </p>
-          <input
-            type="text"
-            ref={answer1Ref}
-            placeholder="Your answer"
-          />
-        </div>
+    <h3>Activity: Complete the sentences below</h3>
+<div className="questions-container">
+{correctAnswers.map((question, index) => (
+  <div key={index} className={`question-box ${errors[index] ? "error" : ""}`}>
+    <h4>Question {index + 1}</h4>
+    <p>{` ${
+      index === 0
+        ? "My mom ...(write) a letter to aunt tina in Japan yesterday"
+        : index === 1
+        ? "This morning, the rain ... harder and harder. (get)"
+        : index === 2
+        ? "Halimah...(give) some me some stationery as my birthday present this morning"
+        : index === 3
+        ? "The children ... (sing) together in the choir competition last sunday (catch)"
+        : index === 4
+        ? "my dad and i... (climb) Papandayan mount together three moths ago "
+        : index === 5
+        ? "(he speak) politely to his elder brother just now"
+        : index === 6
+        ? "(the girls dance) beautifully on the main stage last night"
+        : index === 7
+        ? "The students (not read) the text to discuss yesterday's lesson"
+        : index === 8
+        ? "Kristina ... (not watch) the movie last night"
+        : "Yesterday i saw Mei...(walk) beac"
+    }`}</p>
+    <input
+      type="text"
+      placeholder="Your answer"
+      value={answers[index]}
+      onChange={(e) => handleChange(index, e.target.value)}
+      ref={(el) => (questionRefs.current[index] = el)}
+    />
+    {errors[index] && <p className="validation-error">This field is required!</p>}
+    {feedback[index].isCorrect !== null && (
+      <p className={`feedback ${feedback[index].isCorrect ? "correct" : "incorrect"}`}>
+        {feedback[index].explanation}
+      </p>
+    )}
+  </div>
+))}
+</div>
 
-        <div className="word-card">
-          <h3 className="word-title beauty-pageant">Question 2</h3>
-          <p className="word-meaning">
-          Halimah (give) me some stationery as my birthday present this morning.
-          </p>
-          <input
-            type="text"
-            ref={answer2Ref}
-            placeholder="Your answer"
-          />
-        </div>
+<button className="submit-button" onClick={handleSubmit}>
+Submit Answers
+</button>
 
-        <div className="word-card">
-          <h3 className="word-title mind-blowing">Question 3</h3>
-          <p className="word-meaning">
-          The children (sing) together in the choir competition last Sunday.
-          </p>
-          <input
-            type="text"
-            ref={answer3Ref}
-            placeholder="Your answer"
-          />
-        </div>
-
-        <div className="word-card">
-          <h3 className="word-title alarmed">Question 4</h3>
-          <p className="word-meaning">
-          My dad and I (climb) Papandayan Mount together three months ago.
-          </p>
-          <input
-            type="text"
-            ref={answer4Ref}
-            placeholder="Your answer"
-          />
-        </div>
-
-        <div className="word-card">
-          <h3 className="word-title recruitment">Question 5</h3>
-          <p className="word-meaning">
-          (he speak) politely to his elder brother just now? 
-          </p>
-          <input
-            type="text"
-            ref={answer5Ref}
-            placeholder="Your answer"
-          />
-        </div>
-
-        <div className="word-card">
-          <h3 className="word-title upset">Question 6</h3>
-          <p className="word-meaning">
-          (the girls dance) beautifully on the main stage last night?
-          </p>
-          <input
-            type="text"
-            ref={answer6Ref}
-            placeholder="Your answer"
-          />
-        </div>
-
-        <div className="word-card">
-          <h3 className="word-title mean">Question 7</h3>
-          <p className="word-meaning">
-          The students (not read) the text to discuss yesterday morning.
-          </p>
-          <input
-            type="text"
-            ref={answer7Ref}
-            placeholder="Your answer"
-          />
-        </div>
-
-        <div className="word-card">
-          <h3 className="word-title not-visible">Question 8</h3>
-          <p className="word-meaning">
-          The movie (begin) at nine o'clock.
-          </p>
-          <input
-            type="text"
-            ref={answer8Ref}
-            placeholder="Your answer"
-          />
-        </div>
-
-        {/* Tombol submit untuk menampilkan hasil */}
-        <button onClick={handleSubmit}>Submit Answers</button>
-      </div>
-
-      {/* Menampilkan hasil feedback */}
-      <div className="feedback">
-        {feedback.length > 0 && (
-          <ul>
-            {feedback.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </section>
-    <p>Ingin lebih banyak latihan? Ayo melatih diri dengan kuis</p>
+{score !== null && (
+<div className="result-section">
+  <h3>Your Score: {score} / {correctAnswers.length * 10}</h3>
+</div>
+)}
+<p>Ingin lebih banyak latihan? Ayo melatih diri dengan kuis</p>
     <div class="button-container">
       <a href="/kuis" class="styled-button">Quiz</a>
     </div>
-  </div>
-  );
+</div>
+);
 };
 
 export default SimplePast;
