@@ -1,66 +1,80 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import "../Quis/KuisSimplePast.css"; 
 
-function KuisSimpleFuture() {
-  // Data pertanyaan dan pilihan jawaban
+const KuisPastContinuousTense = () => {
   const questions = [
     {
-      question: "I expect, they ... me this evening.(phone)",
-      options: ["Will not phone", "Will phone", "Would phone", "Are not phone"],
-      correctAnswer: "Will phone",
+      question: "She ___ (study) when I called her.",
+      options: ["was studying", "is studying", "studied", "studies"],
+      correctAnswer: "was studying",
     },
     {
-      question: "Don’t touch this plate, IF you touch it, you ... yourself. (burn)",
-      options: ["will not be burn", " Will not burn", "will be burn", "Will burn"],
-      correctAnswer: "Will burn",
+      question: "They ___ (watch) a movie when the lights went out.",
+      options: ["were watching", "watch", "were watched", "watched"],
+      correctAnswer: "were watching",
     },
     {
-      question: "We ... house next month. (make)",
-      options: ["Will not make", "Will make", "is making", " would made"],
-      correctAnswer: "Will make",
+      question: "At this time last week, we ___ (eat) dinner.",
+      options: ["were eating", "are eating", "ate", "eat"],
+      correctAnswer: "were eating",
     },
     {
-      question: " My sister ... not ... to the concert tonight.",
-      options: ["Will/go", " Will/going", "Did/go", "Do/go"],
-      correctAnswer: "Will/go",
+      question: "I ___ (do) my homework when you arrived.",
+      options: ["was doing", "is doing", "were doing", "did"],
+      correctAnswer: "was doing",
     },
     {
-      question: " ... i help you to take dinner?",
-      options: ["is", "Am", "Shall", "Are"],
-      correctAnswer: "Shall",
+      question: "They ___ (not work) when the boss came in.",
+      options: ["weren't working", "weren't work", "didn't work", "not working"],
+      correctAnswer: "weren't working",
+    },
+    {
+      question: "She ___ (talk) to her friend on the phone at 10 p.m.",
+      options: ["was talking", "talked", "is talking", "talks"],
+      correctAnswer: "was talking",
+    },
+    {
+      question: "I ___ (read) a book when the phone rang.",
+      options: ["was reading", "am reading", "read", "reads"],
+      correctAnswer: "was reading",
+    },
+    {
+      question: "We ___ (play) football when it started to rain.",
+      options: ["were playing", "are playing", "played", "playing"],
+      correctAnswer: "were playing",
+    },
+    {
+      question: "At 8 o'clock, he ___ (sleep).",
+      options: ["was sleeping", "is sleeping", "sleeps", "sleeped"],
+      correctAnswer: "was sleeping",
+    },
+    {
+      question: "They ___ (not enjoy) the concert last night.",
+      options: ["weren't enjoying", "aren't enjoying", "didn't enjoy", "don't enjoy"],
+      correctAnswer: "weren't enjoying",
     },
   ];
 
-  // State untuk menyimpan indeks soal yang sedang ditampilkan
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-
-  // State untuk menyimpan jumlah skor benar dan salah
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [wrongAnswers, setWrongAnswers] = useState(0);
-
-  // State untuk menyimpan status apakah kuis selesai
   const [quizFinished, setQuizFinished] = useState(false);
 
-  // Fungsi untuk menangani pilihan jawaban
   const handleAnswer = (selectedAnswer) => {
-    // Cek apakah jawaban benar atau salah
     if (selectedAnswer === questions[currentQuestionIndex].correctAnswer) {
       setCorrectAnswers(correctAnswers + 1);
     } else {
       setWrongAnswers(wrongAnswers + 1);
     }
 
-    // Pindah ke soal berikutnya setelah memberikan jawaban
     const nextQuestionIndex = currentQuestionIndex + 1;
     if (nextQuestionIndex < questions.length) {
       setCurrentQuestionIndex(nextQuestionIndex);
     } else {
-      // Jika sudah selesai
       setQuizFinished(true);
     }
   };
 
-  // Fungsi untuk mengulang kuis
   const restartQuiz = () => {
     setCurrentQuestionIndex(0);
     setCorrectAnswers(0);
@@ -69,16 +83,15 @@ function KuisSimpleFuture() {
   };
 
   const goToMenu = () => {
-    window.location.href = '/bab2';  
+    window.location.href = '/bab4';  
   };
 
   if (quizFinished) {
-    // Tampilan akhir kuis
     return (
       <div className="quiz-finish-container">
         <h1>😊 Good Job</h1>
         <ul className="result-list">
-          <li>Pelajaran Ke : 1</li>
+          <li>Pelajaran Ke : 2</li>
           <li>Jumlah Soal : {questions.length}</li>
           <li>Jawaban Benar : {correctAnswers}</li>
           <li>Jawaban Salah : {wrongAnswers}</li>
@@ -90,14 +103,13 @@ function KuisSimpleFuture() {
             ULANGI
           </button>
           <button className="menu-button" onClick={goToMenu}>
-          MENU
-        </button>
+            MENU
+          </button>
         </div>
       </div>
     );
   }
 
-  // Ambil soal dan pilihan jawaban yang sesuai dengan indeks saat ini
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
@@ -125,6 +137,6 @@ function KuisSimpleFuture() {
       </div>
     </div>
   );
-}
+};
 
-export default KuisSimpleFuture;
+export default KuisPastContinuousTense;

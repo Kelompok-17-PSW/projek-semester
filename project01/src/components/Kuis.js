@@ -127,7 +127,7 @@ const Kuis = () => {
                       </Card.Body>
                     </Card>
                   </Link>
-                  <Link to="/past-continuous-tense" style={cardStyle}>
+                  <Link to="/kuis-past-continuous" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
@@ -140,7 +140,7 @@ const Kuis = () => {
                       </Card.Body>
                     </Card>
                   </Link>
-                  <Link to="/past-perfect-tense" style={cardStyle}>
+                  <Link to="/kuis-past-perfect" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
@@ -153,7 +153,7 @@ const Kuis = () => {
                       </Card.Body>
                     </Card>
                   </Link>
-                  <Link to="/present-perfect-continuous-tense" style={cardStyle}>
+                  <Link to="/kuis-past-perfect-continuous" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
