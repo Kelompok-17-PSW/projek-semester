@@ -60,6 +60,7 @@ const App = () => {
           <Route path="/future-perfect-tense" element={<FuturePerfect/>} />
           <Route path="/future-perfect-continuous" element={<FuturePerfectContinuos/>} />
           <Route path="/kuis-future-perfect" element={<KuisFuturePerfect />} />
+          <Route path="/kuis-future-continuous" element={<KuisFutureContinuous />} />
           <Route path='/kuis-simple-present' element={<KuisSimplePresent />} />
         </Routes>
       </div>
