@@ -43,7 +43,7 @@ const Kuis = () => {
               <Card.Text>Klik untuk melihat berbagai macam Present tense.</Card.Text>
               <Collapse in={openSection === "present"}>
                 <div id="present-collapse">
-                  <Link to="/simple-present-tense" style={cardStyle}>
+                  <Link to="/kuis-simple-present" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
