@@ -1,5 +1,5 @@
 import React, { useState} from "react";
-import "./KuisSimplePast.css";
+import "../Quis/KuisSimplePast.css"; 
 
 function KuisFutureContinuous() {
   // Data pertanyaan dan pilihan jawaban
