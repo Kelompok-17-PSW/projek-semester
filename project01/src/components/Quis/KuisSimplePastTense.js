@@ -5,100 +5,136 @@ const KuisSimplePastTense = () => {
   const questions = [
     {
       question: "She ___ a letter yesterday. (write)",
-      answer: "wrote",
+      options: ["wrote", "write", "written", "writes"],
+      correctAnswer: "wrote",
     },
     {
       question: "They ___ to the cinema last night. (go)",
-      answer: "went",
+      options: ["went", "go", "going", "gone"],
+      correctAnswer: "went",
     },
     {
       question: "I ___ the book on the table. (put)",
-      answer: "put",
+      options: ["put", "puts", "putted", "putting"],
+      correctAnswer: "put",
     },
     {
       question: "He ___ his homework last night. (do)",
-      answer: "did",
+      options: ["did", "done", "does", "doing"],
+      correctAnswer: "did",
     },
     {
       question: "We ___ a great time at the party. (have)",
-      answer: "had",
+      options: ["had", "have", "having", "haved"],
+      correctAnswer: "had",
     },
     {
       question: "You ___ the movie already. (see)",
-      answer: "saw",
+      options: ["saw", "seen", "seeing", "see"],
+      correctAnswer: "saw",
     },
     {
       question: "She ___ a new car last week. (buy)",
-      answer: "bought",
+      options: ["bought", "buys", "buyed", "buying"],
+      correctAnswer: "bought",
     },
     {
       question: "They ___ the marathon. (run)",
-      answer: "ran",
+      options: ["ran", "run", "runned", "running"],
+      correctAnswer: "ran",
     },
     {
       question: "I ___ breakfast early this morning. (eat)",
-      answer: "ate",
+      options: ["ate", "eats", "eaten", "eating"],
+      correctAnswer: "ate",
     },
     {
       question: "He ___ the ball to me. (throw)",
-      answer: "threw",
+      options: ["threw", "throwed", "throw", "throwing"],
+      correctAnswer: "threw",
     },
   ];
 
-  const [answers, setAnswers] = useState(Array(questions.length).fill(""));
-  const [feedback, setFeedback] = useState(Array(questions.length).fill(null));
-  const [score, setScore] = useState(null);
-  const [submitted, setSubmitted] = useState(false);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [wrongAnswers, setWrongAnswers] = useState(0);
+  const [quizFinished, setQuizFinished] = useState(false);
 
-  const handleChange = (index, value) => {
-    const newAnswers = [...answers];
-    newAnswers[index] = value;
-    setAnswers(newAnswers);
+  const handleAnswer = (selectedAnswer) => {
+    if (selectedAnswer === questions[currentQuestionIndex].correctAnswer) {
+      setCorrectAnswers(correctAnswers + 1);
+    } else {
+      setWrongAnswers(wrongAnswers + 1);
+    }
+
+    const nextQuestionIndex = currentQuestionIndex + 1;
+    if (nextQuestionIndex < questions.length) {
+      setCurrentQuestionIndex(nextQuestionIndex);
+    } else {
+      setQuizFinished(true);
+    }
   };
 
-  const handleSubmit = () => {
-    const newFeedback = questions.map((q, index) => {
-      const isCorrect = answers[index].trim().toLowerCase() === q.answer.toLowerCase();
-      return {
-        isCorrect,
-        correctAnswer: q.answer,
-      };
-    });
-
-    const totalScore = newFeedback.reduce((acc, feedback) => acc + (feedback.isCorrect ? 10 : 0), 0);
-
-    setFeedback(newFeedback);
-    setScore(totalScore);
-    setSubmitted(true);
+  const restartQuiz = () => {
+    setCurrentQuestionIndex(0);
+    setCorrectAnswers(0);
+    setWrongAnswers(0);
+    setQuizFinished(false);
   };
+
+  const goToMenu = () => {
+    window.location.href = '/bab4';  
+  };
+
+  if (quizFinished) {
+    return (
+      <div className="quiz-finish-container">
+        <h1>😊 Good Job</h1>
+        <ul className="result-list">
+          <li>Pelajaran Ke : 1</li>
+          <li>Jumlah Soal : {questions.length}</li>
+          <li>Jawaban Benar : {correctAnswers}</li>
+          <li>Jawaban Salah : {wrongAnswers}</li>
+          <li>Nilai : {Math.round((correctAnswers / questions.length) * 100)}</li>
+          <li>Keterangan : {correctAnswers / questions.length >= 0.6 ? "Lulus" : "Tidak Lulus"}</li>
+        </ul>
+        <div className="button-group">
+          <button className="restart-button" onClick={restartQuiz}>
+            ULANGI
+          </button>
+          <button className="menu-button" onClick={goToMenu}>
+            MENU
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const currentQuestion = questions[currentQuestionIndex];
 
   return (
     <div className="quiz-container">
-      <h1>Simple Past Tense Quiz</h1>
-      {questions.map((q, index) => (
-        <div key={index} className={`question-box ${feedback[index]?.isCorrect === false ? "incorrect" : ""}`}>
-          <h4>{q.question}</h4>
-          <input
-            type="text"
-            value={answers[index]}
-            onChange={(e) => handleChange(index, e.target.value)}
-            className={feedback[index]?.isCorrect === false ? "input-incorrect" : ""}
-          />
-          {submitted && (
-            <p className="feedback">
-              {feedback[index].isCorrect ? "Correct!" : `Incorrect, the correct answer is "${feedback[index].correctAnswer}"`}
-            </p>
-          )}
+      <header className="quiz-header">
+        <div className="question-number">No. {currentQuestionIndex + 1}</div>
+        <div className="score-container">
+          <span className="correct-score">✔ {correctAnswers}</span>
+          <span className="wrong-score">✖ {wrongAnswers}</span>
         </div>
-      ))}
-      <button onClick={handleSubmit} className="submit-button">
-        Submit Answers
-      </button>
-      {submitted && (
-        <div className="result-section">
-          <h3>Your Score: {score} / {questions.length * 10}</h3>
-        </div>
-      )}
+      </header>
+      <div className="question-box">
+        <p>{currentQuestion.question}</p>
+      </div>
+      <div className="answer-options">
+        {currentQuestion.options.map((option, index) => (
+          <button
+            key={index}
+            className="answer-button"
+            onClick={() => handleAnswer(option)}
+          >
+            {option}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
