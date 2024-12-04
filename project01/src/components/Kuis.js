@@ -69,7 +69,7 @@ const Materi = () => {
                       </Card.Body>
                     </Card>
                   </Link>
-                  <Link to="/present-perfect-tense" style={cardStyle}>
+                  <Link to="/simple-present-tense" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
@@ -82,7 +82,7 @@ const Materi = () => {
                       </Card.Body>
                     </Card>
                   </Link>
-                  <Link to="/present-perfect-continuous-tense" style={cardStyle}>
+                  <Link to="/simple-present-tense" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
@@ -91,9 +91,7 @@ const Materi = () => {
                     >
                       <Card.Body>
                         <Card.Title>Present Perfect Continuous Tense</Card.Title>
-                        <Card.Text>
-                          Pelajari lebih lanjut tentang Present Perfect Continuous Tense.
-                        </Card.Text>
+                        <Card.Text>Pelajari lebih lanjut tentang Present Perfect Continuous Tense.</Card.Text>
                       </Card.Body>
                     </Card>
                   </Link>
@@ -155,7 +153,7 @@ const Materi = () => {
                       </Card.Body>
                     </Card>
                   </Link>
-                  <Link to="/past-perfect-continuous-tense" style={cardStyle}>
+                  <Link to="/present-perfect-continuous-tense" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
@@ -187,7 +185,7 @@ const Materi = () => {
               <Card.Text>Klik untuk melihat berbagai macam Future tense.</Card.Text>
               <Collapse in={openSection === "future"}>
                 <div id="future-collapse">
-                  <Link to="/simple-future" style={cardStyle}>
+                  <Link to="/kuis-simple-future" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
@@ -200,7 +198,7 @@ const Materi = () => {
                       </Card.Body>
                     </Card>
                   </Link>
-                  <Link to="/future-continuous-tense" style={cardStyle}>
+                  <Link to="/kuis-future-continuous" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
@@ -213,7 +211,7 @@ const Materi = () => {
                       </Card.Body>
                     </Card>
                   </Link>
-                  <Link to="/future-perfect-tense" style={cardStyle}>
+                  <Link to="/kuis-future-perfect" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
