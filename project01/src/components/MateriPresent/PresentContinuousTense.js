@@ -20,6 +20,12 @@ const PresentContinuousTense = () => {
       answer3: answer3Ref.current.value.trim(),
     };
 
+    // Check if all answers are provided
+    if (!answers.answer1 || !answers.answer2 || !answers.answer3) {
+      alert("Please answer all questions before submitting.");
+      return;
+    }
+
     const newFeedback = [];
 
     for (let key in answers) {
@@ -56,20 +62,24 @@ const PresentContinuousTense = () => {
             <tr>
               <th>Sentence Type</th>
               <th>Formula</th>
+              <th>Example</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Positive</td>
               <td>Subject + Am/Is/Are + Verb (-ing) + Object</td>
+              <td>She is reading a book.</td>
             </tr>
             <tr>
               <td>Negative</td>
               <td>Subject + Am/Is/Are + Not + Verb (-ing) + Object</td>
+              <td>They are not playing soccer.</td>
             </tr>
             <tr>
               <td>Question</td>
               <td>Am/Is/Are + Subject + Verb (-ing) + Object?</td>
+              <td>Are you coming to the party?</td>
             </tr>
           </tbody>
         </table>
@@ -82,19 +92,19 @@ const PresentContinuousTense = () => {
           <div className="word-card">
             <h3 className="word-title">Question 1</h3>
             <p>He __________ (run) in the park right now.</p>
-            <input type="text" ref={answer1Ref} placeholder="Your answer" />
+            <input type="text" ref={answer1Ref} placeholder="Your answer" required />
           </div>
 
           <div className="word-card">
             <h3 className="word-title">Question 2</h3>
             <p>They __________ (not/eat) dinner at the moment.</p>
-            <input type="text" ref={answer2Ref} placeholder="Your answer" />
+            <input type="text" ref={answer2Ref} placeholder="Your answer" required />
           </div>
 
           <div className="word-card">
             <h3 className="word-title">Question 3</h3>
             <p>__________ they __________ (watch) TV right now?</p>
-            <input type="text" ref={answer3Ref} placeholder="Your answer" />
+            <input type="text" ref={answer3Ref} placeholder="Your answer" required />
           </div>
 
           <button onClick={handleSubmit}>Submit Answers</button>
