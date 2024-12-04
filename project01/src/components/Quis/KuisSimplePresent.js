@@ -4,29 +4,29 @@ import "./KuisSimpleFuture.css";
 function KuisSimplePresent() {
   const questions = [
     {
-      question: "He ... to school every day. (go)",
-      options: ["go", "goes", "going", "gone"],
-      correctAnswer: "goes",
+      question: " She … her dog everyday(feed)",
+      options: ["To feed", " Feed", "Feeds", " Feeding"],
+      correctAnswer: "Feeds",
     },
     {
-      question: "They ... soccer on weekends. (play)",
-      options: ["play", "plays", "playing", "played"],
-      correctAnswer: "play",
+      question: "Tom and I … …(surf) together.",
+      options: ["Do surfinga", "Don’t surfing", " Do surfs", "Don’t surf"],
+      correctAnswer: "Don’t surf",
     },
     {
-      question: "She ... coffee every morning. (drink)",
-      options: ["drink", "drinks", "drinking", "drank"],
-      correctAnswer: "drinks",
+      question: "I … breakfast every day at 7 AM(eat)",
+      options: [" Eat", "To eat", "Ate", " Eaten"],
+      correctAnswer: " Eat",
     },
     {
-      question: "I ... my homework after school. (do)",
-      options: ["do", "does", "doing", "done"],
-      correctAnswer: "do",
+      question: "We sometimes … by chance in the convenience store.(meet)",
+      options: ["Meets", "Meet", "Meeting", " Will meets"],
+      correctAnswer: "Meets",
     },
     {
-      question: "The sun ... in the east. (rise)",
-      options: ["rise", "rises", "rising", "rose"],
-      correctAnswer: "rises",
+      question: "Who … towards the post office?(walk)",
+      options: ["Walks", "rises", " Is walk", " Walked"],
+      correctAnswer: " Is walking",
     },
   ];
 

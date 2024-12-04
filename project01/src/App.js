@@ -26,7 +26,7 @@ import PresentPerfectTense from './components/MateriPresent/PresentPerfectTense'
 import KuisSimpleFuture from './components/Quis/KuisSimpleFuture';
 import KuisFuturePerfect from './components/Quis/KuisFuturePerfect';
 import KuisFutureContinuous from './components/Quis/KuisFutureContinuous';
-
+import KuisSimplePresent from './components/Quis/KuisSimplePresent';
 
 const App = () => {
   const isAuthPage = ["/login", "/register"].includes(window.location.pathname);
@@ -60,7 +60,7 @@ const App = () => {
           <Route path="/future-perfect-tense" element={<FuturePerfect/>} />
           <Route path="/future-perfect-continuous" element={<FuturePerfectContinuos/>} />
           <Route path="/kuis-future-perfect" element={<KuisFuturePerfect />} />
-          <Route path="/kuis-future-continuous" element={<KuisFutureContinuous />} />
+          <Route path='/kuis-simple-present' element={<KuisSimplePresent />} />
         </Routes>
       </div>
     </Router>
