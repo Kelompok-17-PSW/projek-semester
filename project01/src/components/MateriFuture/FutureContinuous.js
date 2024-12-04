@@ -11,6 +11,7 @@ const FutureContinuous = () => {
   const answer7Ref = useRef();
   const answer8Ref = useRef();
 
+  
   // Jawaban yang benar
   const correctAnswers = {
     answer1: "will be having",
@@ -170,118 +171,136 @@ const FutureContinuous = () => {
       </section>
 
       <section className="activity-section">
-        <h2>Activity</h2>
-        <p>Do the following questions as an exercise on the future continuous tense.</p>
-        <div className="word-list">
-          <div className="word-card">
-            <h3 className="word-title nailed">Question 1</h3>
-            <p className="word-meaning">
-              At 9 pm tonight, I ___ dinner with my family.
-            </p>
-            <input
-              type="text"
-              ref={answer1Ref} 
-              placeholder="Your answer"
-            />
-          </div>
+  <h2>Activity</h2>
+  <p>Do the following questions as an exercise on the future continuous tense.</p>
+  <div className="word-list">
+    <div className="word-card">
+      <h3 className="word-title nailed">Question 1</h3>
+      <p className="word-meaning">
+        At 9 pm tonight, I ___ dinner with my family.
+      </p>
+      <input
+        type="text"
+        ref={answer1Ref}
+        placeholder="Your answer"
+      />
+    </div>
 
-          <div className="word-card">
-            <h3 className="word-title beauty-pageant">Question 2</h3>
-            <p className="word-meaning">
-              What ___ you ___ when I call you later?
-            </p>
-            <input
-              type="text"
-              ref={answer2Ref}
-              placeholder="Your answer"
-            />
-          </div>
+    <div className="word-card">
+      <h3 className="word-title beauty-pageant">Question 2</h3>
+      <p className="word-meaning">
+        What ___ you ___ when I call you later?
+      </p>
+      <input
+        type="text"
+        ref={answer2Ref}
+        placeholder="Your answer"
+      />
+    </div>
 
-          <div className="word-card">
-            <h3 className="word-title mind-blowing">Question 3</h3>
-            <p className="word-meaning">
-              At this time tomorrow, she ___ the exam.
-            </p>
-            <input
-              type="text"
-              ref={answer3Ref}
-              placeholder="Your answer"
-            />
-          </div>
+    <div className="word-card">
+      <h3 className="word-title mind-blowing">Question 3</h3>
+      <p className="word-meaning">
+        At this time tomorrow, she ___ the exam.
+      </p>
+      <input
+        type="text"
+        ref={answer3Ref}
+        placeholder="Your answer"
+      />
+    </div>
 
-          <div className="word-card">
-            <h3 className="word-title alarmed">Question 4</h3>
-            <p className="word-meaning">
-              ___ you ___ the laundry when I get home?
-            </p>
-            <input
-              type="text"
-              ref={answer4Ref}
-              placeholder="Your answer"
-            />
-          </div>
+    <div className="word-card">
+      <h3 className="word-title alarmed">Question 4</h3>
+      <p className="word-meaning">
+        ___ you ___ the laundry when I get home?
+      </p>
+      <input
+        type="text"
+        ref={answer4Ref}
+        placeholder="Your answer"
+      />
+    </div>
 
-          <div className="word-card">
-            <h3 className="word-title recruitment">Question 5</h3>
-            <p className="word-meaning">
-              When you arrive at the party, I _______ for two hours.
-            </p>
-            <input
-              type="text"
-              ref={answer5Ref}
-              placeholder="Your answer"
-            />
-          </div>
+    <div className="word-card">
+      <h3 className="word-title recruitment">Question 5</h3>
+      <p className="word-meaning">
+        When you arrive at the party, I _______ for two hours.
+      </p>
+      <input
+        type="text"
+        ref={answer5Ref}
+        placeholder="Your answer"
+      />
+    </div>
 
-          <div className="word-card">
-            <h3 className="word-title upset">Question 6</h3>
-            <p className="word-meaning">
-              By the time we get there, the concert ___ for an hour.
-            </p>
-            <input
-              type="text"
-              ref={answer6Ref}
-              placeholder="Your answer"
-            />
-          </div>
+    <div className="word-card">
+      <h3 className="word-title upset">Question 6</h3>
+      <p className="word-meaning">
+        By the time we get there, the concert ___ for an hour.
+      </p>
+      <input
+        type="text"
+        ref={answer6Ref}
+        placeholder="Your answer"
+      />
+    </div>
 
-          <div className="word-card">
-            <h3 className="word-title mean">Question 7</h3>
-            <p className="word-meaning">
-              I _______ the meeting when you call me tomorrow.
-            </p>
-            <input
-              type="text"
-              ref={answer7Ref}
-              placeholder="Your answer"
-            />
-          </div>
+    <div className="word-card">
+      <h3 className="word-title mean">Question 7</h3>
+      <p className="word-meaning">
+        I _______ the meeting when you call me tomorrow.
+      </p>
+      <input
+        type="text"
+        ref={answer7Ref}
+        placeholder="Your answer"
+      />
+    </div>
 
-          <div className="word-card">
-            <h3 className="word-title not-visible">Question 8</h3>
-            <p className="word-meaning">
-              At 10 p.m. tonight, what will you be doing?
-            </p>
-            <input
-              type="text"
-              ref={answer8Ref}
-              placeholder="Your answer"
-            />
-          </div>
+    <div className="word-card">
+      <h3 className="word-title not-visible">Question 8</h3>
+      <p className="word-meaning">
+        At 10 p.m. tonight, what will you be doing?
+      </p>
+      <input
+        type="text"
+        ref={answer8Ref}
+        placeholder="Your answer"
+      />
+    </div>
 
-        <button onClick={handleSubmit}>Submit Answers</button>
-        </div>
+    <button 
+      onClick={handleSubmit} 
+      disabled={
+        !(
+          (answer1Ref.current && answer1Ref.current.value) &&
+          (answer2Ref.current && answer2Ref.current.value) &&
+          (answer3Ref.current && answer3Ref.current.value) &&
+          (answer4Ref.current && answer4Ref.current.value) &&
+          (answer5Ref.current && answer5Ref.current.value) &&
+          (answer6Ref.current && answer6Ref.current.value) &&
+          (answer7Ref.current && answer7Ref.current.value) &&
+          (answer8Ref.current && answer8Ref.current.value)
+        )
+      }
+    >
+      Submit Answers
+    </button>
+  </div>
 
-        <div className="feedback">
-          {feedback.length > 0 && (
-            <ul>
-              {feedback.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </section>
+  <div className="feedback">
+    {feedback.length > 0 && (
+      <ul>
+        {feedback.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    )}
+  </div>
+</section>
+
+
     </div>
   );
 };
