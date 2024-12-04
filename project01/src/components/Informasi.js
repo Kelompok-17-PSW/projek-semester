@@ -31,4 +31,5 @@ const Informasi = () => {
   );
 }
 
+
 export default Informasi;

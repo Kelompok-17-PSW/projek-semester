@@ -5,7 +5,7 @@ import Dashboard from './components/Dashboard';
 import Login from './components/login';
 import Register from './components/Register';
 import Materi from './components/Materi';
-import Informasi from './components/Informasi';
+import Vidio from './components/Vidio'
 import Tips from './components/Tips';
 import Navbar from './components/Navbar';
 import Narrative from './components/Narrative';
@@ -27,7 +27,7 @@ import KuisSimpleFuture from './components/Quis/KuisSimpleFuture';
 import KuisFuturePerfect from './components/Quis/KuisFuturePerfect';
 import KuisFutureContinuous from './components/Quis/KuisFutureContinuous';
 import KuisSimplePastTense from './components/Quis/KuisSimplePastTense';
-
+import KuisSimplePresent from './components/Quis/KuisSimplePresent';
 
 const App = () => {
   const isAuthPage = ["/login", "/register"].includes(window.location.pathname);
@@ -35,7 +35,6 @@ const App = () => {
   return (
     <Router>
       <div>
-        {/* Navbar will only render if the current page is not login or register */}
         {!isAuthPage && <Navbar />}
         <Routes>
           <Route path="/" element={<Home />} />
@@ -43,7 +42,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/materi" element={<Materi />} />
-          <Route path="/informasi" element={<Informasi />} />
+          <Route path="/vidio" element={<Vidio />} />
           <Route path="/tips" element={<Tips />} />
           <Route path="/bab1" element={<Narrative />} />
           <Route path="/tenses" element={<Tenses />} />
@@ -64,6 +63,7 @@ const App = () => {
           <Route path="/kuis-future-perfect" element={<KuisFuturePerfect />} />
           <Route path="/kuis-future-continuous" element={<KuisFutureContinuous />} />
           <Route path="/kuis-simple-past" element={<KuisSimplePastTense/>}/>
+          <Route path='/kuis-simple-present' element={<KuisSimplePresent />} />
         </Routes>
       </div>
     </Router>
