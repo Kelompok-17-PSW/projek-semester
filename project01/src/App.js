@@ -61,6 +61,7 @@ const App = () => {
           <Route path="/future-perfect-continuous" element={<FuturePerfectContinuos/>} />
           <Route path="/kuis-future-perfect" element={<KuisFuturePerfect />} />
           <Route path="/kuis-future-continuous" element={<KuisFutureContinuous />} />
+=======
           <Route path="/kuis-simple-past" element={<KuisSimplePastTense/>}/>
           <Route path='/kuis-simple-present' element={<KuisSimplePresent />} />
           <Route path='/kuis-perfect-continuous' element={<KuisPerfectContinuous />} />
