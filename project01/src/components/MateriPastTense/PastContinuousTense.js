@@ -247,7 +247,7 @@ Submit Answers
 )}
 <p>Ingin lebih banyak latihan? Ayo melatih diri dengan kuis</p>
     <div class="button-container">
-      <a href="/kuis" class="styled-button">Quiz</a>
+      <a href="/Kuis" class="styled-button">Quiz</a>
     </div>
 </div>
 );
