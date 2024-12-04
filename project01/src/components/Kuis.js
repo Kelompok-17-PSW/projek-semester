@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, Card, Collapse } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const Materi = () => {
+const Kuis = () => {
   const [openSection, setOpenSection] = useState(null); // State untuk melacak bagian yang terbuka
 
   const toggleSection = (section) => {
@@ -25,7 +25,7 @@ const Materi = () => {
       <Row>
         <Col>
           <h2 className="mb-4" style={{ textAlign: "center", fontWeight: "bold" }}>
-            Materi
+            Kuis
           </h2>
 
           {/* Card Present Tense */}
@@ -250,4 +250,4 @@ const Materi = () => {
   );
 };
 
-export default Materi;
+export default Kuis;
