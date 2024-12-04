@@ -225,7 +225,7 @@ const Kuis = () => {
                     </Card>
                   </Link>
 
-                  <Link to="/future-perfect-continuous" style={cardStyle}>
+                  <Link to="/kuis-perfect-continuous" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}

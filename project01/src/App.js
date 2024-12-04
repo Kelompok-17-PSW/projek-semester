@@ -30,6 +30,7 @@ import KuisSimplePresent from './components/Quis/KuisSimplePresent';
 import KuisPastContinuousTense from './components/Quis/KuisPastContinuousTense';
 import KuisPastPerfect from './components/Quis/KuisPastPerfect';
 import KuisPastPerfectContinuous from './components/Quis/KuisPastPerfectContinuous';
+import KuisPerfectContinuous from './components/Quis/KuisPerfectContinuous';
 
 const App = () => {
   const isAuthPage = ["/login", "/register"].includes(window.location.pathname);
@@ -68,6 +69,7 @@ const App = () => {
           <Route path='/kuis-past-continuous' element={<KuisPastContinuousTense/>} />
           <Route path='/kuis-past-perfect' element={<KuisPastPerfect/>} />
           <Route path='/kuis-past-perfect-continuous' element={<KuisPastPerfectContinuous/>} />
+          <Route path='/kuis-perfect-continuous' element={<KuisPerfectContinuous />} />
         </Routes>
       </div>
     </Router>
