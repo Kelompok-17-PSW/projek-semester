@@ -30,6 +30,7 @@ import KuisPastContinuousTense from './components/Quis/KuisPastContinuousTense';
 import KuisPastPerfect from './components/Quis/KuisPastPerfect';
 import KuisPastPerfectContinuous from './components/Quis/KuisPastPerfectContinuous';
 import KuisPerfectContinuous from './components/Quis/KuisPerfectContinuous';
+import Footer from "./Footer";
 
 const App = () => {
   const isAuthPage = ["/login", "/register"].includes(window.location.pathname);
@@ -68,6 +69,12 @@ const App = () => {
           <Route path='/kuis-past-perfect' element={<KuisPastPerfect/>} />
           <Route path='/kuis-past-perfect-continuous' element={<KuisPastPerfectContinuous/>} />
           <Route path='/kuis-perfect-continuous' element={<KuisPerfectContinuous />} />
+        </Routes>
+        <Routes>
+          <Route path="/" element={<Footer />} />
+          <Route path="/dashboard" element={<Footer />} />
+          <Route path="/materi" element={<Footer />} />
+          <Route path="/video" element={<Footer />} />
         </Routes>
       </div>
     </Router>
