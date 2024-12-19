@@ -5,37 +5,37 @@ const KuisPastContinuousTense = () => {
   const questions = [
     {
       question: "She ___ (study) when I called her.",
-      options: ["was studying", "is studying", "studied", "studies"],
+      options: ["were studying", "is studying", "studied", "was studying"],
       correctAnswer: "was studying",
     },
     {
       question: "They ___ (watch) a movie when the lights went out.",
-      options: ["were watching", "watch", "were watched", "watched"],
+      options: ["watch", "were watching", "were watched", "watched"],
       correctAnswer: "were watching",
     },
     {
       question: "At this time last week, we ___ (eat) dinner.",
-      options: ["were eating", "are eating", "ate", "eat"],
+      options: ["eat", "are eating", "ate", "were eating"],
       correctAnswer: "were eating",
     },
     {
       question: "I ___ (do) my homework when you arrived.",
-      options: ["was doing", "is doing", "were doing", "did"],
+      options: ["is doing", "was doing", "were doing", "did"],
       correctAnswer: "was doing",
     },
     {
       question: "They ___ (not work) when the boss came in.",
-      options: ["weren't working", "weren't work", "didn't work", "not working"],
+      options: ["weren't work", "weren't working", "didn't work", "not working"],
       correctAnswer: "weren't working",
     },
     {
       question: "She ___ (talk) to her friend on the phone at 10 p.m.",
-      options: ["was talking", "talked", "is talking", "talks"],
+      options: ["is talking", "talked", "was talking", "talks"],
       correctAnswer: "was talking",
     },
     {
       question: "I ___ (read) a book when the phone rang.",
-      options: ["was reading", "am reading", "read", "reads"],
+      options: ["is reading", "am reading", " was reading", "reads"],
       correctAnswer: "was reading",
     },
     {
@@ -45,12 +45,12 @@ const KuisPastContinuousTense = () => {
     },
     {
       question: "At 8 o'clock, he ___ (sleep).",
-      options: ["was sleeping", "is sleeping", "sleeps", "sleeped"],
+      options: ["is sleeping", "was sleeping", "sleeps", "sleeped"],
       correctAnswer: "was sleeping",
     },
     {
       question: "They ___ (not enjoy) the concert last night.",
-      options: ["weren't enjoying", "aren't enjoying", "didn't enjoy", "don't enjoy"],
+      options: ["didn't enjoying", "aren't enjoying", "weren't enjoy", "don't enjoy"],
       correctAnswer: "weren't enjoying",
     },
   ];
