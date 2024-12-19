@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "../Quis/KuisSimplePast.css"; 
+import "../Quis/KuisSimplePast.css";
 
 const KuisPastPerfectTense = () => {
-  const questions = [
+  const originalQuestions = [
     {
       question: "By the time I arrived, they ___ (finish) the meeting.",
       options: ["had finished", "finished", "have finished", "was finishing"],
@@ -55,6 +55,22 @@ const KuisPastPerfectTense = () => {
     },
   ];
 
+  // Fungsi untuk mengacak array
+  const shuffle = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
+  // Menyalin dan mengacak opsi dari setiap pertanyaan
+  const shuffledQuestions = originalQuestions.map((question) => ({
+    ...question,
+    options: shuffle([...question.options]),
+  }));
+
+  const [questions] = useState(shuffledQuestions);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [wrongAnswers, setWrongAnswers] = useState(0);
@@ -83,7 +99,7 @@ const KuisPastPerfectTense = () => {
   };
 
   const goToMenu = () => {
-    window.location.href = '/bab4';  
+    window.location.href = "/bab4";
   };
 
   if (quizFinished) {
