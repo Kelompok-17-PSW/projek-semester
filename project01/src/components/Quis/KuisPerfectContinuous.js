@@ -1,66 +1,95 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import "../Quis/KuisSimplePast.css"; 
 
-function KuisPerfectContinuous() {
-  // Data pertanyaan dan pilihan jawaban
-  const questions = [
+const KuisPastPerfectContinuousTense = () => {
+  const originalQuestions = [
     {
-      question: "They ... (study) English for three years by the time they finish their course.",
-      options: ["will have studied", "will have been waiting", "will be waiting", "will wait"],
-      correctAnswer: "will have been waiting",
+      question: "She ___ (study) for two hours when I called her.",
+      options: ["had been studying", "was studying", "has been studying", "studied"],
+      correctAnswer: "had been studying",
     },
     {
-      question: "By the time you finish your dinner, I ... (clean) the house for two hours.",
-      options: ["will clean", "will have cleaned", "will have been cleaning", "will be cleaning"],
-      correctAnswer: "will have been cleaning",
+      question: "They ___ (wait) for an hour when the train finally arrived.",
+      options: ["had been waiting", "waited", "have been waiting", "were waiting"],
+      correctAnswer: "had been waiting",
     },
     {
-      question: "In two years, they ... (live) in this city for 15 years.",
-      options: ["shall live", "shall have lived", "shall be living", "shall have been living"],
-      correctAnswer: "shall have been living",
+      question: "I ___ (work) on the project all day before I took a break.",
+      options: ["had been working", "worked", "was working", "have been working"],
+      correctAnswer: "had been working",
     },
     {
-      question: " In a few months, ... you ... (work) on this project for a year?",
-      options: ["shall / have been working", "shall / be working", "shall / have worked", "shall / work"],
-      correctAnswer: "shall / have been working",
+      question: "We ___ (live) in that house for ten years before we moved.",
+      options: ["had been living", "lived", "have been living", "were living"],
+      correctAnswer: "had been living",
     },
     {
-      question: "In two weeks, ... they ... (travel) for a month?",
-      options: ["will / travel", "will / have traveled", "will / have been traveling", "will / be traveling"],
-      correctAnswer: "will / have been traveling",
+      question: "By the time the meeting started, she ___ (talk) for an hour.",
+      options: ["had been talking", "talked", "has been talking", "was talking"],
+      correctAnswer: "had been talking",
+    },
+    {
+      question: "I ___ (try) to call you all morning, but your phone was off.",
+      options: ["had been trying", "tried", "have been trying", "was trying"],
+      correctAnswer: "had been trying",
+    },
+    {
+      question: "He ___ (run) for an hour when he finally reached the finish line.",
+      options: ["had been running", "ran", "has been running", "was running"],
+      correctAnswer: "had been running",
+    },
+    {
+      question: "They ___ (plan) their trip for months before they actually booked the tickets.",
+      options: ["had been planning", "planned", "have been planning", "were planning"],
+      correctAnswer: "had been planning",
+    },
+    {
+      question: "She ___ (read) for over an hour before she decided to take a break.",
+      options: ["had been reading", "read", "has been reading", "was reading"],
+      correctAnswer: "had been reading",
+    },
+    {
+      question: "By the time the storm hit, we ___ (wait) for the bus for half an hour.",
+      options: ["had been waiting", "waited", "were waiting", "have been waiting"],
+      correctAnswer: "had been waiting",
     },
   ];
 
-  // State untuk menyimpan indeks soal yang sedang ditampilkan
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  // Fungsi untuk mengacak array
+  const shuffle = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
 
-  // State untuk menyimpan jumlah skor benar dan salah
+  // Salin dan acak opsi setiap pertanyaan
+  const shuffledQuestions = originalQuestions.map((question) => ({
+    ...question,
+    options: shuffle([...question.options]),
+  }));
+
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [wrongAnswers, setWrongAnswers] = useState(0);
-
-  // State untuk menyimpan status apakah kuis selesai
   const [quizFinished, setQuizFinished] = useState(false);
 
-  // Fungsi untuk menangani pilihan jawaban
   const handleAnswer = (selectedAnswer) => {
-    // Cek apakah jawaban benar atau salah
-    if (selectedAnswer === questions[currentQuestionIndex].correctAnswer) {
+    if (selectedAnswer === shuffledQuestions[currentQuestionIndex].correctAnswer) {
       setCorrectAnswers(correctAnswers + 1);
     } else {
       setWrongAnswers(wrongAnswers + 1);
     }
 
-    // Pindah ke soal berikutnya setelah memberikan jawaban
     const nextQuestionIndex = currentQuestionIndex + 1;
-    if (nextQuestionIndex < questions.length) {
+    if (nextQuestionIndex < shuffledQuestions.length) {
       setCurrentQuestionIndex(nextQuestionIndex);
     } else {
-      // Jika sudah selesai
       setQuizFinished(true);
     }
   };
 
-  // Fungsi untuk mengulang kuis
   const restartQuiz = () => {
     setCurrentQuestionIndex(0);
     setCorrectAnswers(0);
@@ -69,36 +98,34 @@ function KuisPerfectContinuous() {
   };
 
   const goToMenu = () => {
-    window.location.href = '/bab3';  
+    window.location.href = '/bab4';  
   };
 
   if (quizFinished) {
-    // Tampilan akhir kuis
     return (
       <div className="quiz-finish-container">
         <h1>😊 Good Job</h1>
         <ul className="result-list">
-          <li>Pelajaran Ke : 1</li>
-          <li>Jumlah Soal : {questions.length}</li>
+          <li>Pelajaran Ke : 4</li>
+          <li>Jumlah Soal : {shuffledQuestions.length}</li>
           <li>Jawaban Benar : {correctAnswers}</li>
           <li>Jawaban Salah : {wrongAnswers}</li>
-          <li>Nilai : {Math.round((correctAnswers / questions.length) * 100)}</li>
-          <li>Keterangan : {correctAnswers / questions.length >= 0.6 ? "Lulus" : "Tidak Lulus"}</li>
+          <li>Nilai : {Math.round((correctAnswers / shuffledQuestions.length) * 100)}</li>
+          <li>Keterangan : {correctAnswers / shuffledQuestions.length >= 0.6 ? "Lulus" : "Tidak Lulus"}</li>
         </ul>
         <div className="button-group">
           <button className="restart-button" onClick={restartQuiz}>
             ULANGI
           </button>
           <button className="menu-button" onClick={goToMenu}>
-          MENU
-        </button>
+            MENU
+          </button>
         </div>
       </div>
     );
   }
 
-  // Ambil soal dan pilihan jawaban yang sesuai dengan indeks saat ini
-  const currentQuestion = questions[currentQuestionIndex];
+  const currentQuestion = shuffledQuestions[currentQuestionIndex];
 
   return (
     <div className="quiz-container">
@@ -125,6 +152,6 @@ function KuisPerfectContinuous() {
       </div>
     </div>
   );
-}
+};
 
-export default KuisPerfectContinuous;
+export default KuisPastPerfectContinuousTense;
