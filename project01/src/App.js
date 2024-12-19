@@ -30,6 +30,10 @@ import KuisPastContinuousTense from './components/Quis/KuisPastContinuousTense';
 import KuisPastPerfect from './components/Quis/KuisPastPerfect';
 import KuisPastPerfectContinuous from './components/Quis/KuisPastPerfectContinuous';
 import KuisPerfectContinuous from './components/Quis/KuisPerfectContinuous';
+import KuisSimplePresent from './components/Quis/KuisSimplePresent';
+import KuisPresentContinuous from './components/Quis/KuisPresentContinuous';
+import KuisPresentPerfect from './components/Quis/KuisPresentPerfect';
+import KuisPresentPerfectContinuous from './components/Quis/KuisPresentPerfectContinuous';
 import Footer from "./Footer";
 
 const App = () => {
@@ -69,6 +73,10 @@ const App = () => {
           <Route path='/kuis-past-perfect' element={<KuisPastPerfect/>} />
           <Route path='/kuis-past-perfect-continuous' element={<KuisPastPerfectContinuous/>} />
           <Route path='/kuis-perfect-continuous' element={<KuisPerfectContinuous />} />
+          <Route path='/kuis-simple-present' element={<KuisSimplePresent />} />
+          <Route path='/kuis-present-continuous' element={<KuisPresentContinuous />} />
+          <Route path='/kuis-present-perfect' element={<KuisPresentPerfect />} />
+          <Route path='/kuis-present-perfect-continuous' element={<KuisPresentPerfectContinuous />} />
         </Routes>
         <Routes>
           <Route path="/" element={<Footer />} />
