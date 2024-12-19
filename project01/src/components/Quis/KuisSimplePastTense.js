@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Quis/KuisSimplePast.css"; 
+import "../Quis/KuisSimplePast.css";
 
 const KuisSimplePastTense = () => {
   const questions = [
@@ -60,6 +60,10 @@ const KuisSimplePastTense = () => {
   const [wrongAnswers, setWrongAnswers] = useState(0);
   const [quizFinished, setQuizFinished] = useState(false);
 
+  const shuffleOptions = (options) => {
+    return [...options].sort(() => Math.random() - 0.5);
+  };
+
   const handleAnswer = (selectedAnswer) => {
     if (selectedAnswer === questions[currentQuestionIndex].correctAnswer) {
       setCorrectAnswers(correctAnswers + 1);
@@ -83,7 +87,7 @@ const KuisSimplePastTense = () => {
   };
 
   const goToMenu = () => {
-    window.location.href = '/bab4';  
+    window.location.href = '/bab4';
   };
 
   if (quizFinished) {
@@ -111,6 +115,7 @@ const KuisSimplePastTense = () => {
   }
 
   const currentQuestion = questions[currentQuestionIndex];
+  const shuffledOptions = shuffleOptions(currentQuestion.options);
 
   return (
     <div className="quiz-container">
@@ -125,7 +130,7 @@ const KuisSimplePastTense = () => {
         <p>{currentQuestion.question}</p>
       </div>
       <div className="answer-options">
-        {currentQuestion.options.map((option, index) => (
+        {shuffledOptions.map((option, index) => (
           <button
             key={index}
             className="answer-button"
