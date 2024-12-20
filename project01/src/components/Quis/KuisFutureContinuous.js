@@ -2,129 +2,171 @@ import React, { useState} from "react";
 import "../Quis/KuisSimplePast.css"; 
 
 function KuisFutureContinuous() {
-  // Data pertanyaan dan pilihan jawaban
-  const questions = [
-    {
-      question: "In a few minutes, she ... (give) her presentation to the team.",
-      options: ["will give", "will be giving", "is giving", "gives"],
-      correctAnswer: "will be giving",
-    },
-    {
-      question: " Tomorrow at noon, I ... (meet) my friends at the park.",
-      options: ["will meet", "am meeting", "meet", "will be meeting"],
-      correctAnswer: "will be meeting",
-    },
-    {
-      question: "They ... help us with the project next week.",
-      options: ["shall", "will", "would", " are"],
-      correctAnswer: "shall",
-    },
-    {
-      question: " ...  you be attending the seminar next week?",
-      options: ["Will", "Shall", "Do", "Are"],
-      correctAnswer: "Shall",
-    },
-    {
-      question: "... I be able to finish the report by tomorrow?",
-      options: ["Can", "Do", "Shall", "Will"],
-      correctAnswer: "Will",
-    },
-  ];
-
-  // State untuk menyimpan indeks soal yang sedang ditampilkan
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-
-  // State untuk menyimpan jumlah skor benar dan salah
-  const [correctAnswers, setCorrectAnswers] = useState(0);
-  const [wrongAnswers, setWrongAnswers] = useState(0);
-
-  // State untuk menyimpan status apakah kuis selesai
-  const [quizFinished, setQuizFinished] = useState(false);
-
-  // Fungsi untuk menangani pilihan jawaban
-  const handleAnswer = (selectedAnswer) => {
-    // Cek apakah jawaban benar atau salah
-    if (selectedAnswer === questions[currentQuestionIndex].correctAnswer) {
-      setCorrectAnswers(correctAnswers + 1);
-    } else {
-      setWrongAnswers(wrongAnswers + 1);
-    }
-
-    // Pindah ke soal berikutnya setelah memberikan jawaban
-    const nextQuestionIndex = currentQuestionIndex + 1;
-    if (nextQuestionIndex < questions.length) {
-      setCurrentQuestionIndex(nextQuestionIndex);
-    } else {
-      // Jika sudah selesai
-      setQuizFinished(true);
-    }
-  };
-
-  // Fungsi untuk mengulang kuis
-  const restartQuiz = () => {
-    setCurrentQuestionIndex(0);
-    setCorrectAnswers(0);
-    setWrongAnswers(0);
-    setQuizFinished(false);
-  };
-
-  const goToMenu = () => {
-    window.location.href = '/bab4';  
-  };
-
-  if (quizFinished) {
-    // Tampilan akhir kuis
-    return (
-      <div className="quiz-finish-container">
-        <h1>😊 Good Job</h1>
-        <ul className="result-list">
-          <li>Pelajaran Ke : 1</li>
-          <li>Jumlah Soal : {questions.length}</li>
-          <li>Jawaban Benar : {correctAnswers}</li>
-          <li>Jawaban Salah : {wrongAnswers}</li>
-          <li>Nilai : {Math.round((correctAnswers / questions.length) * 100)}</li>
-          <li>Keterangan : {correctAnswers / questions.length >= 0.6 ? "Lulus" : "Tidak Lulus"}</li>
-        </ul>
-        <div className="button-group">
-          <button className="restart-button" onClick={restartQuiz}>
-            ULANGI
-          </button>
-          <button className="menu-button" onClick={goToMenu}>
-          MENU
-        </button>
+   const [answers, setAnswers] = useState([]);
+      const [isAnswered, setIsAnswered] = useState(false);
+      const [isCorrect, setIsCorrect] = useState(false);
+      const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+      const [score, setScore] = useState(0);
+      const [isFinished, setIsFinished] = useState(false);
+    
+      const questions = [
+        {
+          question: "In a few minutes, she ... (give) her presentation to the team.",
+          options: [
+            { label: "A. will give", value: "A"},
+            { label: "B. will be giving", value: "B", isCorrect: true },
+            { label: "C. is giving", value: "C" },
+            { label: "D. gives", value: "D" },
+          ],
+        },
+        {
+          question: "Tomorrow at noon, I ... (meet) my friends at the park.",
+          options: [
+            { label: "A. will meet", value: "A" },
+            { label: "B. am meeting", value: "B"},
+            { label: "C. meet", value: "C" },
+            { label: "D. will be meeting", value: "D", isCorrect: true},
+          ],
+        },
+        {
+          question: "they ... help us with the project next week.",
+          options: [
+            { label: "A. shall", value: "A", isCorrect: true },
+            { label: "B. will", value: "B" },
+            { label: "C.would", value: "C" },
+            { label: "D. are", value: "D" },
+          ],
+        },
+        {
+          question: " ...  you be attending the seminar next week?",
+          options: [
+            { label: "A. will", value: "A" },
+            { label: "B. shall", value: "B", isCorrect: true },
+            { label: "C. do", value: "C" },
+            { label: "D. are", value: "D" },
+          ],
+        },
+        {
+          question: "... I be able to finish the report by tomorrow?",
+          options: [
+            { label: "A. can", value: "A" },
+            { label: "B. do", value: "B" },
+            { label: "C. will", value: "C" , isCorrect: true},
+            { label: "D. shall", value: "D" },
+          ],
+        },
+      ];
+    
+      const currentQuestion = questions[currentQuestionIndex];
+    
+      const handleAnswerClick = (option) => {
+        const updatedAnswers = [...answers];
+        updatedAnswers[currentQuestionIndex] = option.value;
+        setAnswers(updatedAnswers);
+    
+        if (option.isCorrect) {
+          setScore((prevScore) => prevScore + 1);
+        }
+    
+        setIsCorrect(option.isCorrect || false);
+        setIsAnswered(true);
+      };
+    
+      const goToNextQuestion = () => {
+        if (currentQuestionIndex < questions.length - 1) {
+          setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+          setIsAnswered(answers[currentQuestionIndex + 1] ? true : false);
+        }
+      };
+    
+      const goToPreviousQuestion = () => {
+        if (currentQuestionIndex > 0) {
+          setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
+          setIsAnswered(answers[currentQuestionIndex - 1] ? true : false);
+        }
+      };
+    
+      const handleFinishQuiz = () => {
+        setIsFinished(true);
+      };
+    
+      const handleRestartQuiz = () => {
+        setAnswers([]);
+        setScore(0);
+        setCurrentQuestionIndex(0);
+        setIsFinished(false);
+      };
+    
+      if (isFinished) {
+        return (
+          <div className="latihan-soal1-container">
+            <div className="latihan-soal1-question-box">
+              <h1 className="latihan-soal1-title">Mode Bionik</h1>
+              <h2>Quiz Selesai!</h2>
+              <p>Skor Anda: {score}/{questions.length}</p>
+              <button className="finish-button" onClick={handleRestartQuiz}>
+                Ulangi Latihan
+              </button>
+            </div>
+          </div>
+        );
+      }
+    
+      return (
+        <div className="latihan-soal1-container">
+          <div className="latihan-soal1-question-box">
+            <h1 className="latihan-soal1-title">Mode Bionik</h1>
+            <div className="latihan-soal1-question">
+              <p>{currentQuestion.question}</p>
+            </div>
+            <div className="latihan-soal1-answers">
+              {currentQuestion.options.map((option, index) => (
+                <button
+                  key={index}
+                  className={`latihan-soal1-answer-button ${
+                    answers[currentQuestionIndex] === option.value
+                      ? "latihan-soal1-selected-answer"
+                      : ""
+                  }`}
+                  onClick={() => handleAnswerClick(option)}
+                  disabled={answers[currentQuestionIndex]}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+            {answers[currentQuestionIndex] && (
+              <div className="latihan-soal1-explanation-box">
+                <h2>Jawaban Anda: {answers[currentQuestionIndex]}</h2>
+                <h3>
+                  {isCorrect
+                    ? "Jawaban Anda Benar!"
+                    : `Jawaban Benar: ${
+                        currentQuestion.options.find((opt) => opt.isCorrect)?.value
+                      }`}
+                </h3>
+                <p>{currentQuestion.explanation}</p>
+              </div>
+            )}
+            <div className="latihan-soal1-navigation-buttons">
+              <button
+                className="nav-button prev"
+                onClick={goToPreviousQuestion}
+                disabled={currentQuestionIndex === 0}
+              >
+                ← Soal Sebelumnya
+              </button>
+              <button
+                className="nav-button next"
+                onClick={currentQuestionIndex === questions.length - 1 ? handleFinishQuiz : goToNextQuestion}
+              >
+                {currentQuestionIndex === questions.length - 1 ? "Selesai" : "Soal Selanjutnya →"}
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-    );
-  }
-
-  // Ambil soal dan pilihan jawaban yang sesuai dengan indeks saat ini
-  const currentQuestion = questions[currentQuestionIndex];
-
-  return (
-    <div className="quiz-container">
-      <header className="quiz-header">
-        <div className="question-number">No. {currentQuestionIndex + 1}</div>
-        <div className="score-container">
-          <span className="correct-score">✔ {correctAnswers}</span>
-          <span className="wrong-score">✖ {wrongAnswers}</span>
-        </div>
-      </header>
-      <div className="question-box">
-        <p>{currentQuestion.question}</p>
-      </div>
-      <div className="answer-options">
-        {currentQuestion.options.map((option, index) => (
-          <button
-            key={index}
-            className="answer-button"
-            onClick={() => handleAnswer(option)}
-          >
-            {option}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
+      );
+    };
+ 
 
 export default KuisFutureContinuous;
