@@ -2,129 +2,180 @@ import React, { useState} from "react";
 import "../Quis/KuisSimplePast.css"; 
 
 function KuisSimpleFuture() {
-  // Data pertanyaan dan pilihan jawaban
+   const [answers, setAnswers] = useState([]);
+  const [isAnswered, setIsAnswered] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const [isFinished, setIsFinished] = useState(false);
+
   const questions = [
     {
-      question: "I expect, they ... me this evening.(phone)",
-      options: ["Will not phone", "Will phone", "Would phone", "Are not phone"],
-      correctAnswer: "Will phone",
+      question: "I ecpect, they ... me this evening. (phone)",
+      options: [
+        { label: "A. Will not phone", value: "A"},
+        { label: "B. Will phone", value: "B", isCorrect: true  },
+        { label: "C. Would phone", value: "C" },
+        { label: "D. Are no phone", value: "D" },
+      ],
+      explanation:
+        "Membran sel berfungsi sebagai penghalang yang mengatur pergerakan zat-zat ke dalam dan keluar dari sel.",
     },
     {
-      question: "Don’t touch this plate, IF you touch it, you ... yourself. (burn)",
-      options: ["will not be burn", " Will not burn", "will be burn", "Will burn"],
-      correctAnswer: "Will burn",
+      question: "Don't touch this palte, if you touch it, you ... yourself. (burn)",
+      options: [
+        { label: "A. Will not be burn", value: "A" },
+        { label: "B. Will not burn", value: "B" },
+        { label: "C. Will be burn", value: "C" },
+        { label: "D. Will burn", value: "D" , isCorrect: true },
+      ],
+      explanation:
+        "Sel-sel spermatzoa diproduksi di dalam tubulus seminiferus testis dan kemudian dipindahkan ke epididymis untuk proses pematangan.",
     },
     {
       question: "We ... house next month. (make)",
-      options: ["Will not make", "Will make", "is making", " would made"],
-      correctAnswer: "Will make",
+      options: [
+        { label: "A. Will not make", value: "A"},
+        { label: "B. Will make", value: "B", isCorrect: true  },
+        { label: "C. is making", value: "C" },
+        { label: "D. Would made", value: "D" },
+      ],
+      explanation:
+        "Mitosis adalah proses pembelahan sel yang menghasilkan dua sel anak dengan jumlah kromosom yang identik dengan sel induknya. Mitosis terdiri dari beberapa tahap yaitu profase, metafase, anafase, dan telofase.",
     },
     {
-      question: " My sister ... not ... to the concert tonight.",
-      options: ["Will/go", " Will/going", "Did/go", "Do/go"],
-      correctAnswer: "Will/go",
+      question: "My sister ... not ... to the concert tonight.(go)",
+      options: [
+        { label: "A. Will/go", value: "A", isCorrect: true },
+        { label: "B. Will/going", value: "B" },
+        { label: "C. Did/go", value: "C" },
+        { label: "D. Do/go", value: "D" },
+      ],
+      explanation:
+        "Mitokondria berfungsi sebagai 'pembangkit tenaga' sel, memproduksi ATP melalui respirasi sel. Tanpa mitokondria yang berfungsi dengan baik, sel tidak dapat menghasilkan energi yang diperlukan untuk aktivitas metabolisme, yang akhirnya akan mempengaruhi kelangsungan hidup sel dan organisme secara keseluruhan.",
     },
     {
-      question: " ... i help you to take dinner?",
-      options: ["is", "Am", "Shall", "Are"],
-      correctAnswer: "Shall",
+      question: "... i help you to take dinner?",
+      options: [
+        { label: "A. Is", value: "A" },
+        { label: "B. Am", value: "B" },
+        { label: "C. Shall", value: "C" , isCorrect: true},
+        { label: "D. Are", value: "D" },
+      ],
+      explanation:
+        "Meiosis menghasilkan sel-sel germinal (sel telur dan sperma) dengan jumlah kromosom setengah dari sel induknya, yang memungkinkan terjadinya rekombinasi genetik dan memastikan variasi genetik pada keturunan. Proses ini penting untuk mempertahankan keanekaragaman genetik dalam populasi.",
     },
   ];
 
-  // State untuk menyimpan indeks soal yang sedang ditampilkan
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const currentQuestion = questions[currentQuestionIndex];
 
-  // State untuk menyimpan jumlah skor benar dan salah
-  const [correctAnswers, setCorrectAnswers] = useState(0);
-  const [wrongAnswers, setWrongAnswers] = useState(0);
+  const handleAnswerClick = (option) => {
+    const updatedAnswers = [...answers];
+    updatedAnswers[currentQuestionIndex] = option.value;
+    setAnswers(updatedAnswers);
 
-  // State untuk menyimpan status apakah kuis selesai
-  const [quizFinished, setQuizFinished] = useState(false);
-
-  // Fungsi untuk menangani pilihan jawaban
-  const handleAnswer = (selectedAnswer) => {
-    // Cek apakah jawaban benar atau salah
-    if (selectedAnswer === questions[currentQuestionIndex].correctAnswer) {
-      setCorrectAnswers(correctAnswers + 1);
-    } else {
-      setWrongAnswers(wrongAnswers + 1);
+    if (option.isCorrect) {
+      setScore((prevScore) => prevScore + 1);
     }
 
-    // Pindah ke soal berikutnya setelah memberikan jawaban
-    const nextQuestionIndex = currentQuestionIndex + 1;
-    if (nextQuestionIndex < questions.length) {
-      setCurrentQuestionIndex(nextQuestionIndex);
-    } else {
-      // Jika sudah selesai
-      setQuizFinished(true);
+    setIsCorrect(option.isCorrect || false);
+    setIsAnswered(true);
+  };
+
+  const goToNextQuestion = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+      setIsAnswered(answers[currentQuestionIndex + 1] ? true : false);
     }
   };
 
-  // Fungsi untuk mengulang kuis
-  const restartQuiz = () => {
+  const goToPreviousQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
+      setIsAnswered(answers[currentQuestionIndex - 1] ? true : false);
+    }
+  };
+
+  const handleFinishQuiz = () => {
+    setIsFinished(true);
+  };
+
+  const handleRestartQuiz = () => {
+    setAnswers([]);
+    setScore(0);
     setCurrentQuestionIndex(0);
-    setCorrectAnswers(0);
-    setWrongAnswers(0);
-    setQuizFinished(false);
+    setIsFinished(false);
   };
 
-  const goToMenu = () => {
-    window.location.href = '/bab2';  
-  };
-
-  if (quizFinished) {
-    // Tampilan akhir kuis
+  if (isFinished) {
     return (
-      <div className="quiz-finish-container">
-        <h1>😊 Good Job</h1>
-        <ul className="result-list">
-          <li>Pelajaran Ke : 1</li>
-          <li>Jumlah Soal : {questions.length}</li>
-          <li>Jawaban Benar : {correctAnswers}</li>
-          <li>Jawaban Salah : {wrongAnswers}</li>
-          <li>Nilai : {Math.round((correctAnswers / questions.length) * 100)}</li>
-          <li>Keterangan : {correctAnswers / questions.length >= 0.6 ? "Lulus" : "Tidak Lulus"}</li>
-        </ul>
-        <div className="button-group">
-          <button className="restart-button" onClick={restartQuiz}>
-            ULANGI
+      <div className="latihan-soal1-container">
+        <div className="latihan-soal1-question-box">
+          <h1 className="latihan-soal1-title">Mode Bionik</h1>
+          <h2>Quiz Selesai!</h2>
+          <p>Skor Anda: {score}/{questions.length}</p>
+          <button className="finish-button" onClick={handleRestartQuiz}>
+            Ulangi Latihan
           </button>
-          <button className="menu-button" onClick={goToMenu}>
-          MENU
-        </button>
         </div>
       </div>
     );
   }
 
-  // Ambil soal dan pilihan jawaban yang sesuai dengan indeks saat ini
-  const currentQuestion = questions[currentQuestionIndex];
-
   return (
-    <div className="quiz-container">
-      <header className="quiz-header">
-        <div className="question-number">No. {currentQuestionIndex + 1}</div>
-        <div className="score-container">
-          <span className="correct-score">✔ {correctAnswers}</span>
-          <span className="wrong-score">✖ {wrongAnswers}</span>
+    <div className="latihan-soal1-container">
+      <div className="latihan-soal1-question-box">
+        <h1 className="latihan-soal1-title">Mode Bionik</h1>
+        <div className="latihan-soal1-question">
+          <p>{currentQuestion.question}</p>
         </div>
-      </header>
-      <div className="question-box">
-        <p>{currentQuestion.question}</p>
-      </div>
-      <div className="answer-options">
-        {currentQuestion.options.map((option, index) => (
+        <div className="latihan-soal1-answers">
+          {currentQuestion.options.map((option, index) => (
+            <button
+              key={index}
+              className={`latihan-soal1-answer-button ${
+                answers[currentQuestionIndex] === option.value
+                  ? "latihan-soal1-selected-answer"
+                  : ""
+              }`}
+              onClick={() => handleAnswerClick(option)}
+              disabled={answers[currentQuestionIndex]}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+        {answers[currentQuestionIndex] && (
+          <div className="latihan-soal1-explanation-box">
+            <h2>Jawaban Anda: {answers[currentQuestionIndex]}</h2>
+            <h3>
+              {isCorrect
+                ? "Jawaban Anda Benar!"
+                : `Jawaban Benar: ${
+                    currentQuestion.options.find((opt) => opt.isCorrect)?.value
+                  }`}
+            </h3>
+            <p>{currentQuestion.explanation}</p>
+          </div>
+        )}
+        <div className="latihan-soal1-navigation-buttons">
           <button
-            key={index}
-            className="answer-button"
-            onClick={() => handleAnswer(option)}
+            className="nav-button prev"
+            onClick={goToPreviousQuestion}
+            disabled={currentQuestionIndex === 0}
           >
-            {option}
+            ← Soal Sebelumnya
           </button>
-        ))}
+          <button
+            className="nav-button next"
+            onClick={currentQuestionIndex === questions.length - 1 ? handleFinishQuiz : goToNextQuestion}
+          >
+            {currentQuestionIndex === questions.length - 1 ? "Selesai" : "Soal Selanjutnya →"}
+          </button>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default KuisSimpleFuture;
