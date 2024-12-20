@@ -13,57 +13,47 @@ const KuisSimplePresentTense = () => {
      {
        question: "He ___ to school every day. (go)",
        options: [
-         { label: "A. goes", value: "A"},
-         { label: "B. Will phone", value: "B", isCorrect: true  },
-         { label: "C. Would phone", value: "C" },
-         { label: "D. Are no phone", value: "D" },
+         { label: "A. goes", value: "A", isCorrect: true},
+         { label: "B. go", value: "B"},
+         { label: "C. going", value: "C" },
+         { label: "D. gone", value: "D" },
        ],
-       explanation:
-         "Membran sel berfungsi sebagai penghalang yang mengatur pergerakan zat-zat ke dalam dan keluar dari sel.",
      },
      {
-       question: "Don't touch this palte, if you touch it, you ... yourself. (burn)",
+       question: "They ___ soccer every weekend. (play)",
        options: [
-         { label: "A. Will not be burn", value: "A" },
-         { label: "B. Will not burn", value: "B" },
-         { label: "C. Will be burn", value: "C" },
-         { label: "D. Will burn", value: "D" , isCorrect: true },
+         { label: "A. plays", value: "A" },
+         { label: "B. played", value: "B" },
+         { label: "C. play", value: "C", isCorrect: true },
+         { label: "D. playing", value: "D"},
        ],
-       explanation:
-         "Sel-sel spermatzoa diproduksi di dalam tubulus seminiferus testis dan kemudian dipindahkan ke epididymis untuk proses pematangan.",
      },
      {
-       question: "We ... house next month. (make)",
+       question: "You ___ very well. (speak)",
        options: [
-         { label: "A. Will not make", value: "A"},
-         { label: "B. Will make", value: "B", isCorrect: true  },
-         { label: "C. is making", value: "C" },
-         { label: "D. Would made", value: "D" },
+         { label: "A. speaks", value: "A"},
+         { label: "B. speak", value: "B", isCorrect: true  },
+         { label: "C. speaking", value: "C" },
+         { label: "D. spoken", value: "D" },
        ],
-       explanation:
-         "Mitosis adalah proses pembelahan sel yang menghasilkan dua sel anak dengan jumlah kromosom yang identik dengan sel induknya. Mitosis terdiri dari beberapa tahap yaitu profase, metafase, anafase, dan telofase.",
      },
      {
-       question: "My sister ... not ... to the concert tonight.(go)",
+       question: "I ___ water every morning. (drink)",
        options: [
-         { label: "A. Will/go", value: "A", isCorrect: true },
-         { label: "B. Will/going", value: "B" },
-         { label: "C. Did/go", value: "C" },
-         { label: "D. Do/go", value: "D" },
+         { label: "A. drink", value: "A", isCorrect: true },
+         { label: "B. drinks", value: "B" },
+         { label: "C. drinking", value: "C" },
+         { label: "D. drank", value: "D" },
        ],
-       explanation:
-         "Mitokondria berfungsi sebagai 'pembangkit tenaga' sel, memproduksi ATP melalui respirasi sel. Tanpa mitokondria yang berfungsi dengan baik, sel tidak dapat menghasilkan energi yang diperlukan untuk aktivitas metabolisme, yang akhirnya akan mempengaruhi kelangsungan hidup sel dan organisme secara keseluruhan.",
      },
      {
-       question: "... i help you to take dinner?",
+       question: "They ___ the house every weekend. (clean)",
        options: [
-         { label: "A. Is", value: "A" },
-         { label: "B. Am", value: "B" },
-         { label: "C. Shall", value: "C" , isCorrect: true},
-         { label: "D. Are", value: "D" },
+         { label: "A. cleans", value: "A" },
+         { label: "B. cleaning", value: "B" },
+         { label: "C. clean", value: "C" , isCorrect: true},
+         { label: "D. cleaned", value: "D" },
        ],
-       explanation:
-         "Meiosis menghasilkan sel-sel germinal (sel telur dan sperma) dengan jumlah kromosom setengah dari sel induknya, yang memungkinkan terjadinya rekombinasi genetik dan memastikan variasi genetik pada keturunan. Proses ini penting untuk mempertahankan keanekaragaman genetik dalam populasi.",
      },
    ];
  
