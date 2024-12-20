@@ -2,146 +2,170 @@ import React, { useState } from "react";
 import "../Quis/KuisSimplePast.css";
 
 const KuisPresentPerfectContinuousTense = () => {
-  const questions = [
-    {
-      question: "She ___ at the company for 5 years. (work)",
-      options: ["has been working", "has worked", "is working", "works"],
-      correctAnswer: "has been working",
-    },
-    {
-      question: "They ___ in Paris since 2010. (live)",
-      options: ["have been living", "are living", "lived", "have lived"],
-      correctAnswer: "have been living",
-    },
-    {
-      question: "I ___ all day and I'm tired now. (study)",
-      options: ["have been studying", "am studying", "studies", "studied"],
-      correctAnswer: "have been studying",
-    },
-    {
-      question: "He ___ the book for 2 hours. (read)",
-      options: ["has been reading", "has read", "is reading", "reads"],
-      correctAnswer: "has been reading",
-    },
-    {
-      question: "We ___ for you since 9 AM. (wait)",
-      options: ["have been waiting", "are waiting", "waited", "wait"],
-      correctAnswer: "have been waiting",
-    },
-    {
-      question: "She ___ for 3 hours. (run)",
-      options: ["has been running", "has run", "is running", "runs"],
-      correctAnswer: "has been running",
-    },
-    {
-      question: "They ___ football all morning. (play)",
-      options: ["have been playing", "have played", "are playing", "plays"],
-      correctAnswer: "have been playing",
-    },
-    {
-      question: "You ___ for 10 minutes. (talk)",
-      options: ["have been talking", "are talking", "talks", "talked"],
-      correctAnswer: "have been talking",
-    },
-    {
-      question: "The team ___ well in the tournament. (play)",
-      options: ["has been playing", "have played", "plays", "has played"],
-      correctAnswer: "has been playing",
-    },
-    {
-      question: "She ___ at the museum since 2 PM. (work)",
-      options: ["has been working", "is working", "works", "has worked"],
-      correctAnswer: "has been working",
-    },
-  ];
-
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [correctAnswers, setCorrectAnswers] = useState(0);
-  const [wrongAnswers, setWrongAnswers] = useState(0);
-  const [quizFinished, setQuizFinished] = useState(false);
-
-  const shuffleOptions = (options) => {
-    return [...options].sort(() => Math.random() - 0.5);
-  };
-
-  const handleAnswer = (selectedAnswer) => {
-    if (selectedAnswer === questions[currentQuestionIndex].correctAnswer) {
-      setCorrectAnswers(correctAnswers + 1);
-    } else {
-      setWrongAnswers(wrongAnswers + 1);
+     const [answers, setAnswers] = useState([]);
+    const [isAnswered, setIsAnswered] = useState(false);
+    const [isCorrect, setIsCorrect] = useState(false);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [score, setScore] = useState(0);
+    const [isFinished, setIsFinished] = useState(false);
+  
+    const questions = [
+      {
+        question: "She ___ at the company for 5 years. (work)",
+        options: [
+          { label: "A. has been working", value: "A", isCorrect: true},
+          { label: "B. has worked", value: "B"},
+          { label: "C. is working", value: "C" },
+          { label: "D. has been working", value: "D" },
+        ],
+      },
+      {
+        question: "They ___ in Paris since 2010. (live)",
+        options: [
+          { label: "A. have been living", value: "A", isCorrect: true },
+          { label: "B. are living", value: "B" },
+          { label: "C. lived", value: "C" },
+          { label: "D. have lived", value: "D"  },
+        ],
+      },
+      {
+        question: "He ___ the book for 2 hours. (read)",
+        options: [
+          { label: "A. has read", value: "A"},
+          { label: "B. has been reading", value: "B", isCorrect: true  },
+          { label: "C. is reading", value: "C" },
+          { label: "D. reads", value: "D" },
+        ],
+      },
+      {
+        question: "I ___ all day and I'm tired now. (study)",
+        options: [
+          { label: "A. am studying", value: "A"},
+          { label: "B. studies", value: "B" },
+          { label: "C. have been studying", value: "C", isCorrect: true  },
+          { label: "D. studied", value: "D" },
+        ],
+      },
+      {
+        question: "We ___ for you since 9 AM. (wait)",
+        options: [
+          { label: "A. wait", value: "A" },
+          { label: "B. waited", value: "B" },
+          { label: "C. Sare waiting", value: "C"},
+          { label: "D. have been waiting", value: "D", isCorrect: true },
+        ],
+      },
+    ];
+  
+    const currentQuestion = questions[currentQuestionIndex];
+  
+    const handleAnswerClick = (option) => {
+      const updatedAnswers = [...answers];
+      updatedAnswers[currentQuestionIndex] = option.value;
+      setAnswers(updatedAnswers);
+  
+      if (option.isCorrect) {
+        setScore((prevScore) => prevScore + 1);
+      }
+  
+      setIsCorrect(option.isCorrect || false);
+      setIsAnswered(true);
+    };
+  
+    const goToNextQuestion = () => {
+      if (currentQuestionIndex < questions.length - 1) {
+        setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+        setIsAnswered(answers[currentQuestionIndex + 1] ? true : false);
+      }
+    };
+  
+    const goToPreviousQuestion = () => {
+      if (currentQuestionIndex > 0) {
+        setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
+        setIsAnswered(answers[currentQuestionIndex - 1] ? true : false);
+      }
+    };
+  
+    const handleFinishQuiz = () => {
+      setIsFinished(true);
+    };
+  
+    const handleRestartQuiz = () => {
+      setAnswers([]);
+      setScore(0);
+      setCurrentQuestionIndex(0);
+      setIsFinished(false);
+    };
+  
+    if (isFinished) {
+      return (
+        <div className="latihan-soal1-container">
+          <div className="latihan-soal1-question-box">
+            <h1 className="latihan-soal1-title">Mode Bionik</h1>
+            <h2>Quiz Selesai!</h2>
+            <p>Skor Anda: {score}/{questions.length}</p>
+            <button className="finish-button" onClick={handleRestartQuiz}>
+              Ulangi Latihan
+            </button>
+          </div>
+        </div>
+      );
     }
-
-    const nextQuestionIndex = currentQuestionIndex + 1;
-    if (nextQuestionIndex < questions.length) {
-      setCurrentQuestionIndex(nextQuestionIndex);
-    } else {
-      setQuizFinished(true);
-    }
-  };
-
-  const restartQuiz = () => {
-    setCurrentQuestionIndex(0);
-    setCorrectAnswers(0);
-    setWrongAnswers(0);
-    setQuizFinished(false);
-  };
-
-  const goToMenu = () => {
-    window.location.href = "/bab9";
-  };
-
-  if (quizFinished) {
+  
     return (
-      <div className="quiz-finish-container">
-        <h1>😊 Good Job</h1>
-        <ul className="result-list">
-          <li>Pelajaran Ke : 5</li>
-          <li>Jumlah Soal : {questions.length}</li>
-          <li>Jawaban Benar : {correctAnswers}</li>
-          <li>Jawaban Salah : {wrongAnswers}</li>
-          <li>Nilai : {Math.round((correctAnswers / questions.length) * 100)}</li>
-          <li>Keterangan : {correctAnswers / questions.length >= 0.6 ? "Lulus" : "Tidak Lulus"}</li>
-        </ul>
-        <div className="button-group">
-          <button className="restart-button" onClick={restartQuiz}>
-            ULANGI
-          </button>
-          <button className="menu-button" onClick={goToMenu}>
-            MENU
-          </button>
+      <div className="latihan-soal1-container">
+        <div className="latihan-soal1-question-box">
+          <h1 className="latihan-soal1-title">Mode Bionik</h1>
+          <div className="latihan-soal1-question">
+            <p>{currentQuestion.question}</p>
+          </div>
+          <div className="latihan-soal1-answers">
+            {currentQuestion.options.map((option, index) => (
+              <button
+                key={index}
+                className={`latihan-soal1-answer-button ${
+                  answers[currentQuestionIndex] === option.value
+                    ? "latihan-soal1-selected-answer"
+                    : ""
+                }`}
+                onClick={() => handleAnswerClick(option)}
+                disabled={answers[currentQuestionIndex]}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+          {answers[currentQuestionIndex] && (
+            <div className="latihan-soal1-explanation-box">
+              <h2>Jawaban Anda: {answers[currentQuestionIndex]}</h2>
+              <h3>
+                {isCorrect
+                  ? "Jawaban Anda Benar!"
+                  : `Jawaban Benar: ${
+                      currentQuestion.options.find((opt) => opt.isCorrect)?.value
+                    }`}
+              </h3>
+              <p>{currentQuestion.explanation}</p>
+            </div>
+          )}
+          <div className="latihan-soal1-navigation-buttons">
+            <button
+              className="nav-button prev"
+              onClick={goToPreviousQuestion}
+              disabled={currentQuestionIndex === 0}
+            >
+              ← Soal Sebelumnya
+            </button>
+            <button
+              className="nav-button next"
+              onClick={currentQuestionIndex === questions.length - 1 ? handleFinishQuiz : goToNextQuestion}
+            >
+              {currentQuestionIndex === questions.length - 1 ? "Selesai" : "Soal Selanjutnya →"}
+            </button>
+          </div>
         </div>
       </div>
     );
-  }
-
-  const currentQuestion = questions[currentQuestionIndex];
-  const shuffledOptions = shuffleOptions(currentQuestion.options);
-
-  return (
-    <div className="quiz-container">
-      <header className="quiz-header">
-        <div className="question-number">No. {currentQuestionIndex + 1}</div>
-        <div className="score-container">
-          <span className="correct-score">✔ {correctAnswers}</span>
-          <span className="wrong-score">✖ {wrongAnswers}</span>
-        </div>
-      </header>
-      <div className="question-box">
-        <p>{currentQuestion.question}</p>
-      </div>
-      <div className="answer-options">
-        {shuffledOptions.map((option, index) => (
-          <button
-            key={index}
-            className="answer-button"
-            onClick={() => handleAnswer(option)}
-          >
-            {option}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-};
+  };
 
 export default KuisPresentPerfectContinuousTense;
