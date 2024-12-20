@@ -1,111 +1,109 @@
-.quiz-container {
-  margin: 30px auto;
-  max-width: 600px;
-  padding: 30px;
-  background: #f4f7fc;
-  border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1s ease-in-out;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- justify-content: center;
-}
-
-.quiz-container h1 {
-  text-align: center;
-  margin-bottom: 25px;
-  font-weight: 700;
-  color: #4e4e4e;
-  font-size: 2.2rem;
-  letter-spacing: 0.5px;
-}
-
-.question-box {
+.latihan-soal1-container {
+  font-family: 'Poppins', sans-serif;
+  background: url('') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
   padding: 20px;
+}
+
+.latihan-soal1-question-box {
+  background: #ebe6e6;
+  margin: 80px;
   background: #ffffff;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-}
-
-.question-box:hover {
-  border-color: #6c63ff;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-.input-incorrect {
-  border-color: #ff6347;
-  background-color: #ffe6e6;
-}
-
-.feedback {
-  margin-top: 15px;
-  font-size: 0.95em;
-  font-weight: 500;
-}
-
-.correct {
-  color: #4CAF50;
-}
-
-.incorrect {
-  color: #FF6347;
-}
-
-.submit-button {
-  background: #6c63ff;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 18px;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 700px;
   width: 100%;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-y: hidden;
 }
 
-.submit-button:hover {
-  background: #5952cc;
-  transform: scale(1.05);
-}
-
-.submit-button:active {
-  background: #4a45bb;
-  transform: scale(1);
-}
-
-.result-section {
-  margin-top: 30px;
-  padding: 25px;
-  background-color: #e7f3e7;
-  border-radius: 12px;
+.latihan-soal1-title {
+  font-size: 3rem;
+  color: #2c3e50;
   text-align: center;
-  font-size: 1.1em;
-  color: #4e4e4e;
-  
+  font-weight: bold;
+  margin-top: 20px;
 }
 
-.button-group{
-  width: 400px;
+.latihan-soal1-question {
+  margin: 20px 0;
+  text-align: center;
 }
 
-.quiz-finish-container{
-  place-items: center;
+.latihan-soal1-question p {
+  font-size: 18px;
+  color: #7f8c8d;
 }
 
-.result-list{
-  place-items: justify;
-}
-.result-section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  color: #2a3d66;
+.latihan-soal1-answers {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
 }
 
-@keyframes fadeIn {
-  from {
-      opacity: 0;
+.latihan-soal1-answer-button {
+  padding: 12px;
+  background: linear-gradient(90deg, #1d976c, #93f9b9);
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.latihan-soal1-answer-button:hover {
+  background: linear-gradient(90deg, #1d976c, #1ed760);
+  transform: translateY(-2px);
+}
+
+.latihan-soal1-answer-button:disabled {
+  background: #8f9595;
+  cursor: not-allowed;
+}
+
+.latihan-soal1-selected-answer {
+  background: linear-gradient(90deg, #3498db, #6dd5ed);
+}
+
+.latihan-soal1-navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 480px) {
+  .latihan-soal1-question-box {
+    margin: 20px;
+    padding: 10px;
+    max-width: 100%;
   }
-  to {
-      opacity: 1;
+
+  .latihan-soal1-title {
+    font-size: 2rem;
   }
+
+  .latihan-soal1-question p {
+    font-size: 14px;
+  }
+
+  .latihan-soal1-answer-button {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+
+  .latihan-soal1-navigation-buttons {
+    flex-direction: column;
+    gap: 10px; /* Berikan jarak antar tombol */
+    align-items: center;
+  }
+}
+.latihan-soal1-finish-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
 }
