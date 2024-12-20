@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import "../Quis/KuisSimplePast.css"; 
 
 function KuisSimpleFuture() {
-   const [answers, setAnswers] = useState([]);
+  const [answers, setAnswers] = useState([]);
   const [isAnswered, setIsAnswered] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -18,8 +18,6 @@ function KuisSimpleFuture() {
         { label: "C. Would phone", value: "C" },
         { label: "D. Are no phone", value: "D" },
       ],
-      explanation:
-        "Membran sel berfungsi sebagai penghalang yang mengatur pergerakan zat-zat ke dalam dan keluar dari sel.",
     },
     {
       question: "Don't touch this palte, if you touch it, you ... yourself. (burn)",
@@ -29,8 +27,6 @@ function KuisSimpleFuture() {
         { label: "C. Will be burn", value: "C" },
         { label: "D. Will burn", value: "D" , isCorrect: true },
       ],
-      explanation:
-        "Sel-sel spermatzoa diproduksi di dalam tubulus seminiferus testis dan kemudian dipindahkan ke epididymis untuk proses pematangan.",
     },
     {
       question: "We ... house next month. (make)",
@@ -40,8 +36,6 @@ function KuisSimpleFuture() {
         { label: "C. is making", value: "C" },
         { label: "D. Would made", value: "D" },
       ],
-      explanation:
-        "Mitosis adalah proses pembelahan sel yang menghasilkan dua sel anak dengan jumlah kromosom yang identik dengan sel induknya. Mitosis terdiri dari beberapa tahap yaitu profase, metafase, anafase, dan telofase.",
     },
     {
       question: "My sister ... not ... to the concert tonight.(go)",
@@ -51,8 +45,6 @@ function KuisSimpleFuture() {
         { label: "C. Did/go", value: "C" },
         { label: "D. Do/go", value: "D" },
       ],
-      explanation:
-        "Mitokondria berfungsi sebagai 'pembangkit tenaga' sel, memproduksi ATP melalui respirasi sel. Tanpa mitokondria yang berfungsi dengan baik, sel tidak dapat menghasilkan energi yang diperlukan untuk aktivitas metabolisme, yang akhirnya akan mempengaruhi kelangsungan hidup sel dan organisme secara keseluruhan.",
     },
     {
       question: "... i help you to take dinner?",
@@ -62,8 +54,6 @@ function KuisSimpleFuture() {
         { label: "C. Shall", value: "C" , isCorrect: true},
         { label: "D. Are", value: "D" },
       ],
-      explanation:
-        "Meiosis menghasilkan sel-sel germinal (sel telur dan sperma) dengan jumlah kromosom setengah dari sel induknya, yang memungkinkan terjadinya rekombinasi genetik dan memastikan variasi genetik pada keturunan. Proses ini penting untuk mempertahankan keanekaragaman genetik dalam populasi.",
     },
   ];
 
