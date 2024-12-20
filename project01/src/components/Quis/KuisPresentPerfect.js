@@ -2,146 +2,170 @@ import React, { useState } from "react";
 import "../Quis/KuisSimplePast.css";
 
 const KuisPresentPerfectTense = () => {
-  const questions = [
-    {
-      question: "She ___ the cake. (make)",
-      options: ["has made", "made", "makes", "is making"],
-      correctAnswer: "has made",
-    },
-    {
-      question: "I ___ my homework already. (finish)",
-      options: ["have finished", "finished", "am finishing", "finishes"],
-      correctAnswer: "have finished",
-    },
-    {
-      question: "They ___ to Japan twice. (go)",
-      options: ["have gone", "went", "go", "have been"],
-      correctAnswer: "have gone",
-    },
-    {
-      question: "He ___ his wallet. (lose)",
-      options: ["has lost", "lost", "is losing", "loses"],
-      correctAnswer: "has lost",
-    },
-    {
-      question: "We ___ this movie before. (see)",
-      options: ["have seen", "saw", "see", "has seen"],
-      correctAnswer: "have seen",
-    },
-    {
-      question: "You ___ to that restaurant. (be)",
-      options: ["have been", "are", "were", "was"],
-      correctAnswer: "have been",
-    },
-    {
-      question: "The baby ___ all the milk. (drink)",
-      options: ["has drunk", "drank", "drinks", "is drinking"],
-      correctAnswer: "has drunk",
-    },
-    {
-      question: "We ___ in this house for 5 years. (live)",
-      options: ["have lived", "lived", "live", "are living"],
-      correctAnswer: "have lived",
-    },
-    {
-      question: "She ___ her keys. (find)",
-      options: ["has found", "finds", "found", "is finding"],
-      correctAnswer: "has found",
-    },
-    {
-      question: "They ___ the project on time. (complete)",
-      options: ["have completed", "completed", "complete", "are completing"],
-      correctAnswer: "have completed",
-    },
-  ];
-
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [correctAnswers, setCorrectAnswers] = useState(0);
-  const [wrongAnswers, setWrongAnswers] = useState(0);
-  const [quizFinished, setQuizFinished] = useState(false);
-
-  const shuffleOptions = (options) => {
-    return [...options].sort(() => Math.random() - 0.5);
-  };
-
-  const handleAnswer = (selectedAnswer) => {
-    if (selectedAnswer === questions[currentQuestionIndex].correctAnswer) {
-      setCorrectAnswers(correctAnswers + 1);
-    } else {
-      setWrongAnswers(wrongAnswers + 1);
-    }
-
-    const nextQuestionIndex = currentQuestionIndex + 1;
-    if (nextQuestionIndex < questions.length) {
-      setCurrentQuestionIndex(nextQuestionIndex);
-    } else {
-      setQuizFinished(true);
-    }
-  };
-
-  const restartQuiz = () => {
-    setCurrentQuestionIndex(0);
-    setCorrectAnswers(0);
-    setWrongAnswers(0);
-    setQuizFinished(false);
-  };
-
-  const goToMenu = () => {
-    window.location.href = "/bab7";
-  };
-
-  if (quizFinished) {
-    return (
-      <div className="quiz-finish-container">
-        <h1>😊 Good Job</h1>
-        <ul className="result-list">
-          <li>Pelajaran Ke : 4</li>
-          <li>Jumlah Soal : {questions.length}</li>
-          <li>Jawaban Benar : {correctAnswers}</li>
-          <li>Jawaban Salah : {wrongAnswers}</li>
-          <li>Nilai : {Math.round((correctAnswers / questions.length) * 100)}</li>
-          <li>Keterangan : {correctAnswers / questions.length >= 0.6 ? "Lulus" : "Tidak Lulus"}</li>
-        </ul>
-        <div className="button-group">
-          <button className="restart-button" onClick={restartQuiz}>
-            ULANGI
-          </button>
-          <button className="menu-button" onClick={goToMenu}>
-            MENU
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  const currentQuestion = questions[currentQuestionIndex];
-  const shuffledOptions = shuffleOptions(currentQuestion.options);
-
-  return (
-    <div className="quiz-container">
-      <header className="quiz-header">
-        <div className="question-number">No. {currentQuestionIndex + 1}</div>
-        <div className="score-container">
-          <span className="correct-score">✔ {correctAnswers}</span>
-          <span className="wrong-score">✖ {wrongAnswers}</span>
-        </div>
-      </header>
-      <div className="question-box">
-        <p>{currentQuestion.question}</p>
-      </div>
-      <div className="answer-options">
-        {shuffledOptions.map((option, index) => (
-          <button
-            key={index}
-            className="answer-button"
-            onClick={() => handleAnswer(option)}
-          >
-            {option}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-};
+    const [answers, setAnswers] = useState([]);
+   const [isAnswered, setIsAnswered] = useState(false);
+   const [isCorrect, setIsCorrect] = useState(false);
+   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+   const [score, setScore] = useState(0);
+   const [isFinished, setIsFinished] = useState(false);
+ 
+   const questions = [
+     {
+       question: "She ___ the cake. (make)",
+       options: [
+         { label: "A. made", value: "A"},
+         { label: "B. makes", value: "B"},
+         { label: "C. has made", value: "C" ,isCorrect: true},
+         { label: "D. is making", value: "D" },
+       ],
+     },
+     {
+       question: "I ___ my homework already. (finish)",
+       options: [
+         { label: "A. finishes", value: "A" },
+         { label: "B. am finishing", value: "B" },
+         { label: "C. finished", value: "C" },
+         { label: "D. have finished", value: "D" , isCorrect: true },
+       ],
+     },
+     {
+       question: "He ___ his wallet. (lose)",
+       options: [
+         { label: "A. has lost", value: "A", isCorrect: true},
+         { label: "B. lost", value: "B"},
+         { label: "C. is losing", value: "C" },
+         { label: "D. loses", value: "D" },
+       ],
+     },
+     {
+       question: "We ___ this movie before. (see)",
+       options: [
+         { label: "A. saw", value: "A"},
+         { label: "B. have seen", value: "B", isCorrect: true},
+         { label: "C. has seen", value: "C" },
+         { label: "D. see", value: "D" },
+       ],
+     },
+     {
+       question: "We ___ in this house for 5 years. (live)",
+       options: [
+         { label: "A. lived", value: "A" },
+         { label: "B. live", value: "B" },
+         { label: "C. have lived", value: "C" , isCorrect: true},
+         { label: "D. are living", value: "D" },
+       ],
+     },
+   ];
+ 
+   const currentQuestion = questions[currentQuestionIndex];
+ 
+   const handleAnswerClick = (option) => {
+     const updatedAnswers = [...answers];
+     updatedAnswers[currentQuestionIndex] = option.value;
+     setAnswers(updatedAnswers);
+ 
+     if (option.isCorrect) {
+       setScore((prevScore) => prevScore + 1);
+     }
+ 
+     setIsCorrect(option.isCorrect || false);
+     setIsAnswered(true);
+   };
+ 
+   const goToNextQuestion = () => {
+     if (currentQuestionIndex < questions.length - 1) {
+       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+       setIsAnswered(answers[currentQuestionIndex + 1] ? true : false);
+     }
+   };
+ 
+   const goToPreviousQuestion = () => {
+     if (currentQuestionIndex > 0) {
+       setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
+       setIsAnswered(answers[currentQuestionIndex - 1] ? true : false);
+     }
+   };
+ 
+   const handleFinishQuiz = () => {
+     setIsFinished(true);
+   };
+ 
+   const handleRestartQuiz = () => {
+     setAnswers([]);
+     setScore(0);
+     setCurrentQuestionIndex(0);
+     setIsFinished(false);
+   };
+ 
+   if (isFinished) {
+     return (
+       <div className="latihan-soal1-container">
+         <div className="latihan-soal1-question-box">
+           <h1 className="latihan-soal1-title">Mode Bionik</h1>
+           <h2>Quiz Selesai!</h2>
+           <p>Skor Anda: {score}/{questions.length}</p>
+           <button className="finish-button" onClick={handleRestartQuiz}>
+             Ulangi Latihan
+           </button>
+         </div>
+       </div>
+     );
+   }
+ 
+   return (
+     <div className="latihan-soal1-container">
+       <div className="latihan-soal1-question-box">
+         <h1 className="latihan-soal1-title">Mode Bionik</h1>
+         <div className="latihan-soal1-question">
+           <p>{currentQuestion.question}</p>
+         </div>
+         <div className="latihan-soal1-answers">
+           {currentQuestion.options.map((option, index) => (
+             <button
+               key={index}
+               className={`latihan-soal1-answer-button ${
+                 answers[currentQuestionIndex] === option.value
+                   ? "latihan-soal1-selected-answer"
+                   : ""
+               }`}
+               onClick={() => handleAnswerClick(option)}
+               disabled={answers[currentQuestionIndex]}
+             >
+               {option.label}
+             </button>
+           ))}
+         </div>
+         {answers[currentQuestionIndex] && (
+           <div className="latihan-soal1-explanation-box">
+             <h2>Jawaban Anda: {answers[currentQuestionIndex]}</h2>
+             <h3>
+               {isCorrect
+                 ? "Jawaban Anda Benar!"
+                 : `Jawaban Benar: ${
+                     currentQuestion.options.find((opt) => opt.isCorrect)?.value
+                   }`}
+             </h3>
+             <p>{currentQuestion.explanation}</p>
+           </div>
+         )}
+         <div className="latihan-soal1-navigation-buttons">
+           <button
+             className="nav-button prev"
+             onClick={goToPreviousQuestion}
+             disabled={currentQuestionIndex === 0}
+           >
+             ← Soal Sebelumnya
+           </button>
+           <button
+             className="nav-button next"
+             onClick={currentQuestionIndex === questions.length - 1 ? handleFinishQuiz : goToNextQuestion}
+           >
+             {currentQuestionIndex === questions.length - 1 ? "Selesai" : "Soal Selanjutnya →"}
+           </button>
+         </div>
+       </div>
+     </div>
+   );
+ };
 
 export default KuisPresentPerfectTense;
