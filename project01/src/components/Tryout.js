@@ -43,7 +43,7 @@ const TO = () => {
               <Card.Text>Klik untuk melihat berbagai macam Present tense.</Card.Text>
               <Collapse in={openSection === "present"}>
                 <div id="present-collapse">
-                  <Link to="/simple-present-tense" style={cardStyle}>
+                  <Link to="/TOpresent" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
@@ -187,7 +187,7 @@ const TO = () => {
               <Card.Text>Klik untuk melihat berbagai macam Future tense.</Card.Text>
               <Collapse in={openSection === "future"}>
                 <div id="future-collapse">
-                  <Link to="/TOsimple-future" style={cardStyle}>
+                  <Link to="/TOfuture" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
@@ -200,7 +200,7 @@ const TO = () => {
                       </Card.Body>
                     </Card>
                   </Link>
-                  <Link to="/future-continuous-tense" style={cardStyle}>
+                  <Link to="/TOfuture-continuous" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
