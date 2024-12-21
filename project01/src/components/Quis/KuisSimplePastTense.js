@@ -55,6 +55,141 @@ const KuisSimplePastTense = () => {
           { label: "D. has", value: "D" },
         ],
       },
+      {
+        question: "The sun ___ this morning. (rise)",
+        options: [
+          { label: "A. rise", value: "A" },
+          { label: "B. rose", value: "B", isCorrect: true },
+          { label: "C. risen", value: "C" },
+          { label: "D. rises", value: "D" },
+        ],
+      },
+      {
+        question: "She ___ a delicious cake. (bake)",
+        options: [
+          { label: "A. bake", value: "A" },
+          { label: "B. bakes", value: "B" },
+          { label: "C. baked", value: "C", isCorrect: true },
+          { label: "D. baking", value: "D" },
+        ],
+      },
+      {
+        question: "He ___ his keys. (lose)",
+        options: [
+          { label: "A. lose", value: "A" },
+          { label: "B. loses", value: "B" },
+          { label: "C. lost", value: "C", isCorrect: true },
+          { label: "D. losing", value: "D" },
+        ],
+      },
+      {
+        question: "We ___ the entire book in one day. (read)",
+        options: [
+          { label: "A. read", value: "A", isCorrect: true },
+          { label: "B. reads", value: "B" },
+          { label: "C. reading", value: "C" },
+          { label: "D. readed", value: "D" },
+        ],
+      },
+      {
+        question: "They ___ home after the party. (go)",
+        options: [
+          { label: "A. go", value: "A" },
+          { label: "B. went", value: "B", isCorrect: true },
+          { label: "C. goes", value: "C" },
+          { label: "D. going", value: "D" },
+        ],
+      },
+      {
+        question: "I ___ a movie last night. (watch)",
+        options: [
+          { label: "A. watches", value: "A" },
+          { label: "B. watched", value: "B", isCorrect: true },
+          { label: "C. watching", value: "C" },
+          { label: "D. watch", value: "D" },
+        ],
+      },
+      {
+        question: "She ___ all the cookies. (eat)",
+        options: [
+          { label: "A. eats", value: "A" },
+          { label: "B. ate", value: "B", isCorrect: true },
+          { label: "C. eaten", value: "C" },
+          { label: "D. eating", value: "D" },
+        ],
+      },
+      {
+        question: "He ___ the car. (wash)",
+        options: [
+          { label: "A. washes", value: "A" },
+          { label: "B. wash", value: "B" },
+          { label: "C. washed", value: "C", isCorrect: true },
+          { label: "D. washing", value: "D" },
+        ],
+      },
+      {
+        question: "We ___ a song together. (sing)",
+        options: [
+          { label: "A. sings", value: "A" },
+          { label: "B. sang", value: "B", isCorrect: true },
+          { label: "C. singed", value: "C" },
+          { label: "D. sing", value: "D" },
+        ],
+      },
+      {
+        question: "They ___ to the store. (drive)",
+        options: [
+          { label: "A. drives", value: "A" },
+          { label: "B. drove", value: "B", isCorrect: true },
+          { label: "C. driven", value: "C" },
+          { label: "D. driving", value: "D" },
+        ],
+      },
+      {
+        question: "I ___ him yesterday. (meet)",
+        options: [
+          { label: "A. meeted", value: "A" },
+          { label: "B. met", value: "B", isCorrect: true },
+          { label: "C. meets", value: "C" },
+          { label: "D. meeting", value: "D" },
+        ],
+      },
+      {
+        question: "She ___ the door. (open)",
+        options: [
+          { label: "A. opens", value: "A" },
+          { label: "B. opening", value: "B" },
+          { label: "C. open", value: "C" },
+          { label: "D. opened", value: "D", isCorrect: true },
+        ],
+      },
+      {
+        question: "He ___ a marathon. (run)",
+        options: [
+          { label: "A. ran", value: "A", isCorrect: true },
+          { label: "B. runs", value: "B" },
+          { label: "C. running", value: "C" },
+          { label: "D. run", value: "D" },
+        ],
+      },
+      {
+        question: "We ___ a new project. (begin)",
+        options: [
+          { label: "A. begins", value: "A" },
+          { label: "B. begin", value: "B" },
+          { label: "C. began", value: "C", isCorrect: true },
+          { label: "D. begun", value: "D" },
+        ],
+      },
+      {
+        question: "They ___ a big present. (buy)",
+        options: [
+          { label: "A. buys", value: "A" },
+          { label: "B. buying", value: "B" },
+          { label: "C. bought", value: "C", isCorrect: true },
+          { label: "D. buy", value: "D" },
+        ],
+      },
     ];
   
     const currentQuestion = questions[currentQuestionIndex];
@@ -101,7 +236,7 @@ const KuisSimplePastTense = () => {
       return (
         <div className="latihan-soal1-container">
           <div className="latihan-soal1-question-box">
-            <h1 className="latihan-soal1-title">Mode Bionik</h1>
+            <h1 className="latihan-soal1-title">Kuis Simple Past Tense</h1>
             <h2>Quiz Selesai!</h2>
             <p>Skor Anda: {score}/{questions.length}</p>
             <button className="finish-button" onClick={handleRestartQuiz}>
@@ -115,7 +250,7 @@ const KuisSimplePastTense = () => {
     return (
       <div className="latihan-soal1-container">
         <div className="latihan-soal1-question-box">
-          <h1 className="latihan-soal1-title">Mode Bionik</h1>
+          <h1 className="latihan-soal1-title">Kuis Simple Past Tense</h1>
           <div className="latihan-soal1-question">
             <p>{currentQuestion.question}</p>
           </div>
