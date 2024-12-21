@@ -25,7 +25,7 @@ const TO = () => {
       <Row>
         <Col>
           <h2 className="mb-4" style={{ textAlign: "center", fontWeight: "bold" }}>
-            Materi
+            Try Out
           </h2>
 
           {/* Card Present Tense */}
@@ -51,46 +51,7 @@ const TO = () => {
                       onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
                     >
                       <Card.Body>
-                        <Card.Title>Simple Present Tense</Card.Title>
-                        <Card.Text>Pelajari lebih lanjut tentang Simple Present Tense.</Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                  <Link to="/present-continuous-tense" style={cardStyle}>
-                    <Card
-                      className="mb-4"
-                      style={cardStyle}
-                      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                    >
-                      <Card.Body>
-                        <Card.Title>Present Continuous Tense</Card.Title>
-                        <Card.Text>Pelajari lebih lanjut tentang Present Continuous Tense.</Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                  <Link to="/present-perfect-tense" style={cardStyle}>
-                    <Card
-                      className="mb-4"
-                      style={cardStyle}
-                      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                    >
-                      <Card.Body>
-                        <Card.Title>Present Perfect Tense</Card.Title>
-                        <Card.Text>Pelajari lebih lanjut tentang Present Perfect Tense.</Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                  <Link to="/present-perfect-continuous-tense" style={cardStyle}>
-                    <Card
-                      className="mb-4"
-                      style={cardStyle}
-                      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                    >
-                      <Card.Body>
-                        <Card.Title>Present Perfect Continuous Tense</Card.Title>
+                        <Card.Title>Ikuti Try Out</Card.Title>
                         <Card.Text>
                           Pelajari lebih lanjut tentang Present Perfect Continuous Tense.
                         </Card.Text>
@@ -116,7 +77,7 @@ const TO = () => {
               <Card.Text>Klik untuk melihat berbagai macam Past tense.</Card.Text>
               <Collapse in={openSection === "past"}>
                 <div id="past-collapse">
-                <Link to="/simple-past-tense" style={cardStyle}>
+                <Link to="/topast" style={cardStyle}>
                     <Card
                       className="mb-4"
                       style={cardStyle}
@@ -124,46 +85,7 @@ const TO = () => {
                       onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
                     >
                       <Card.Body>
-                        <Card.Title>Simple Past Tense</Card.Title>
-                        <Card.Text>Pelajari lebih lanjut tentang Simple Present Tense.</Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                  <Link to="/past-continuous-tense" style={cardStyle}>
-                    <Card
-                      className="mb-4"
-                      style={cardStyle}
-                      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                    >
-                      <Card.Body>
-                        <Card.Title>Past Continuous Tense</Card.Title>
-                        <Card.Text>Pelajari lebih lanjut tentang Present Continuous Tense.</Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                  <Link to="/past-perfect-tense" style={cardStyle}>
-                    <Card
-                      className="mb-4"
-                      style={cardStyle}
-                      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                    >
-                      <Card.Body>
-                        <Card.Title>Past Perfect Tense</Card.Title>
-                        <Card.Text>Pelajari lebih lanjut tentang Present Perfect Tense.</Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                  <Link to="/past-perfect-continuous-tense" style={cardStyle}>
-                    <Card
-                      className="mb-4"
-                      style={cardStyle}
-                      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                    >
-                      <Card.Body>
-                        <Card.Title>Past Perfect Continuous Tense</Card.Title>
+                        <Card.Title>Ikuti Try Out</Card.Title>
                         <Card.Text>Pelajari lebih lanjut tentang Past Perfect Continuous Tense.</Card.Text>
                       </Card.Body>
                     </Card>
@@ -195,8 +117,8 @@ const TO = () => {
                       onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
                     >
                       <Card.Body>
-                        <Card.Title>Simple Future Tense</Card.Title>
-                        <Card.Text>Pelajari lebih lanjut tentang Simple Future Tense.</Card.Text>
+                        <Card.Title>Try Out Simple Future Tense</Card.Title>
+                        <Card.Text>Ikuti Try Out</Card.Text>
                       </Card.Body>
                     </Card>
                   </Link>
@@ -208,34 +130,7 @@ const TO = () => {
                       onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
                     >
                       <Card.Body>
-                        <Card.Title>Future Continuous Tense</Card.Title>
-                        <Card.Text>Pelajari lebih lanjut tentang Future Continuous Tense.</Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-                  <Link to="/future-perfect-tense" style={cardStyle}>
-                    <Card
-                      className="mb-4"
-                      style={cardStyle}
-                      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                    >
-                      <Card.Body>
-                        <Card.Title>Future Perfect Tense</Card.Title>
-                        <Card.Text>Pelajari lebih lanjut tentang Future Continuous Tense.</Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Link>
-
-                  <Link to="/future-perfect-continuous" style={cardStyle}>
-                    <Card
-                      className="mb-4"
-                      style={cardStyle}
-                      onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                    >
-                      <Card.Body>
-                        <Card.Title>Future Perfect Continuous Tense</Card.Title>
+                        <Card.Title>Ikuti Try Out</Card.Title>
                         <Card.Text>Pelajari lebih lanjut tentang Future Continuous Tense.</Card.Text>
                       </Card.Body>
                     </Card>
