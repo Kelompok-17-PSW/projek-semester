@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./tryout.css";
 import Timer from "./Timer";
 import Question from "./Question";
 
 const TOfuture = () => {
-  const navigate = useNavigate();
+
 
   const questions = [
     { question: "1. I _____ (help) you with your homework later", options: ["help", "will help", "am helping", "helped"], answer: "will help" },
