@@ -66,8 +66,8 @@ const Dashboard = () => {
           <Card className="text-center mb-4" onClick={() => handleNavigate("/TO")}>
             <Card.Body>
               <FaBookOpen size={50} color="#6f42c1" />
-              <Card.Title>Materi</Card.Title>
-              <Card.Text>Tersedia: 20 materi</Card.Text>
+              <Card.Title>Try Out</Card.Title>
+              <Card.Text>Kerjakan Try Out</Card.Text>
             </Card.Body>
           </Card>
         </Col>
