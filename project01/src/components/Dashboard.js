@@ -62,6 +62,15 @@ const Dashboard = () => {
             </Card.Body>
           </Card>
         </Col>
+        <Col md={2}>
+          <Card className="text-center mb-4" onClick={() => handleNavigate("/TO")}>
+            <Card.Body>
+              <FaBookOpen size={50} color="#6f42c1" />
+              <Card.Title>Materi</Card.Title>
+              <Card.Text>Tersedia: 20 materi</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
       <Row>
         <Col md={6}>
