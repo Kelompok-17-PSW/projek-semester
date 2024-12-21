@@ -62,6 +62,16 @@ const Dashboard = () => {
             </Card.Body>
           </Card>
         </Col>
+        <Col md={2}>
+          <Card className="text-center mb-4" onClick={() => handleNavigate("/tryout")}>
+            <Card.Body>
+            <FaQuestionCircle size={50} color="#ffc107" />
+            <Card.Title>Tryout</Card.Title>
+              <Card.Text>Tersedia: 3 Tryout</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+
       </Row>
       <Row>
         <Col md={6}>
