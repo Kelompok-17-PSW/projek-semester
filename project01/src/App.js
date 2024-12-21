@@ -35,6 +35,8 @@ import KuisPresentContinuous from './components/Quis/KuisPresentContinuous';
 import KuisPresentPerfect from './components/Quis/KuisPresentPerfect';
 import KuisPresentPerfectContinuous from './components/Quis/KuisPresentPerfectContinuous';
 import Footer from "./Footer";
+import Tryout from "./components/Tryout";
+import TOSimplefuture from './components/Tryout/TOSimplefuture';
 
 const App = () => {
   const isAuthPage = ["/login", "/register"].includes(window.location.pathname);
@@ -77,12 +79,16 @@ const App = () => {
           <Route path='/kuis-present-continuous' element={<KuisPresentContinuous />} />
           <Route path='/kuis-present-perfect' element={<KuisPresentPerfect />} />
           <Route path='/kuis-present-perfect-continuous' element={<KuisPresentPerfectContinuous />} />
+          <Route path='/tosimple-future' element={<TOSimplefuture />} />
+
         </Routes>
         <Routes>
           <Route path="/" element={<Footer />} />
           <Route path="/dashboard" element={<Footer />} />
           <Route path="/materi" element={<Footer />} />
           <Route path="/video" element={<Footer />} />
+          <Route path='/to' element={<Tryout />} />
+
         </Routes>
       </div>
     </Router>
