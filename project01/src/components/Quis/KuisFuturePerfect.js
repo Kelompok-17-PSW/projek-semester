@@ -55,6 +55,52 @@ function KuisFuturePerfect() {
              { label: "D. Finish", value: "D" },
            ],
          },
+         {
+          question: "By this time next year, she ______ (finish) her degree.",
+          options: [
+            { label: "A. will finish", value: "A" },
+            { label: "B. will have finished", value: "B", isCorrect: true },
+            { label: "C. will be finishing", value: "C" },
+            { label: "D. will have been finishing", value: "D" },
+          ],
+        },
+        {
+          question: "By the time you arrive, I ______ (prepare) dinner.",
+          options: [
+            { label: "A. will have prepared", value: "A", isCorrect: true },
+            { label: "B. will prepare", value: "B" },
+            { label: "C. will be preparing", value: "C" },
+            { label: "D. will have been preparing", value: "D" },
+          ],
+        },
+        {
+          question: "They ______ (complete) the project before the deadline.",
+          options: [
+            { label: "A. will complete", value: "A" },
+            { label: "B. will have completed", value: "B", isCorrect: true },
+            { label: "C. will have been completing", value: "C" },
+            { label: "D. will be completing", value: "D" },
+          ],
+        },
+        {
+          question: "By next month, we ______ (move) into our new house.",
+          options: [
+            { label: "A. will move", value: "A" },
+            { label: "B. will be moving", value: "B" },
+            { label: "C. will have moved", value: "C", isCorrect: true },
+            { label: "D. will have been moving", value: "D" },
+          ],
+        },
+        {
+          question: "By the end of this week, he ______ (write) three chapters of his book.",
+          options: [
+            { label: "A. will write", value: "A" },
+            { label: "B. will have written", value: "B", isCorrect: true },
+            { label: "C. will have been writing", value: "C" },
+            { label: "D. will be writing", value: "D" },
+          ],
+        },
+        
        ];
      
        const currentQuestion = questions[currentQuestionIndex];
@@ -115,7 +161,7 @@ function KuisFuturePerfect() {
        return (
          <div className="latihan-soal1-container">
            <div className="latihan-soal1-question-box">
-             <h1 className="latihan-soal1-title">Mode Bionik</h1>
+             <h1 className="latihan-soal1-title">Future Perfect</h1>
              <div className="latihan-soal1-question">
                <p>{currentQuestion.question}</p>
              </div>
