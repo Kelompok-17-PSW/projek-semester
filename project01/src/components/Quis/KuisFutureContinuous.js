@@ -55,6 +55,52 @@ function KuisFutureContinuous() {
             { label: "D. shall", value: "D" },
           ],
         },
+        {
+          question: "This time tomorrow, I ______ (travel) to Bali.",
+          options: [
+            { label: "A. will travel", value: "A" },
+            { label: "B. will have traveled", value: "B" },
+            { label: "C. will be traveling", value: "C", isCorrect: true },
+            { label: "D. will have been traveling", value: "D" },
+          ],
+        },
+        {
+          question: "At 7 PM tonight, they ______ (have) dinner at the restaurant.",
+          options: [
+            { label: "A. will have", value: "A" },
+            { label: "B. will have had", value: "B" },
+            { label: "C. will be having", value: "C", isCorrect: true },
+            { label: "D. will have been having", value: "D" },
+          ],
+        },
+        {
+          question: "Next week, she ______ (work) on her new project.",
+          options: [
+            { label: "A. will work", value: "A" },
+            { label: "B. will have worked", value: "B" },
+            { label: "C. will be working", value: "C", isCorrect: true },
+            { label: "D. will have been working", value: "D" },
+          ],
+        },
+        {
+          question: "When you call me, I ______ (watch) a movie.",
+          options: [
+            { label: "A. will watch", value: "A" },
+            { label: "B. will be watching", value: "B", isCorrect: true },
+            { label: "C. will have watched", value: "C" },
+            { label: "D. will have been watching", value: "D" },
+          ],
+        },
+        {
+          question: "By this time tomorrow, he ______ (drive) to his hometown.",
+          options: [
+            { label: "A. will drive", value: "A" },
+            { label: "B. will be driving", value: "B", isCorrect: true },
+            { label: "C. will have driven", value: "C" },
+            { label: "D. will have been driving", value: "D" },
+          ],
+        },
+        
       ];
     
       const currentQuestion = questions[currentQuestionIndex];
@@ -101,7 +147,7 @@ function KuisFutureContinuous() {
         return (
           <div className="latihan-soal1-container">
             <div className="latihan-soal1-question-box">
-              <h1 className="latihan-soal1-title">Mode Bionik</h1>
+              <h1 className="latihan-soal1-title">Future Continuous</h1>
               <h2>Quiz Selesai!</h2>
               <p>Skor Anda: {score}/{questions.length}</p>
               <button className="finish-button" onClick={handleRestartQuiz}>
