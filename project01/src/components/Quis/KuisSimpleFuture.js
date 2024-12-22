@@ -55,6 +55,51 @@ function KuisSimpleFuture() {
         { label: "D. Are", value: "D" },
       ],
     },
+    {
+      question: "If it rains, we ______ (stay) at home.",
+      options: [
+        { label: "A. will stay", value: "A", isCorrect: true },
+        { label: "B. stays", value: "B" },
+        { label: "C. stayed", value: "C"},
+        { label: "D. are staying", value: "D" },
+      ],
+    },
+    {
+      question: "I ______ (help) you if you need assistance.",
+      options: [
+        { label: "A. helped", value: "A" },
+        { label: "B. helping", value: "B" },
+        { label: "C. will help", value: "C" , isCorrect: true},
+        { label: "D. helps", value: "D" },
+      ],
+    },
+    {
+      question: "They ______ (finish) the project by next week",
+      options: [
+        { label: "A. finishes", value: "A" },
+        { label: "B. will finish", value: "B", isCorrect: true },
+        { label: "C.finished", value: "C"},
+        { label: "D. are finishing", value: "D" },
+      ],
+    },
+    {
+      question: "I ______ (call) you as soon as I get home.",
+      options: [
+        { label: "A. called", value: "A" },
+        { label: "B. calling", value: "B" },
+        { label: "C. calls", value: "C"},
+        { label: "D.  will call", value: "D", isCorrect: true },
+      ],
+    },
+    {
+      question: "Choose the correct sentence using Simple Future Tense:",
+      options: [
+        { label: "A. We will meet you at the park.", value: "A", isCorrect: true },
+        { label: "B. We met you at the park.", value: "B" },
+        { label: "C.  We are meeting you at the park.", value: "C"},
+        { label: "D. We meet you at the park", value: "D" },
+      ],
+    },
   ];
 
   const currentQuestion = questions[currentQuestionIndex];
