@@ -250,7 +250,7 @@ const KuisSimplePastTense = () => {
     return (
       <div className="latihan-soal1-container">
         <div className="latihan-soal1-question-box">
-          <h1 className="latihan-soal1-title">Kuis Simple Past Tense</h1>
+          <h1 className="latihan-soal1-title">Latihan Soal Simple Past Tense</h1>
           <div className="latihan-soal1-question">
             <p>{currentQuestion.question}</p>
           </div>
