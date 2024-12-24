@@ -48,8 +48,8 @@ const Dashboard = () => {
           <Card className="text-center mb-4" onClick={() => handleNavigate("/kuis")}>
             <Card.Body>
               <FaQuestionCircle size={50} color="#ffc107" />
-              <Card.Title>Quis</Card.Title>
-              <Card.Text>Tersedia: 4 kuis</Card.Text>
+              <Card.Title>Latihan Soal</Card.Title>
+              <Card.Text>Tersedia ratusan latihan soal</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -58,7 +58,7 @@ const Dashboard = () => {
             <Card.Body>
               <FaBookOpen size={50} color="#6f42c1" />
               <Card.Title>Materi</Card.Title>
-              <Card.Text>Tersedia: 20 materi</Card.Text>
+              <Card.Text>Tersedia materi tenses secara lengkap</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -67,7 +67,7 @@ const Dashboard = () => {
             <Card.Body>
               <FaBookOpen size={50} color="#6f42c1" />
               <Card.Title>Try Out</Card.Title>
-              <Card.Text>Kerjakan Try Out</Card.Text>
+              <Card.Text>Ikuti Try Out untuk menguji kemampuanmu</Card.Text>
             </Card.Body>
           </Card>
         </Col>
