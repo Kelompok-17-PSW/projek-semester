@@ -147,7 +147,7 @@ const KuisPerfectContinuousTense = () => {
       return (
         <div className="latihan-soal1-container">
           <div className="latihan-soal1-question-box">
-            <h1 className="latihan-soal1-title">Future Perfect Continuos</h1>
+            <h1 className="latihan-soal1-title">Latihan Soal Future Perfect Continuos</h1>
             <h2>Quiz Selesai!</h2>
             <p>Skor Anda: {score}/{questions.length}</p>
             <button className="finish-button" onClick={handleRestartQuiz}>
@@ -161,7 +161,7 @@ const KuisPerfectContinuousTense = () => {
     return (
       <div className="latihan-soal1-container">
         <div className="latihan-soal1-question-box">
-          <h1 className="latihan-soal1-title">Mode Bionik</h1>
+          <h1 className="latihan-soal1-title">Latihan Soal</h1>
           <div className="latihan-soal1-question">
             <p>{currentQuestion.question}</p>
           </div>
