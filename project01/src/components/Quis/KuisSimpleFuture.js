@@ -1,216 +1,205 @@
 import React, { useState} from "react";
-import "../Quis/KuisSimplePast.css"; 
+import "./QuestionPage.css";
 
 function KuisSimpleFuture() {
-  const [answers, setAnswers] = useState([]);
-  const [isAnswered, setIsAnswered] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [isFinished, setIsFinished] = useState(false);
-
-  const questions = [
-    {
-      question: "I ecpect, they ... me this evening. (phone)",
-      options: [
-        { label: "A. Will not phone", value: "A"},
-        { label: "B. Will phone", value: "B", isCorrect: true  },
-        { label: "C. Would phone", value: "C" },
-        { label: "D. Are no phone", value: "D" },
-      ],
-    },
-    {
-      question: "Don't touch this palte, if you touch it, you ... yourself. (burn)",
-      options: [
-        { label: "A. Will not be burn", value: "A" },
-        { label: "B. Will not burn", value: "B" },
-        { label: "C. Will be burn", value: "C" },
-        { label: "D. Will burn", value: "D" , isCorrect: true },
-      ],
-    },
-    {
-      question: "We ... house next month. (make)",
-      options: [
-        { label: "A. Will not make", value: "A"},
-        { label: "B. Will make", value: "B", isCorrect: true  },
-        { label: "C. is making", value: "C" },
-        { label: "D. Would made", value: "D" },
-      ],
-    },
-    {
-      question: "My sister ... not ... to the concert tonight.(go)",
-      options: [
-        { label: "A. Will/go", value: "A", isCorrect: true },
-        { label: "B. Will/going", value: "B" },
-        { label: "C. Did/go", value: "C" },
-        { label: "D. Do/go", value: "D" },
-      ],
-    },
-    {
-      question: "... i help you to take dinner?",
-      options: [
-        { label: "A. Is", value: "A" },
-        { label: "B. Am", value: "B" },
-        { label: "C. Shall", value: "C" , isCorrect: true},
-        { label: "D. Are", value: "D" },
-      ],
-    },
-    {
-      question: "If it rains, we ______ (stay) at home.",
-      options: [
-        { label: "A. will stay", value: "A", isCorrect: true },
-        { label: "B. stays", value: "B" },
-        { label: "C. stayed", value: "C"},
-        { label: "D. are staying", value: "D" },
-      ],
-    },
-    {
-      question: "I ______ (help) you if you need assistance.",
-      options: [
-        { label: "A. helped", value: "A" },
-        { label: "B. helping", value: "B" },
-        { label: "C. will help", value: "C" , isCorrect: true},
-        { label: "D. helps", value: "D" },
-      ],
-    },
-    {
-      question: "They ______ (finish) the project by next week",
-      options: [
-        { label: "A. finishes", value: "A" },
-        { label: "B. will finish", value: "B", isCorrect: true },
-        { label: "C.finished", value: "C"},
-        { label: "D. are finishing", value: "D" },
-      ],
-    },
-    {
-      question: "I ______ (call) you as soon as I get home.",
-      options: [
-        { label: "A. called", value: "A" },
-        { label: "B. calling", value: "B" },
-        { label: "C. calls", value: "C"},
-        { label: "D.  will call", value: "D", isCorrect: true },
-      ],
-    },
-    {
-      question: "Choose the correct sentence using Simple Future Tense:",
-      options: [
-        { label: "A. We will meet you at the park.", value: "A", isCorrect: true },
-        { label: "B. We met you at the park.", value: "B" },
-        { label: "C.  We are meeting you at the park.", value: "C"},
-        { label: "D. We meet you at the park", value: "D" },
-      ],
-    },
-  ];
-
-  const currentQuestion = questions[currentQuestionIndex];
-
-  const handleAnswerClick = (option) => {
-    const updatedAnswers = [...answers];
-    updatedAnswers[currentQuestionIndex] = option.value;
-    setAnswers(updatedAnswers);
-
-    if (option.isCorrect) {
-      setScore((prevScore) => prevScore + 1);
-    }
-
-    setIsCorrect(option.isCorrect || false);
-    setIsAnswered(true);
-  };
-
-  const goToNextQuestion = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-      setIsAnswered(answers[currentQuestionIndex + 1] ? true : false);
-    }
-  };
-
-  const goToPreviousQuestion = () => {
-    if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
-      setIsAnswered(answers[currentQuestionIndex - 1] ? true : false);
-    }
-  };
-
-  const handleFinishQuiz = () => {
-    setIsFinished(true);
-  };
-
-  const handleRestartQuiz = () => {
-    setAnswers([]);
-    setScore(0);
-    setCurrentQuestionIndex(0);
-    setIsFinished(false);
-  };
-
-  if (isFinished) {
-    return (
-      <div className="latihan-soal1-container">
-        <div className="latihan-soal1-question-box">
-          <h1 className="latihan-soal1-title">Latihan Soal</h1>
-          <h2>Selesai!</h2>
-          <p>Skor Anda: {score}/{questions.length}</p>
-          <button className="finish-button" onClick={handleRestartQuiz}>
-            Ulangi Latihan
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="latihan-soal1-container">
-      <div className="latihan-soal1-question-box">
-        <h1 className="latihan-soal1-title">Latihan Soal</h1>
-        <div className="latihan-soal1-question">
-          <p>{currentQuestion.question}</p>
-        </div>
-        <div className="latihan-soal1-answers">
-          {currentQuestion.options.map((option, index) => (
-            <button
-              key={index}
-              className={`latihan-soal1-answer-button ${
-                answers[currentQuestionIndex] === option.value
-                  ? "latihan-soal1-selected-answer"
-                  : ""
-              }`}
-              onClick={() => handleAnswerClick(option)}
-              disabled={answers[currentQuestionIndex]}
-            >
-              {option.label}
-            </button>
-          ))}
-        </div>
-        {answers[currentQuestionIndex] && (
-          <div className="latihan-soal1-explanation-box">
-            <h2>Jawaban Anda: {answers[currentQuestionIndex]}</h2>
-            <h3>
-              {isCorrect
-                ? "Jawaban Anda Benar!"
-                : `Jawaban Benar: ${
-                    currentQuestion.options.find((opt) => opt.isCorrect)?.value
-                  }`}
-            </h3>
-            <p>{currentQuestion.explanation}</p>
-          </div>
-        )}
-        <div className="latihan-soal1-navigation-buttons">
-          <button
-            className="nav-button prev"
-            onClick={goToPreviousQuestion}
-            disabled={currentQuestionIndex === 0}
-          >
-            ← Soal Sebelumnya
-          </button>
-          <button
-            className="nav-button next"
-            onClick={currentQuestionIndex === questions.length - 1 ? handleFinishQuiz : goToNextQuestion}
-          >
-            {currentQuestionIndex === questions.length - 1 ? "Selesai" : "Soal Selanjutnya →"}
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
+  const [currentQuestion, setCurrentQuestion] = useState(1);
+         const [selectedOption, setSelectedOption] = useState(null);
+         const [showConfirmation, setShowConfirmation] = useState(false);
+       
+         const questions = [
+          {
+            question: "I expect, they ... me this evening. (phone)",
+            options: ["Will not phone", "Will phone", "Would phone", "Are no phone"],
+            correctOption: "Will phone",
+            explanation: "The correct answer is 'Will phone' because it indicates a prediction or expectation in the future."
+          },
+          {
+            question: "Don't touch this plate, if you touch it, you ... yourself. (burn)",
+            options: ["Will not be burn", "Will not burn", "Will be burn", "Will burn"],
+            correctOption: "Will burn",
+            explanation: "The correct answer is 'Will burn' as it indicates a future result of an action."
+          },
+          {
+            question: "We ... house next month. (make)",
+            options: ["Will not make", "Will make", "is making", "Would made"],
+            correctOption: "Will make",
+            explanation: "The correct answer is 'Will make' because it refers to a future action."
+          },
+          {
+            question: "My sister ... not ... to the concert tonight. (go)",
+            options: ["Will go", "Will going", "Did go", "Do go"],
+            correctOption: "Will go",
+            explanation: "The correct answer is 'Will go' because it is the correct structure for Simple Future Tense."
+          },
+          {
+            question: "... I help you to take dinner?",
+            options: ["Is", "Am", "Shall", "Are"],
+            correctOption: "Shall",
+            explanation: "The correct answer is 'Shall' as it is used in formal offers or suggestions."
+          },
+          {
+            question: "If it rains, we ______ (stay) at home.",
+            options: ["will stay", "stays", "stayed", "are staying"],
+            correctOption: "will stay",
+            explanation: "The correct answer is 'will stay' because it shows a conditional future result."
+          },
+          {
+            question: "I ______ (help) you if you need assistance.",
+            options: ["helped", "helping", "will help", "helps"],
+            correctOption: "will help",
+            explanation: "The correct answer is 'will help' as it indicates a future action."
+          },
+          {
+            question: "They ______ (finish) the project by next week.",
+            options: ["finishes", "will finish", "finished", "are finishing"],
+            correctOption: "will finish",
+            explanation: "The correct answer is 'will finish' because it refers to an action completed in the future."
+          },
+          {
+            question: "I ______ (call) you as soon as I get home.",
+            options: ["called", "calling", "calls", "will call"],
+            correctOption: "will call",
+            explanation: "The correct answer is 'will call' because it indicates a future promise."
+          },
+          {
+            question: "Choose the correct sentence using Simple Future Tense:",
+            options: [
+              "We will meet you at the park.",
+              "We met you at the park.",
+              "We are meeting you at the park.",
+              "We meet you at the park."
+            ],
+            correctOption: "We will meet you at the park.",
+            explanation: "The correct answer is 'We will meet you at the park.' because it uses the correct structure for Simple Future Tense."
+          }
+        ];
+        
+       
+       
+         const handleNextQuestion = () => {
+           if (currentQuestion < questions.length) {
+             setCurrentQuestion(currentQuestion + 1);
+             resetSelection();
+           }
+         };
+       
+         const handlePreviousQuestion = () => {
+           if (currentQuestion > 1) {
+             setCurrentQuestion(currentQuestion - 1);
+             resetSelection();
+           }
+         };
+       
+         const handleOptionSelect = (option) => {
+           setSelectedOption(option);
+         };
+       
+         const resetSelection = () => {
+           setSelectedOption(null);
+         };
+       
+         const handleDropdownChange = (e) => {
+           const selectedNumber = parseInt(e.target.value);
+           setCurrentQuestion(selectedNumber);
+           resetSelection();
+         };
+       
+         const handleConfirmationResponse = (response) => {
+           if (response === "yes") {
+             setSelectedOption(true); 
+           }
+           setShowConfirmation(false); 
+         };
+       
+         return (
+           <div className="question-page">
+             <div className="question-container">
+               <button
+                 className="oval-button previous-button"
+                 onClick={handlePreviousQuestion}
+                 disabled={currentQuestion === 1}
+               >
+                 &larr; Soal Sebelumnya
+               </button>
+               <div className="question-box">
+                 <h2>Soal {currentQuestion}</h2>
+                 <p>{questions[currentQuestion - 1].question}</p>
+               </div>
+               <button
+                 className="oval-button next-button"
+                 onClick={handleNextQuestion}
+                 disabled={currentQuestion === questions.length}
+               >
+                 Soal Berikutnya &rarr;
+               </button>
+             </div>
+       
+             <div className="interactive-section">
+               <div className="dropdown-container">
+                 <label htmlFor="question-dropdown">Pilih Soal:</label>
+                 <select
+                   id="question-dropdown"
+                   value={currentQuestion}
+                   onChange={handleDropdownChange}
+                 >
+                   {questions.map((_, index) => (
+                     <option key={index} value={index + 1}>
+                       Soal {index + 1}
+                     </option>
+                   ))}
+                 </select>
+               </div>
+       
+               <div className="options-container">
+                 {questions[currentQuestion - 1].options.map((option, index) => (
+                   <button
+                     key={index}
+                     className={`option-button ${
+                       selectedOption === option
+                         ? option === questions[currentQuestion - 1].correctOption
+                           ? "correct"
+                           : "incorrect"
+                         : ""
+                     }`}
+                     onClick={() => handleOptionSelect(option)}
+                   >
+                     {option}
+                   </button>
+                 ))}
+               </div>
+       
+               {selectedOption && (
+                 <div className="explanation-container">
+                   <p className="explanation-text">
+                     {questions[currentQuestion - 1].explanation}
+                   </p>
+                 </div>
+               )}
+             </div>
+       
+             {showConfirmation && (
+               <div className="confirmation-popup">
+                 <div className="popup-content">
+                   <p>Yakin mau melihat pembahasan sekarang?</p>
+                   <div className="popup-buttons">
+                     <button
+                       className="popup-button no-button"
+                       onClick={() => handleConfirmationResponse("no")}
+                     >
+                       Tidak
+                     </button>
+                     <button
+                       className="popup-button yes-button"
+                       onClick={() => handleConfirmationResponse("yes")}
+                     >
+                       Iya
+                     </button>
+                   </div>
+                 </div>
+               </div>
+             )}
+           </div>
+         );
+       };
 
 export default KuisSimpleFuture;

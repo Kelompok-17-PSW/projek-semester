@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Quis/KuisSimplePast.css";
+import "./QuestionPage.css";
 
 const KuisSimplePresentTense = () => {
   const [answers, setAnswers] = useState([]);

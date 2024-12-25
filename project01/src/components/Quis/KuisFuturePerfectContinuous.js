@@ -1,217 +1,205 @@
 import React, { useState } from "react";
-import "../Quis/KuisSimplePast.css"; 
+import "./QuestionPage.css";
 
 const KuisPerfectContinuousTense = () => {
- const [answers, setAnswers] = useState([]);
-    const [isAnswered, setIsAnswered] = useState(false);
-    const [isCorrect, setIsCorrect] = useState(false);
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [score, setScore] = useState(0);
-    const [isFinished, setIsFinished] = useState(false);
-  
-    const questions = [
-      {
-        question: "They ... (study) English for three years by the time they finish their course.",
-        options: [
-          { label: "A. will have studied", value: "A", isCorrect: true },
-          { label: "B. will have been waiting", value: "B" },
-          { label: "C. will be waiting", value: "C" },
-          { label: "D. will wait", value: "D" },
-        ],
-      },
-      {
-        question: "By the time you finish your dinner, I ... (clean) the house for two hours.",
-        options: [
-          { label: "A. will clean", value: "A" },
-          { label: "B. will have cleaned", value: "B" },
-          { label: "C. will have been cleaning", value: "C", isCorrect: true },
-          { label: "D. will be cleaning", value: "D" },
-        ],
-      },
-      {
-        question: "In two years, they ... (live) in this city for 15 years.",
-        options: [
-          { label: "A. shall live", value: "A" },
-          { label: "B. shall have lived", value: "B" },
-          { label: "C. shall be living", value: "C" },
-          { label: "D. shall have been living", value: "D", isCorrect: true },
-        ],
-      },
-      {
-        question: "In a few months, ... you ... (work) on this project for a year?",
-        options: [
-          { label: "A. shall / have been working", value: "A", isCorrect: true },
-          { label: "B. shall / be working", value: "B" },
-          { label: "C. shall / have worked", value: "C" },
-          { label: "D. shall / work", value: "D" },
-        ],
-      },
-      {
-        question: "In two weeks, ... they ... (travel) for a month?",
-        options: [
-          { label: "A. will / travel", value: "A" },
-          { label: "B. will / have traveled", value: "B" },
-          { label: "C. will / have been traveling", value: "C", isCorrect: true },
-          { label: "D. will / be traveling", value: "D" },
-        ],
-      },
-      {
-        question: "By next year, I ______ (work) at this company for five years.",
-        options: [
-          { label: "A. will have been working", value: "A", isCorrect: true },
-          { label: "B. will be working", value: "B" },
-          { label: "C. will have worked", value: "C" },
-          { label: "D. will work", value: "D" },
-        ],
-      },
-      {
+  const [currentQuestion, setCurrentQuestion] = useState(1);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+       
+  const questions = [
+    {
+        question: "They will have studied English for three years by the time they finish their course.",
+        options: ["will have studied", "will have been waiting", "will be waiting", "will wait"],
+        correctOption: "will have studied",
+        explanation: "Future Perfect Tense is used to describe actions that will be completed before a certain point in the future."
+    },
+    {
+        question: "By the time you finish your dinner, I will have been cleaning the house for two hours.",
+        options: ["will clean", "will have cleaned", "will have been cleaning", "will be cleaning"],
+        correctOption: "will have been cleaning",
+        explanation: "Future Perfect Continuous Tense indicates an action that will have been ongoing for a specific duration by a certain point in the future."
+    },
+    {
+        question: "In two years, they will have been living in this city for 15 years.",
+        options: ["shall live", "shall have lived", "shall be living", "shall have been living"],
+        correctOption: "shall have been living",
+        explanation: "Future Perfect Continuous Tense is used to emphasize the duration of an ongoing action in the future."
+    },
+    {
+        question: "In a few months, shall you have been working on this project for a year?",
+        options: ["shall / have been working", "shall / be working", "shall / have worked", "shall / work"],
+        correctOption: "shall / have been working",
+        explanation: "This question form uses Future Perfect Continuous Tense to inquire about the duration of an ongoing action by a future point."
+    },
+    {
+        question: "In two weeks, will they have been traveling for a month?",
+        options: ["will / travel", "will / have traveled", "will / have been traveling", "will / be traveling"],
+        correctOption: "will / have been traveling",
+        explanation: "Future Perfect Continuous Tense describes an ongoing action that will have lasted for a specific period by a future time."
+    },
+    {
+        question: "By next year, I will have been working at this company for five years.",
+        options: ["will have been working", "will be working", "will have worked", "will work"],
+        correctOption: "will have been working",
+        explanation: "Future Perfect Continuous Tense emphasizes the duration of an action continuing into the future."
+    },
+    {
         question: "Which sentence is in Future Perfect Continuous Tense?",
         options: [
-          { label: "A. She will be studying English for three hours tomorrow.", value: "A" },
-          { label: "B. She will have been studying English for three hours by the time you arrive.", value: "B", isCorrect: true },
-          { label: "C. She has been studying English for three hours.", value: "C" },
-          { label: "D. She will study English tomorrow.", value: "D" },
+            "She will be studying English for three hours tomorrow.",
+            "She will have been studying English for three hours by the time you arrive.",
+            "She has been studying English for three hours.",
+            "She will study English tomorrow."
         ],
-      },
-      {
-        question: "By the time he retires, he ______ (teach) at the university for 40 years.",
-        options: [
-          { label: "A. will teach", value: "A" },
-          { label: "B. will have been teaching", value: "B", isCorrect: true },
-          { label: "C. will have taught", value: "C" },
-          { label: "D. will be teaching", value: "D" },
-        ],
-      },
-      {
-        question: "In December, they ______ (build) the bridge for two years.",
-        options: [
-          { label: "A. will have been building", value: "A", isCorrect: true },
-          { label: "B. will build", value: "B" },
-          { label: "C. will be building", value: "C" },
-          { label: "D. will have built", value: "D" },
-        ],
-      },
-      {
-        question: "How long ______ she ______ (train) for the marathon by the time it starts?",
-        options: [
-          { label: "A. will / be training", value: "A" },
-          { label: "B. will / have trained", value: "B" },
-          { label: "C. will / have been training", value: "C", isCorrect: true },
-          { label: "D. will / train", value: "D" },
-        ],
-      },      
-
-    ];
-  
-    const currentQuestion = questions[currentQuestionIndex];
-  
-    const handleAnswerClick = (option) => {
-      const updatedAnswers = [...answers];
-      updatedAnswers[currentQuestionIndex] = option.value;
-      setAnswers(updatedAnswers);
-  
-      if (option.isCorrect) {
-        setScore((prevScore) => prevScore + 1);
-      }
-  
-      setIsCorrect(option.isCorrect || false);
-      setIsAnswered(true);
-    };
-  
-    const goToNextQuestion = () => {
-      if (currentQuestionIndex < questions.length - 1) {
-        setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-        setIsAnswered(answers[currentQuestionIndex + 1] ? true : false);
-      }
-    };
-  
-    const goToPreviousQuestion = () => {
-      if (currentQuestionIndex > 0) {
-        setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
-        setIsAnswered(answers[currentQuestionIndex - 1] ? true : false);
-      }
-    };
-  
-    const handleFinishQuiz = () => {
-      setIsFinished(true);
-    };
-  
-    const handleRestartQuiz = () => {
-      setAnswers([]);
-      setScore(0);
-      setCurrentQuestionIndex(0);
-      setIsFinished(false);
-    };
-  
-    if (isFinished) {
-      return (
-        <div className="latihan-soal1-container">
-          <div className="latihan-soal1-question-box">
-            <h1 className="latihan-soal1-title">Latihan Soal Future Perfect Continuos</h1>
-            <h2>Quiz Selesai!</h2>
-            <p>Skor Anda: {score}/{questions.length}</p>
-            <button className="finish-button" onClick={handleRestartQuiz}>
-              Ulangi Latihan
-            </button>
-          </div>
-        </div>
-      );
+        correctOption: "She will have been studying English for three hours by the time you arrive.",
+        explanation: "The correct sentence describes an action that will have been ongoing for a specific time in the future."
+    },
+    {
+        question: "By the time he retires, he will have been teaching at the university for 40 years.",
+        options: ["will teach", "will have been teaching", "will have taught", "will be teaching"],
+        correctOption: "will have been teaching",
+        explanation: "Future Perfect Continuous Tense highlights the duration of an action leading up to a specific point in the future."
+    },
+    {
+        question: "In December, they will have been building the bridge for two years.",
+        options: ["will have been building", "will build", "will be building", "will have built"],
+        correctOption: "will have been building",
+        explanation: "Future Perfect Continuous Tense is used to emphasize the ongoing nature and duration of an action in the future."
+    },
+    {
+        question: "How long will she have been training for the marathon by the time it starts?",
+        options: ["will / be training", "will / have trained", "will / have been training", "will / train"],
+        correctOption: "will / have been training",
+        explanation: "This question uses Future Perfect Continuous Tense to inquire about the duration of an action by a future time."
     }
-  
-    return (
-      <div className="latihan-soal1-container">
-        <div className="latihan-soal1-question-box">
-          <h1 className="latihan-soal1-title">Latihan Soal</h1>
-          <div className="latihan-soal1-question">
-            <p>{currentQuestion.question}</p>
-          </div>
-          <div className="latihan-soal1-answers">
-            {currentQuestion.options.map((option, index) => (
-              <button
-                key={index}
-                className={`latihan-soal1-answer-button ${
-                  answers[currentQuestionIndex] === option.value
-                    ? "latihan-soal1-selected-answer"
-                    : ""
-                }`}
-                onClick={() => handleAnswerClick(option)}
-                disabled={answers[currentQuestionIndex]}
-              >
-                {option.label}
-              </button>
-            ))}
-          </div>
-          {answers[currentQuestionIndex] && (
-            <div className="latihan-soal1-explanation-box">
-              <h2>Jawaban Anda: {answers[currentQuestionIndex]}</h2>
-              <h3>
-                {isCorrect
-                  ? "Jawaban Anda Benar!"
-                  : `Jawaban Benar: ${
-                      currentQuestion.options.find((opt) => opt.isCorrect)?.value
-                    }`}
-              </h3>
-              <p>{currentQuestion.explanation}</p>
-            </div>
-          )}
-          <div className="latihan-soal1-navigation-buttons">
-            <button
-              className="nav-button prev"
-              onClick={goToPreviousQuestion}
-              disabled={currentQuestionIndex === 0}
-            >
-              ← Soal Sebelumnya
-            </button>
-            <button
-              className="nav-button next"
-              onClick={currentQuestionIndex === questions.length - 1 ? handleFinishQuiz : goToNextQuestion}
-            >
-              {currentQuestionIndex === questions.length - 1 ? "Selesai" : "Soal Selanjutnya →"}
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  };
+];
+
+       
+       
+         const handleNextQuestion = () => {
+           if (currentQuestion < questions.length) {
+             setCurrentQuestion(currentQuestion + 1);
+             resetSelection();
+           }
+         };
+       
+         const handlePreviousQuestion = () => {
+           if (currentQuestion > 1) {
+             setCurrentQuestion(currentQuestion - 1);
+             resetSelection();
+           }
+         };
+       
+         const handleOptionSelect = (option) => {
+           setSelectedOption(option);
+         };
+       
+         const resetSelection = () => {
+           setSelectedOption(null);
+         };
+       
+         const handleDropdownChange = (e) => {
+           const selectedNumber = parseInt(e.target.value);
+           setCurrentQuestion(selectedNumber);
+           resetSelection();
+         };
+       
+         const handleConfirmationResponse = (response) => {
+           if (response === "yes") {
+             setSelectedOption(true);
+           }
+           setShowConfirmation(false);
+         };
+       
+         return (
+           <div className="question-page">
+             <div className="question-container">
+               <button
+                 className="oval-button previous-button"
+                 onClick={handlePreviousQuestion}
+                 disabled={currentQuestion === 1}
+               >
+                 &larr; Soal Sebelumnya
+               </button>
+               <div className="question-box">
+                 <h2>Soal {currentQuestion}</h2>
+                 <p>{questions[currentQuestion - 1].question}</p>
+               </div>
+               <button
+                 className="oval-button next-button"
+                 onClick={handleNextQuestion}
+                 disabled={currentQuestion === questions.length}
+               >
+                 Soal Berikutnya &rarr;
+               </button>
+             </div>
+       
+             <div className="interactive-section">
+               <div className="dropdown-container">
+                 <label htmlFor="question-dropdown">Pilih Soal:</label>
+                 <select
+                   id="question-dropdown"
+                   value={currentQuestion}
+                   onChange={handleDropdownChange}
+                 >
+                   {questions.map((_, index) => (
+                     <option key={index} value={index + 1}>
+                       Soal {index + 1}
+                     </option>
+                   ))}
+                 </select>
+               </div>
+       
+               <div className="options-container">
+                 {questions[currentQuestion - 1].options.map((option, index) => (
+                   <button
+                     key={index}
+                     className={`option-button ${
+                       selectedOption === option
+                         ? option === questions[currentQuestion - 1].correctOption
+                           ? "correct"
+                           : "incorrect"
+                         : ""
+                     }`}
+                     onClick={() => handleOptionSelect(option)}
+                   >
+                     {option}
+                   </button>
+                 ))}
+               </div>
+       
+               {selectedOption && (
+                 <div className="explanation-container">
+                   <p className="explanation-text">
+                     {questions[currentQuestion - 1].explanation}
+                   </p>
+                 </div>
+               )}
+             </div>
+       
+             {showConfirmation && (
+               <div className="confirmation-popup">
+                 <div className="popup-content">
+                   <p>Yakin mau melihat pembahasan sekarang?</p>
+                   <div className="popup-buttons">
+                     <button
+                       className="popup-button no-button"
+                       onClick={() => handleConfirmationResponse("no")}
+                     >
+                       Tidak
+                     </button>
+                     <button
+                       className="popup-button yes-button"
+                       onClick={() => handleConfirmationResponse("yes")}
+                     >
+                       Iya
+                     </button>
+                   </div>
+                 </div>
+               </div>
+             )}
+           </div>
+         );
+       };
 
 export default KuisPerfectContinuousTense;
