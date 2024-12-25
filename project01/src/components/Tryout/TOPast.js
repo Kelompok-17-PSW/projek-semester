@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "./tryout.css";
+import "../Tryout/tryout.css";
 import Timer from "./Timer";
 import Question from "./Question";
 
