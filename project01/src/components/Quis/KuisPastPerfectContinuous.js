@@ -1,251 +1,241 @@
 import React, { useState } from "react";
 import "./QuestionPage.css";
 
-const KuisPastPerfectContinuousTense = () => {
-  const [answers, setAnswers] = useState([]);
-  const [isAnswered, setIsAnswered] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [isFinished, setIsFinished] = useState(false);
+const KuisPastPerfectContinuous = () => {
+  const [currentQuestion, setCurrentQuestion] = useState(1);
+  const [selectedOption, setSelectedOption] = useState(null);
 
   const questions = [
-    // Existing questions
     {
-      question: "She ___ (study) for two hours when I called her",
+      question:
+        "She ... (work) at the company for five years when she decided to quit.",
       options: [
-        { label: "A. had been studying", value: "A", isCorrect: true },
-        { label: "B. was studying", value: "B" },
-        { label: "C. has been studying", value: "C" },
-        { label: "D. studied", value: "D" },
+        "A. had been working",
+        "B. worked",
+        "C. had worked",
+        "D. works",
       ],
+      correctOption: "A",
+      explanation:
+        "The correct answer is 'A. had been working' because it indicates a continuous action that was ongoing before another past event.",
     },
     {
-      question: "They ___ (wait) for an hour when the train finally arrived.",
+      question:
+        "They ... (wait) for over an hour when the train finally arrived.",
       options: [
-        { label: "A. waited", value: "A" },
-        { label: "B. had been waiting", value: "B", isCorrect: true },
-        { label: "C. have been waiting", value: "C" },
-        { label: "D. were waiting", value: "D" },
+        "A. waited",
+        "B. had been waiting",
+        "C. were waiting",
+        "D. wait",
       ],
+      correctOption: "B",
+      explanation:
+        "The correct answer is 'B. had been waiting' as it describes a continuous action before another past event.",
     },
     {
-      question: "We ___ (live) in that house for ten years before we moved.",
+      question:
+        "By the time we reached the venue, the band ... (play) for thirty minutes.",
       options: [
-        { label: "A. lived", value: "A" },
-        { label: "B. had been living", value: "B", isCorrect: true },
-        { label: "C. were living", value: "C" },
-        { label: "D. have been living", value: "D" },
+        "A. played",
+        "B. had been playing",
+        "C. had played",
+        "D. plays",
       ],
-    },
-    // Additional 15 questions
-    {
-      question: "He ___ (exercise) for an hour before breakfast.",
-      options: [
-        { label: "A. exercised", value: "A" },
-        { label: "B. was exercising", value: "B" },
-        { label: "C. had been exercising", value: "C", isCorrect: true },
-        { label: "D. has been exercising", value: "D" },
-      ],
+      correctOption: "B",
+      explanation:
+        "The correct answer is 'B. had been playing' because it shows a continuous action in progress before a specific past time.",
     },
     {
-      question: "They ___ (argue) for hours before coming to an agreement.",
+      question:
+        "He ... (study) for hours before the exam started.",
       options: [
-        { label: "A. were arguing", value: "A" },
-        { label: "B. argued", value: "B" },
-        { label: "C. had been arguing", value: "C", isCorrect: true },
-        { label: "D. have been arguing", value: "D" },
+        "A. studied",
+        "B. had studied",
+        "C. had been studying",
+        "D. studies",
       ],
+      correctOption: "C",
+      explanation:
+        "The correct answer is 'C. had been studying' as it indicates ongoing preparation before a specific moment in the past.",
     },
     {
-      question: "By the time she arrived, I ___ (wait) for thirty minutes.",
+      question:
+        "We ... (drive) for several hours when we finally saw the hotel.",
       options: [
-        { label: "A. was waiting", value: "A" },
-        { label: "B. waited", value: "B" },
-        { label: "C. had been waiting", value: "C", isCorrect: true },
-        { label: "D. have been waiting", value: "D" },
+        "A. had been driving",
+        "B. drove",
+        "C. had driven",
+        "D. drive",
       ],
+      correctOption: "A",
+      explanation:
+        "The correct answer is 'A. had been driving' because it describes a long ongoing action before arriving.",
     },
     {
-      question: "The students ___ (prepare) for the exam for weeks.",
+      question:
+        "She ... (not sleep) well for weeks before she went to the doctor.",
       options: [
-        { label: "A. prepared", value: "A" },
-        { label: "B. were preparing", value: "B" },
-        { label: "C. had been preparing", value: "C", isCorrect: true },
-        { label: "D. have been preparing", value: "D" },
+        "A. doesn’t sleep",
+        "B. hadn’t been sleeping",
+        "C. hasn’t been sleeping",
+        "D. hadn’t slept",
       ],
+      correctOption: "B",
+      explanation:
+        "The correct answer is 'B. hadn’t been sleeping' as it refers to a continuous action before another past action.",
     },
     {
-      question: "She ___ (read) for three hours before she fell asleep.",
+      question:
+        "He ... (exercise) regularly before he injured his knee.",
       options: [
-        { label: "A. read", value: "A" },
-        { label: "B. was reading", value: "B" },
-        { label: "C. had been reading", value: "C", isCorrect: true },
-        { label: "D. has been reading", value: "D" },
+        "A. exercised",
+        "B. had exercised",
+        "C. had been exercising",
+        "D. exercises",
       ],
+      correctOption: "C",
+      explanation:
+        "The correct answer is 'C. had been exercising' because it shows a continuous habit interrupted by another event.",
     },
     {
-      question: "We ___ (plan) the trip for months before it was canceled.",
+      question:
+        "They ... (argue) for hours before they reached an agreement.",
       options: [
-        { label: "A. were planning", value: "A" },
-        { label: "B. planned", value: "B" },
-        { label: "C. had been planning", value: "C", isCorrect: true },
-        { label: "D. have been planning", value: "D" },
+        "A. had argued",
+        "B. argued",
+        "C. had been arguing",
+        "D. argue",
       ],
+      correctOption: "C",
+      explanation:
+        "The correct answer is 'C. had been arguing' as it indicates a continuous action before the resolution.",
     },
     {
-      question: "He ___ (work) at the company for years before quitting.",
+      question:
+        "We ... (travel) for days when we finally found a place to stay.",
       options: [
-        { label: "A. worked", value: "A" },
-        { label: "B. was working", value: "B" },
-        { label: "C. had been working", value: "C", isCorrect: true },
-        { label: "D. has been working", value: "D" },
+        "A. traveled",
+        "B. had been traveling",
+        "C. had traveled",
+        "D. travel",
       ],
+      correctOption: "B",
+      explanation:
+        "The correct answer is 'B. had been traveling' because it describes a prolonged action before another past event.",
     },
     {
-      question: "The children ___ (play) in the yard before it started raining.",
+      question:
+        "She ... (write) her novel for months before she finished the final chapter.",
       options: [
-        { label: "A. played", value: "A" },
-        { label: "B. were playing", value: "B" },
-        { label: "C. had been playing", value: "C", isCorrect: true },
-        { label: "D. have been playing", value: "D" },
+        "A. had been writing",
+        "B. wrote",
+        "C. had written",
+        "D. writes",
       ],
+      correctOption: "A",
+      explanation:
+        "The correct answer is 'A. had been writing' as it describes a long ongoing action before its conclusion.",
     },
-    {
-      question: "By the time the doctor arrived, she ___ (suffer) for hours.",
-      options: [
-        { label: "A. suffered", value: "A" },
-        { label: "B. was suffering", value: "B" },
-        { label: "C. had been suffering", value: "C", isCorrect: true },
-        { label: "D. has been suffering", value: "D" },
-      ],
-    },
-    {
-      question: "We ___ (travel) all night before reaching the hotel.",
-      options: [
-        { label: "A. traveled", value: "A" },
-        { label: "B. were traveling", value: "B" },
-        { label: "C. had been traveling", value: "C", isCorrect: true },
-        { label: "D. have been traveling", value: "D" },
-      ],
-    },
-    // Continue adding additional questions as necessary
   ];
 
-  const currentQuestion = questions[currentQuestionIndex];
-
-  const handleAnswerClick = (option) => {
-    const updatedAnswers = [...answers];
-    updatedAnswers[currentQuestionIndex] = option.value;
-    setAnswers(updatedAnswers);
-
-    if (option.isCorrect) {
-      setScore((prevScore) => prevScore + 1);
-    }
-
-    setIsCorrect(option.isCorrect || false);
-    setIsAnswered(true);
-  };
-
-  const goToNextQuestion = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-      setIsAnswered(answers[currentQuestionIndex + 1] ? true : false);
+  const handleNextQuestion = () => {
+    if (currentQuestion < questions.length) {
+      setCurrentQuestion(currentQuestion + 1);
+      setSelectedOption(null);
     }
   };
 
-  const goToPreviousQuestion = () => {
-    if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
-      setIsAnswered(answers[currentQuestionIndex - 1] ? true : false);
+  const handlePreviousQuestion = () => {
+    if (currentQuestion > 1) {
+      setCurrentQuestion(currentQuestion - 1);
+      setSelectedOption(null);
     }
   };
 
-  const handleFinishQuiz = () => {
-    setIsFinished(true);
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
   };
 
-  const handleRestartQuiz = () => {
-    setAnswers([]);
-    setScore(0);
-    setCurrentQuestionIndex(0);
-    setIsFinished(false);
+  const resetSelection = () => {
+    setSelectedOption(null);
   };
 
-  if (isFinished) {
-    return (
-      <div className="latihan-soal1-container">
-        <div className="latihan-soal1-question-box">
-          <h1 className="latihan-soal1-title">Latihan Soal Past Perfect Continuous Tense</h1>
-          <h2>Selesai!</h2>
-          <p>Skor Anda: {score}/{questions.length}</p>
-          <button className="finish-button" onClick={handleRestartQuiz}>
-            Ulangi Latihan
-          </button>
-        </div>
-      </div>
-    );
-  }
+  
+  const handleDropdownChange = (e) => {
+    const selectedNumber = parseInt(e.target.value);
+    setCurrentQuestion(selectedNumber);
+    resetSelection();
+  };
+
 
   return (
-    <div className="latihan-soal1-container">
-      <div className="latihan-soal1-question-box">
-        <h1 className="latihan-soal1-title">Latihan Soal Past Perfect Continuous Tense</h1>
-        <div className="latihan-soal1-question">
-          <p>{currentQuestion.question}</p>
+    <div className="question-page">
+      <div className="question-container">
+        <button
+          className="oval-button previous-button"
+          onClick={handlePreviousQuestion}
+          disabled={currentQuestion === 1}
+        >
+          &larr; Soal Sebelumnya
+        </button>
+        <div className="question-box">
+          <h2>Soal {currentQuestion}</h2>
+          <p>{questions[currentQuestion - 1].question}</p>
         </div>
-        <div className="latihan-soal1-answers">
-          {currentQuestion.options.map((option, index) => (
+        <button
+          className="oval-button next-button"
+          onClick={handleNextQuestion}
+          disabled={currentQuestion === questions.length}
+        >
+          Soal Berikutnya &rarr;
+        </button>
+      </div>
+
+      <div className="interactive-section">
+        <div className="dropdown-container">
+          <label htmlFor="question-dropdown">Pilih Soal:</label>
+          <select
+            id="question-dropdown"
+            value={currentQuestion}
+            onChange={handleDropdownChange}
+          >
+            {questions.map((_, index) => (
+              <option key={index} value={index + 1}>
+                Soal {index + 1}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="options-container">
+          {questions[currentQuestion - 1].options.map((option, index) => (
             <button
               key={index}
-              className={`latihan-soal1-answer-button ${
-                answers[currentQuestionIndex] === option.value
-                  ? "latihan-soal1-selected-answer"
+              className={`option-button ${
+                selectedOption === option
+                  ? option === questions[currentQuestion - 1].correctOption
+                    ? "correct"
+                    : "incorrect"
                   : ""
               }`}
-              onClick={() => handleAnswerClick(option)}
-              disabled={answers[currentQuestionIndex]}
+              onClick={() => handleOptionSelect(option)}
             >
-              {option.label}
+              {option}
             </button>
           ))}
         </div>
-        {answers[currentQuestionIndex] && (
-          <div className="latihan-soal1-explanation-box">
-            <h2>Jawaban Anda: {answers[currentQuestionIndex]}</h2>
-            <h3>
-              {isCorrect
-                ? "Jawaban Anda Benar!"
-                : `Jawaban Benar: ${
-                    currentQuestion.options.find((opt) => opt.isCorrect)?.value
-                  }`}
-            </h3>
+
+        {selectedOption && (
+          <div className="explanation-container">
+            <p className="explanation-text">
+              {questions[currentQuestion - 1].explanation}
+            </p>
           </div>
         )}
-        <div className="latihan-soal1-navigation-buttons">
-          <button
-            className="nav-button prev"
-            onClick={goToPreviousQuestion}
-            disabled={currentQuestionIndex === 0}
-          >
-            ← Soal Sebelumnya
-          </button>
-          <button
-            className="nav-button next"
-            onClick={
-              currentQuestionIndex === questions.length - 1
-                ? handleFinishQuiz
-                : goToNextQuestion
-            }
-          >
-            {currentQuestionIndex === questions.length - 1
-              ? "Selesai"
-              : "Soal Selanjutnya →"}
-          </button>
-        </div>
       </div>
     </div>
   );
 };
 
-export default KuisPastPerfectContinuousTense;
+
+export default KuisPastPerfectContinuous;
