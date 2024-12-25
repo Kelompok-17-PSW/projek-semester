@@ -2,213 +2,195 @@ import React, { useState } from "react";
 import "./QuestionPage.css";
 
 const KuisSimplePresentTense = () => {
-  const [answers, setAnswers] = useState([]);
-  const [isAnswered, setIsAnswered] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [isFinished, setIsFinished] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState(1);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   const questions = [
     {
-      question: "He ___ to school every day. (go)",
-      options: [
-        { label: "A. goes", value: "A", isCorrect: true },
-        { label: "B. go", value: "B" },
-        { label: "C. going", value: "C" },
-        { label: "D. gone", value: "D" },
-      ],
+      question: "She ... (go) to the market every day.",
+      options: ["A. go", "B. goes", "C. going", "D. gone"],
+      correctOption: "B",
+      explanation: "The correct answer is 'B. goes' because 'goes' is the simple present form of 'go' for the third person singular.",
     },
     {
-      question: "They ___ soccer every weekend. (play)",
-      options: [
-        { label: "A. plays", value: "A" },
-        { label: "B. played", value: "B" },
-        { label: "C. play", value: "C", isCorrect: true },
-        { label: "D. playing", value: "D" },
-      ],
+      question: "I ... (see) a movie every weekend.",
+      options: ["A. see", "B. sees", "C. seen", "D. seeing"],
+      correctOption: "A",
+      explanation: "The correct answer is 'A. see' because 'see' is the base form used with the subject 'I'.",
     },
     {
-      question: "You ___ very well. (speak)",
-      options: [
-        { label: "A. speaks", value: "A" },
-        { label: "B. speak", value: "B", isCorrect: true },
-        { label: "C. speaking", value: "C" },
-        { label: "D. spoken", value: "D" },
-      ],
+      question: "They ... (play) football every Saturday.",
+      options: ["A. play", "B. plays", "C. played", "D. playing"],
+      correctOption: "A",
+      explanation: "The correct answer is 'A. play' because 'play' is the base form used for the subject 'they'.",
     },
     {
-      question: "I ___ water every morning. (drink)",
-      options: [
-        { label: "A. drink", value: "A", isCorrect: true },
-        { label: "B. drinks", value: "B" },
-        { label: "C. drinking", value: "C" },
-        { label: "D. drank", value: "D" },
-      ],
+      question: "We ... (eat) breakfast at 7 AM every day.",
+      options: ["A. eats", "B. eat", "C. eaten", "D. eating"],
+      correctOption: "B",
+      explanation: "The correct answer is 'B. eat' because 'eat' is used in the base form with the subject 'we'.",
     },
     {
-      question: "They ___ the house every weekend. (clean)",
-      options: [
-        { label: "A. cleans", value: "A" },
-        { label: "B. cleaning", value: "B" },
-        { label: "C. clean", value: "C", isCorrect: true },
-        { label: "D. cleaned", value: "D" },
-      ],
+      question: "He ... (write) emails every morning.",
+      options: ["A. writes", "B. write", "C. written", "D. writing"],
+      correctOption: "A",
+      explanation: "The correct answer is 'A. writes' because 'writes' is the third person singular form of 'write'.",
     },
     {
-      question: "She always ___ tea in the afternoon. (drink)",
-      options: [
-        { label: "A. drinks", value: "A", isCorrect: true },
-        { label: "B. drink", value: "B" },
-        { label: "C. drinking", value: "C" },
-        { label: "D. drank", value: "D" },
-      ],
+      question: "I ... (sleep) early on weekdays.",
+      options: ["A. sleep", "B. sleeps", "C. sleeping", "D. slept"],
+      correctOption: "A",
+      explanation: "The correct answer is 'A. sleep' because 'sleep' is used with the subject 'I'.",
     },
     {
-      question: "The sun ___ in the east. (rise)",
-      options: [
-        { label: "A. rise", value: "A" },
-        { label: "B. rises", value: "B", isCorrect: true },
-        { label: "C. rising", value: "C" },
-        { label: "D. risen", value: "D" },
-      ],
+      question: "She ... (read) books every night.",
+      options: ["A. read", "B. reads", "C. reading", "D. readed"],
+      correctOption: "B",
+      explanation: "The correct answer is 'B. reads' because 'reads' is the third person singular form of 'read'.",
     },
     {
-      question: "He ___ TV every evening. (watch)",
-      options: [
-        { label: "A. watches", value: "A", isCorrect: true },
-        { label: "B. watch", value: "B" },
-        { label: "C. watching", value: "C" },
-        { label: "D. watched", value: "D" },
-      ],
+      question: "They ... (drink) coffee every morning.",
+      options: ["A. drink", "B. drinks", "C. drunk", "D. drinking"],
+      correctOption: "A",
+      explanation: "The correct answer is 'A. drink' because 'drink' is used for plural subjects like 'they'.",
     },
     {
-      question: "We ___ to the park every Saturday. (go)",
-      options: [
-        { label: "A. goes", value: "A" },
-        { label: "B. go", value: "B", isCorrect: true },
-        { label: "C. going", value: "C" },
-        { label: "D. gone", value: "D" },
-      ],
+      question: "He ... (buy) groceries every week.",
+      options: ["A. buys", "B. buy", "C. bought", "D. buying"],
+      correctOption: "A",
+      explanation: "The correct answer is 'A. buys' because 'buys' is the third person singular form of 'buy'.",
     },
     {
-      question: "She ___ breakfast at 7 AM every day. (have)",
-      options: [
-        { label: "A. have", value: "A" },
-        { label: "B. has", value: "B", isCorrect: true },
-        { label: "C. having", value: "C" },
-        { label: "D. had", value: "D" },
-      ],
+      question: "I ... (run) every morning.",
+      options: ["A. run", "B. runs", "C. ran", "D. running"],
+      correctOption: "A",
+      explanation: "The correct answer is 'A. run' because 'run' is the base form used with the subject 'I'.",
     },
   ];
 
-  const currentQuestion = questions[currentQuestionIndex];
-
-  const handleAnswerClick = (option) => {
-    const updatedAnswers = [...answers];
-    updatedAnswers[currentQuestionIndex] = option.value;
-    setAnswers(updatedAnswers);
-
-    if (option.isCorrect) {
-      setScore((prevScore) => prevScore + 1);
-    }
-
-    setIsCorrect(option.isCorrect || false);
-    setIsAnswered(true);
-  };
-
-  const goToNextQuestion = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-      setIsAnswered(answers[currentQuestionIndex + 1] ? true : false);
+  const handleNextQuestion = () => {
+    if (currentQuestion < questions.length) {
+      setCurrentQuestion(currentQuestion + 1);
+      resetSelection();
     }
   };
 
-  const goToPreviousQuestion = () => {
-    if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
-      setIsAnswered(answers[currentQuestionIndex - 1] ? true : false);
+  const handlePreviousQuestion = () => {
+    if (currentQuestion > 1) {
+      setCurrentQuestion(currentQuestion - 1);
+      resetSelection();
     }
   };
 
-  const handleFinishQuiz = () => {
-    setIsFinished(true);
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
   };
 
-  const handleRestartQuiz = () => {
-    setAnswers([]);
-    setScore(0);
-    setCurrentQuestionIndex(0);
-    setIsFinished(false);
+  const resetSelection = () => {
+    setSelectedOption(null);
   };
 
-  if (isFinished) {
-    return (
-      <div className="latihan-soal1-container">
-        <div className="latihan-soal1-question-box">
-          <h1 className="latihan-soal1-title">Latihan Soal Simple Present Tense</h1>
-          <h2>Selesai!</h2>
-          <p>Skor Anda: {score}/{questions.length}</p>
-          <button className="finish-button" onClick={handleRestartQuiz}>
-            Ulangi Latihan
-          </button>
-        </div>
-      </div>
-    );
-  }
+  const handleDropdownChange = (e) => {
+    const selectedNumber = parseInt(e.target.value);
+    setCurrentQuestion(selectedNumber);
+    resetSelection();
+  };
+
+  const handleConfirmationResponse = (response) => {
+    if (response === "yes") {
+      setSelectedOption(true);
+    }
+    setShowConfirmation(false);
+  };
 
   return (
-    <div className="latihan-soal1-container">
-      <div className="latihan-soal1-question-box">
-        <h1 className="latihan-soal1-title">Latihan Soal Simple Present Tense</h1>
-        <div className="latihan-soal1-question">
-          <p>{currentQuestion.question}</p>
+    <div className="question-page">
+      <div className="question-container">
+        <button
+          className="oval-button previous-button"
+          onClick={handlePreviousQuestion}
+          disabled={currentQuestion === 1}
+        >
+          &larr; Soal Sebelumnya
+        </button>
+        <div className="question-box">
+          <h2>Soal {currentQuestion}</h2>
+          <p>{questions[currentQuestion - 1].question}</p>
         </div>
-        <div className="latihan-soal1-answers">
-          {currentQuestion.options.map((option, index) => (
+        <button
+          className="oval-button next-button"
+          onClick={handleNextQuestion}
+          disabled={currentQuestion === questions.length}
+        >
+          Soal Berikutnya &rarr;
+        </button>
+      </div>
+
+      <div className="interactive-section">
+        <div className="dropdown-container">
+          <label htmlFor="question-dropdown">Pilih Soal:</label>
+          <select
+            id="question-dropdown"
+            value={currentQuestion}
+            onChange={handleDropdownChange}
+          >
+            {questions.map((_, index) => (
+              <option key={index} value={index + 1}>
+                Soal {index + 1}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="options-container">
+          {questions[currentQuestion - 1].options.map((option, index) => (
             <button
               key={index}
-              className={`latihan-soal1-answer-button ${
-                answers[currentQuestionIndex] === option.value
-                  ? "latihan-soal1-selected-answer"
+              className={`option-button ${
+                selectedOption === option
+                  ? option === questions[currentQuestion - 1].correctOption
+                    ? "correct"
+                    : "incorrect"
                   : ""
               }`}
-              onClick={() => handleAnswerClick(option)}
-              disabled={answers[currentQuestionIndex]}
+              onClick={() => handleOptionSelect(option)}
             >
-              {option.label}
+              {option}
             </button>
           ))}
         </div>
-        {answers[currentQuestionIndex] && (
-          <div className="latihan-soal1-explanation-box">
-            <h2>Jawaban Anda: {answers[currentQuestionIndex]}</h2>
-            <h3>
-              {isCorrect
-                ? "Jawaban Anda Benar!"
-                : `Jawaban Benar: ${
-                    currentQuestion.options.find((opt) => opt.isCorrect)?.value
-                  }`}
-            </h3>
-            <p>{currentQuestion.explanation}</p>
+
+        {selectedOption && (
+          <div className="explanation-container">
+            <p className="explanation-text">
+              {questions[currentQuestion - 1].explanation}
+            </p>
           </div>
         )}
-        <div className="latihan-soal1-navigation-buttons">
-          <button
-            className="nav-button prev"
-            onClick={goToPreviousQuestion}
-            disabled={currentQuestionIndex === 0}
-          >
-            ← Soal Sebelumnya
-          </button>
-          <button
-            className="nav-button next"
-            onClick={currentQuestionIndex === questions.length - 1 ? handleFinishQuiz : goToNextQuestion}
-          >
-            {currentQuestionIndex === questions.length - 1 ? "Selesai" : "Soal Selanjutnya →"}
-          </button>
-        </div>
       </div>
+
+      {showConfirmation && (
+        <div className="confirmation-popup">
+          <div className="popup-content">
+            <p>Yakin mau melihat pembahasan sekarang?</p>
+            <div className="popup-buttons">
+              <button
+                className="popup-button no-button"
+                onClick={() => handleConfirmationResponse("no")}
+              >
+                Tidak
+              </button>
+              <button
+                className="popup-button yes-button"
+                onClick={() => handleConfirmationResponse("yes")}
+              >
+                Iya
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
