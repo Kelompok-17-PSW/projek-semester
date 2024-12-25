@@ -8,7 +8,7 @@ const Kuis = () => {
   const tenseSections = [
     {
       id: "present",
-      title: "Try Out",
+      title: "Ikuti Try Out",
       subTenses: [
         { title: "Simple Present Tense", link: "/topresent" },
         { title: "Simple Past Tense", link: "/topast" },
