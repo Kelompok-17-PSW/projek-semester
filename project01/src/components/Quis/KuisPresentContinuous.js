@@ -2,212 +2,195 @@ import React, { useState } from "react";
 import "./QuestionPage.css";
 
 const KuisPresentContinuousTense = () => {
-  const [answers, setAnswers] = useState([]);
-  const [isAnswered, setIsAnswered] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [isFinished, setIsFinished] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState(1);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   const questions = [
     {
-      question: "He ___ a book now. (read)",
-      options: [
-        { label: "A. reads", value: "A" },
-        { label: "B. is reading", value: "B", isCorrect: true },
-        { label: "C. was reading", value: "C" },
-        { label: "D. read", value: "D" },
-      ],
+      question: "She ... (go) to the market right now.",
+      options: ["A. go", "B. goes", "C. is going", "D. going"],
+      correctOption: "C",
+      explanation: "The correct answer is 'C. is going' because 'is going' is the present continuous form, used for actions happening right now.",
     },
     {
-      question: "They ___ soccer at the moment. (play)",
-      options: [
-        { label: "A. Were play", value: "A" },
-        { label: "B. played", value: "B" },
-        { label: "C. play", value: "C" },
-        { label: "D. are playing", value: "D", isCorrect: true },
-      ],
+      question: "I ... (watch) a movie at the moment.",
+      options: ["A. watch", "B. watching", "C. is watching", "D. watched"],
+      correctOption: "C",
+      explanation: "The correct answer is 'C. is watching' because 'is watching' is the present continuous form of 'watch', showing an action happening right now.",
     },
     {
-      question: "She ___ dinner right now. (cook)",
-      options: [
-        { label: "A. was cooking", value: "A" },
-        { label: "B. is cooking", value: "B", isCorrect: true },
-        { label: "C. cooked", value: "C" },
-        { label: "D. cooks", value: "D" },
-      ],
+      question: "They ... (play) football at this time.",
+      options: ["A. play", "B. plays", "C. are playing", "D. played"],
+      correctOption: "C",
+      explanation: "The correct answer is 'C. are playing' because 'are playing' is the present continuous form of 'play', describing an action happening at the moment.",
     },
     {
-      question: "I ___ for my keys. (look)",
-      options: [
-        { label: "A. am looking", value: "A", isCorrect: true },
-        { label: "B. looks", value: "B" },
-        { label: "C. was looking", value: "C" },
-        { label: "D. looked", value: "D" },
-      ],
+      question: "We ... (eat) dinner now.",
+      options: ["A. eat", "B. eating", "C. are eating", "D. eaten"],
+      correctOption: "C",
+      explanation: "The correct answer is 'C. are eating' because 'are eating' is the present continuous form of 'eat', showing an ongoing action.",
     },
     {
-      question: "The baby ___ right now. (cry)",
-      options: [
-        { label: "A. cried", value: "A" },
-        { label: "B. cries", value: "B" },
-        { label: "C. is crying", value: "C", isCorrect: true },
-        { label: "D. cry", value: "D" },
-      ],
+      question: "He ... (write) a letter to his friend right now.",
+      options: ["A. writes", "B. writing", "C. is writing", "D. wrote"],
+      correctOption: "C",
+      explanation: "The correct answer is 'C. is writing' because 'is writing' is the present continuous form, used for an action happening right now.",
     },
     {
-      question: "We ___ TV in the living room. (watch)",
-      options: [
-        { label: "A. is watching", value: "A" },
-        { label: "B. are watching", value: "B", isCorrect: true },
-        { label: "C. watched", value: "C" },
-        { label: "D. watches", value: "D" },
-      ],
+      question: "I ... (sleep) at the moment.",
+      options: ["A. sleep", "B. sleeps", "C. sleeping", "D. am sleeping"],
+      correctOption: "D",
+      explanation: "The correct answer is 'D. am sleeping' because 'am sleeping' is the present continuous form, used with the subject 'I'.",
     },
     {
-      question: "She ___ to music on her headphones. (listen)",
-      options: [
-        { label: "A. listens", value: "A" },
-        { label: "B. is listening", value: "B", isCorrect: true },
-        { label: "C. listened", value: "C" },
-        { label: "D. listen", value: "D" },
-      ],
+      question: "She ... (read) a book right now.",
+      options: ["A. read", "B. reads", "C. is reading", "D. reading"],
+      correctOption: "C",
+      explanation: "The correct answer is 'C. is reading' because 'is reading' is the present continuous form of 'read', used to describe an ongoing action.",
     },
     {
-      question: "The kids ___ in the park now. (play)",
-      options: [
-        { label: "A. are playing", value: "A", isCorrect: true },
-        { label: "B. played", value: "B" },
-        { label: "C. plays", value: "C" },
-        { label: "D. is playing", value: "D" },
-      ],
+      question: "They ... (drink) coffee right now.",
+      options: ["A. drink", "B. drinks", "C. are drinking", "D. drank"],
+      correctOption: "C",
+      explanation: "The correct answer is 'C. are drinking' because 'are drinking' is the present continuous form, showing an action happening at the moment.",
     },
     {
-      question: "I ___ about you at this moment. (think)",
-      options: [
-        { label: "A. am thinking", value: "A", isCorrect: true },
-        { label: "B. think", value: "B" },
-        { label: "C. thought", value: "C" },
-        { label: "D. thinks", value: "D" },
-      ],
+      question: "He ... (buy) a new car this week.",
+      options: ["A. buys", "B. is buying", "C. buying", "D. bought"],
+      correctOption: "B",
+      explanation: "The correct answer is 'B. is buying' because 'is buying' is the present continuous form, used for an action happening right now.",
     },
     {
-      question: "He ___ his homework at the moment. (do)",
-      options: [
-        { label: "A. is doing", value: "A", isCorrect: true },
-        { label: "B. does", value: "B" },
-        { label: "C. did", value: "C" },
-        { label: "D. do", value: "D" },
-      ],
+      question: "I ... (run) every morning at 6 AM.",
+      options: ["A. run", "B. runs", "C. am running", "D. running"],
+      correctOption: "C",
+      explanation: "The correct answer is 'C. am running' because 'am running' is the present continuous form, used with 'I' for an ongoing action.",
     },
   ];
 
-  const currentQuestion = questions[currentQuestionIndex];
-
-  const handleAnswerClick = (option) => {
-    const updatedAnswers = [...answers];
-    updatedAnswers[currentQuestionIndex] = option.value;
-    setAnswers(updatedAnswers);
-
-    if (option.isCorrect) {
-      setScore((prevScore) => prevScore + 1);
-    }
-
-    setIsCorrect(option.isCorrect || false);
-    setIsAnswered(true);
-  };
-
-  const goToNextQuestion = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-      setIsAnswered(answers[currentQuestionIndex + 1] ? true : false);
+  const handleNextQuestion = () => {
+    if (currentQuestion < questions.length) {
+      setCurrentQuestion(currentQuestion + 1);
+      resetSelection();
     }
   };
 
-  const goToPreviousQuestion = () => {
-    if (currentQuestionIndex > 0) {
-      setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
-      setIsAnswered(answers[currentQuestionIndex - 1] ? true : false);
+  const handlePreviousQuestion = () => {
+    if (currentQuestion > 1) {
+      setCurrentQuestion(currentQuestion - 1);
+      resetSelection();
     }
   };
 
-  const handleFinishQuiz = () => {
-    setIsFinished(true);
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
   };
 
-  const handleRestartQuiz = () => {
-    setAnswers([]);
-    setScore(0);
-    setCurrentQuestionIndex(0);
-    setIsFinished(false);
+  const resetSelection = () => {
+    setSelectedOption(null);
   };
 
-  if (isFinished) {
-    return (
-      <div className="latihan-soal1-container">
-        <div className="latihan-soal1-question-box">
-          <h1 className="latihan-soal1-title">Latihan Soal Present Continuous Tense</h1>
-          <h2>Selesai!</h2>
-          <p>Skor Anda: {score}/{questions.length}</p>
-          <button className="finish-button" onClick={handleRestartQuiz}>
-            Ulangi Latihan
-          </button>
-        </div>
-      </div>
-    );
-  }
+  const handleDropdownChange = (e) => {
+    const selectedNumber = parseInt(e.target.value);
+    setCurrentQuestion(selectedNumber);
+    resetSelection();
+  };
+
+  const handleConfirmationResponse = (response) => {
+    if (response === "yes") {
+      setSelectedOption(true);
+    }
+    setShowConfirmation(false);
+  };
 
   return (
-    <div className="latihan-soal1-container">
-      <div className="latihan-soal1-question-box">
-        <h1 className="latihan-soal1-title">Latihan Soal Present Continuous Tense</h1>
-        <div className="latihan-soal1-question">
-          <p>{currentQuestion.question}</p>
+    <div className="question-page">
+      <div className="question-container">
+        <button
+          className="oval-button previous-button"
+          onClick={handlePreviousQuestion}
+          disabled={currentQuestion === 1}
+        >
+          &larr; Soal Sebelumnya
+        </button>
+        <div className="question-box">
+          <h2>Soal {currentQuestion}</h2>
+          <p>{questions[currentQuestion - 1].question}</p>
         </div>
-        <div className="latihan-soal1-answers">
-          {currentQuestion.options.map((option, index) => (
+        <button
+          className="oval-button next-button"
+          onClick={handleNextQuestion}
+          disabled={currentQuestion === questions.length}
+        >
+          Soal Berikutnya &rarr;
+        </button>
+      </div>
+
+      <div className="interactive-section">
+        <div className="dropdown-container">
+          <label htmlFor="question-dropdown">Pilih Soal:</label>
+          <select
+            id="question-dropdown"
+            value={currentQuestion}
+            onChange={handleDropdownChange}
+          >
+            {questions.map((_, index) => (
+              <option key={index} value={index + 1}>
+                Soal {index + 1}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="options-container">
+          {questions[currentQuestion - 1].options.map((option, index) => (
             <button
               key={index}
-              className={`latihan-soal1-answer-button ${
-                answers[currentQuestionIndex] === option.value
-                  ? "latihan-soal1-selected-answer"
+              className={`option-button ${
+                selectedOption === option
+                  ? option === questions[currentQuestion - 1].correctOption
+                    ? "correct"
+                    : "incorrect"
                   : ""
               }`}
-              onClick={() => handleAnswerClick(option)}
-              disabled={answers[currentQuestionIndex]}
+              onClick={() => handleOptionSelect(option)}
             >
-              {option.label}
+              {option}
             </button>
           ))}
         </div>
-        {answers[currentQuestionIndex] && (
-          <div className="latihan-soal1-explanation-box">
-            <h2>Jawaban Anda: {answers[currentQuestionIndex]}</h2>
-            <h3>
-              {isCorrect
-                ? "Jawaban Anda Benar!"
-                : `Jawaban Benar: ${
-                    currentQuestion.options.find((opt) => opt.isCorrect)?.value
-                  }`}
-            </h3>
+
+        {selectedOption && (
+          <div className="explanation-container">
+            <p className="explanation-text">
+              {questions[currentQuestion - 1].explanation}
+            </p>
           </div>
         )}
-        <div className="latihan-soal1-navigation-buttons">
-          <button
-            className="nav-button prev"
-            onClick={goToPreviousQuestion}
-            disabled={currentQuestionIndex === 0}
-          >
-            ← Soal Sebelumnya
-          </button>
-          <button
-            className="nav-button next"
-            onClick={currentQuestionIndex === questions.length - 1 ? handleFinishQuiz : goToNextQuestion}
-          >
-            {currentQuestionIndex === questions.length - 1 ? "Selesai" : "Soal Selanjutnya →"}
-          </button>
-        </div>
       </div>
+
+      {showConfirmation && (
+        <div className="confirmation-popup">
+          <div className="popup-content">
+            <p>Yakin mau melihat pembahasan sekarang?</p>
+            <div className="popup-buttons">
+              <button
+                className="popup-button no-button"
+                onClick={() => handleConfirmationResponse("no")}
+              >
+                Tidak
+              </button>
+              <button
+                className="popup-button yes-button"
+                onClick={() => handleConfirmationResponse("yes")}
+              >
+                Iya
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
