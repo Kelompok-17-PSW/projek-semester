@@ -2,214 +2,196 @@ import React, { useState } from "react";
 import "./QuestionPage.css";
 
 const KuisPresentPerfectContinuousTense = () => {
-  const [answers, setAnswers] = useState([]);
-  const [isAnswered, setIsAnswered] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [isFinished, setIsFinished] = useState(false);
+  const [currentQuestion, setCurrentQuestion] = useState(1);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   const questions = [
-      {
-          question: "She ___ at the company for 5 years. (work)",
-          options: [
-              { label: "A. has been working", value: "A", isCorrect: true },
-              { label: "B. has worked", value: "B" },
-              { label: "C. is working", value: "C" },
-              { label: "D. has been working", value: "D" },
-          ],
-      },
-      {
-          question: "They ___ in Paris since 2010. (live)",
-          options: [
-              { label: "A. have been living", value: "A", isCorrect: true },
-              { label: "B. are living", value: "B" },
-              { label: "C. lived", value: "C" },
-              { label: "D. have lived", value: "D" },
-          ],
-      },
-      {
-          question: "He ___ the book for 2 hours. (read)",
-          options: [
-              { label: "A. has read", value: "A" },
-              { label: "B. has been reading", value: "B", isCorrect: true },
-              { label: "C. is reading", value: "C" },
-              { label: "D. reads", value: "D" },
-          ],
-      },
-      {
-          question: "I ___ all day and I'm tired now. (study)",
-          options: [
-              { label: "A. am studying", value: "A" },
-              { label: "B. studies", value: "B" },
-              { label: "C. have been studying", value: "C", isCorrect: true },
-              { label: "D. studied", value: "D" },
-          ],
-      },
-      {
-          question: "We ___ for you since 9 AM. (wait)",
-          options: [
-              { label: "A. wait", value: "A" },
-              { label: "B. waited", value: "B" },
-              { label: "C. are waiting", value: "C" },
-              { label: "D. have been waiting", value: "D", isCorrect: true },
-          ],
-      },
-      {
-          question: "He ___ at the same job for 10 years. (work)",
-          options: [
-              { label: "A. has been working", value: "A", isCorrect: true },
-              { label: "B. has worked", value: "B" },
-              { label: "C. works", value: "C" },
-              { label: "D. is working", value: "D" },
-          ],
-      },
-      {
-          question: "She ___ on her thesis for months. (focus)",
-          options: [
-              { label: "A. has focused", value: "A" },
-              { label: "B. is focusing", value: "B" },
-              { label: "C. has been focusing", value: "C", isCorrect: true },
-              { label: "D. focused", value: "D" },
-          ],
-      },
-      {
-          question: "I ___ to improve my English skills. (try)",
-          options: [
-              { label: "A. have tried", value: "A" },
-              { label: "B. have been trying", value: "B", isCorrect: true },
-              { label: "C. tried", value: "C" },
-              { label: "D. try", value: "D" },
-          ],
-      },
-      {
-          question: "They ___ the project for weeks without any progress. (discuss)",
-          options: [
-              { label: "A. have been discussing", value: "A", isCorrect: true },
-              { label: "B. are discussing", value: "B" },
-              { label: "C. discussed", value: "C" },
-              { label: "D. have discussed", value: "D" },
-          ],
-      },
-      {
-          question: "We ___ for a solution to this issue. (search)",
-          options: [
-              { label: "A. searched", value: "A" },
-              { label: "B. are searching", value: "B" },
-              { label: "C. have searched", value: "C" },
-              { label: "D. have been searching", value: "D", isCorrect: true },
-          ],
-      },
+    {
+      question: "She ... (study) English for two hours.",
+      options: ["A. studies", "B. has studied", "C. has been studying", "D. studied"],
+      correctOption: "C",
+      explanation: "The correct answer is 'C. has been studying' because the present perfect continuous tense is used to describe an action that started in the past and is still ongoing or has recently stopped.",
+    },
+    {
+      question: "I ... (wait) for the bus for half an hour.",
+      options: ["A. wait", "B. have waited", "C. am waiting", "D. have been waiting"],
+      correctOption: "D",
+      explanation: "The correct answer is 'D. have been waiting' because the present perfect continuous tense is used to describe an action that began in the past and is still continuing or has just finished.",
+    },
+    {
+      question: "They ... (work) on the project all day.",
+      options: ["A. have worked", "B. work", "C. have been working", "D. are working"],
+      correctOption: "C",
+      explanation: "The correct answer is 'C. have been working' because the present perfect continuous tense describes an action that started in the past and is still ongoing or has recently finished with a present relevance.",
+    },
+    {
+      question: "I ... (not, eat) anything today.",
+      options: ["A. haven't eaten", "B. haven't been eating", "C. didn't eat", "D. am not eating"],
+      correctOption: "B",
+      explanation: "The correct answer is 'B. haven't been eating' because the present perfect continuous tense is used for actions that have been happening over a period of time and are not finished.",
+    },
+    {
+      question: "He ... (train) for the marathon for months.",
+      options: ["A. has trained", "B. has been training", "C. trained", "D. is training"],
+      correctOption: "B",
+      explanation: "The correct answer is 'B. has been training' because the present perfect continuous tense is used to describe an action that started in the past and is still continuing.",
+    },
+    {
+      question: "We ... (live) in this house since 2010.",
+      options: ["A. have been living", "B. have lived", "C. are living", "D. lived"],
+      correctOption: "A",
+      explanation: "The correct answer is 'A. have been living' because the present perfect continuous tense emphasizes the duration of an action that began in the past and continues to the present.",
+    },
+    {
+      question: "She ... (read) for hours and now she is tired.",
+      options: ["A. has been reading", "B. has read", "C. read", "D. is reading"],
+      correctOption: "A",
+      explanation: "The correct answer is 'A. has been reading' because the present perfect continuous tense indicates an ongoing action that has recently finished.",
+    },
+    {
+      question: "They ... (work) hard all week.",
+      options: ["A. have worked", "B. have been working", "C. are working", "D. worked"],
+      correctOption: "B",
+      explanation: "The correct answer is 'B. have been working' because the present perfect continuous tense is used to describe an action that has been happening for a period of time up to the present.",
+    },
+    {
+      question: "I ... (try) to call you all morning.",
+      options: ["A. have tried", "B. am trying", "C. have been trying", "D. try"],
+      correctOption: "C",
+      explanation: "The correct answer is 'C. have been trying' because the present perfect continuous tense is used to express an action that has been happening over a period of time and continues or just finished.",
+    },
+    {
+      question: "We ... (wait) for you since 9 o'clock.",
+      options: ["A. waited", "B. have been waiting", "C. have waited", "D. are waiting"],
+      correctOption: "B",
+      explanation: "The correct answer is 'B. have been waiting' because the present perfect continuous tense describes an action that started in the past and continues to the present moment.",
+    },
   ];
 
-  const currentQuestion = questions[currentQuestionIndex];
-
-  const handleAnswerClick = (option) => {
-      const updatedAnswers = [...answers];
-      updatedAnswers[currentQuestionIndex] = option.value;
-      setAnswers(updatedAnswers);
-
-      if (option.isCorrect) {
-          setScore((prevScore) => prevScore + 1);
-      }
-
-      setIsCorrect(option.isCorrect || false);
-      setIsAnswered(true);
+  const handleNextQuestion = () => {
+    if (currentQuestion < questions.length) {
+      setCurrentQuestion(currentQuestion + 1);
+      resetSelection();
+    }
   };
 
-  const goToNextQuestion = () => {
-      if (currentQuestionIndex < questions.length - 1) {
-          setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-          setIsAnswered(answers[currentQuestionIndex + 1] ? true : false);
-      }
+  const handlePreviousQuestion = () => {
+    if (currentQuestion > 1) {
+      setCurrentQuestion(currentQuestion - 1);
+      resetSelection();
+    }
   };
 
-  const goToPreviousQuestion = () => {
-      if (currentQuestionIndex > 0) {
-          setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
-          setIsAnswered(answers[currentQuestionIndex - 1] ? true : false);
-      }
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
   };
 
-  const handleFinishQuiz = () => {
-      setIsFinished(true);
+  const resetSelection = () => {
+    setSelectedOption(null);
   };
 
-  const handleRestartQuiz = () => {
-      setAnswers([]);
-      setScore(0);
-      setCurrentQuestionIndex(0);
-      setIsFinished(false);
+  const handleDropdownChange = (e) => {
+    const selectedNumber = parseInt(e.target.value);
+    setCurrentQuestion(selectedNumber);
+    resetSelection();
   };
 
-  if (isFinished) {
-      return (
-          <div className="latihan-soal1-container">
-              <div className="latihan-soal1-question-box">
-                  <h1 className="latihan-soal1-title">Latihan Soal Present Perfect Continuous Tense</h1>
-                  <h2>Selesai!</h2>
-                  <p>Skor Anda: {score}/{questions.length}</p>
-                  <button className="finish-button" onClick={handleRestartQuiz}>
-                      Ulangi Latihan
-                  </button>
-              </div>
-          </div>
-      );
-  }
+  const handleConfirmationResponse = (response) => {
+    if (response === "yes") {
+      setSelectedOption(true);
+    }
+    setShowConfirmation(false);
+  };
 
   return (
-      <div className="latihan-soal1-container">
-          <div className="latihan-soal1-question-box">
-              <h1 className="latihan-soal1-title">Latihan Soal Present Perfect Continuous Tense</h1>
-              <div className="latihan-soal1-question">
-                  <p>{currentQuestion.question}</p>
-              </div>
-              <div className="latihan-soal1-answers">
-                  {currentQuestion.options.map((option, index) => (
-                      <button
-                          key={index}
-                          className={`latihan-soal1-answer-button ${
-                              answers[currentQuestionIndex] === option.value
-                                  ? "latihan-soal1-selected-answer"
-                                  : ""
-                          }`}
-                          onClick={() => handleAnswerClick(option)}
-                          disabled={answers[currentQuestionIndex]}
-                      >
-                          {option.label}
-                      </button>
-                  ))}
-              </div>
-              {answers[currentQuestionIndex] && (
-                  <div className="latihan-soal1-explanation-box">
-                      <h2>Jawaban Anda: {answers[currentQuestionIndex]}</h2>
-                      <h3>
-                          {isCorrect
-                              ? "Jawaban Anda Benar!"
-                              : `Jawaban Benar: ${
-                                    currentQuestion.options.find((opt) => opt.isCorrect)?.value
-                                }`}
-                      </h3>
-                      <p>{currentQuestion.explanation}</p>
-                  </div>
-              )}
-              <div className="latihan-soal1-navigation-buttons">
-                  <button
-                      className="nav-button prev"
-                      onClick={goToPreviousQuestion}
-                      disabled={currentQuestionIndex === 0}
-                  >
-                      ← Soal Sebelumnya
-                  </button>
-                  <button
-                      className="nav-button next"
-                      onClick={currentQuestionIndex === questions.length - 1 ? handleFinishQuiz : goToNextQuestion}
-                  >
-                      {currentQuestionIndex === questions.length - 1 ? "Selesai" : "Soal Selanjutnya →"}
-                  </button>
-              </div>
-          </div>
+    <div className="question-page">
+      <div className="question-container">
+        <button
+          className="oval-button previous-button"
+          onClick={handlePreviousQuestion}
+          disabled={currentQuestion === 1}
+        >
+          &larr; Soal Sebelumnya
+        </button>
+        <div className="question-box">
+          <h2>Soal {currentQuestion}</h2>
+          <p>{questions[currentQuestion - 1].question}</p>
+        </div>
+        <button
+          className="oval-button next-button"
+          onClick={handleNextQuestion}
+          disabled={currentQuestion === questions.length}
+        >
+          Soal Berikutnya &rarr;
+        </button>
       </div>
+
+      <div className="interactive-section">
+        <div className="dropdown-container">
+          <label htmlFor="question-dropdown">Pilih Soal:</label>
+          <select
+            id="question-dropdown"
+            value={currentQuestion}
+            onChange={handleDropdownChange}
+          >
+            {questions.map((_, index) => (
+              <option key={index} value={index + 1}>
+                Soal {index + 1}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="options-container">
+          {questions[currentQuestion - 1].options.map((option, index) => (
+            <button
+              key={index}
+              className={`option-button ${
+                selectedOption === option
+                  ? option === questions[currentQuestion - 1].correctOption
+                    ? "correct"
+                    : "incorrect"
+                  : ""
+              }`}
+              onClick={() => handleOptionSelect(option)}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+
+        {selectedOption && (
+          <div className="explanation-container">
+            <p className="explanation-text">
+              {questions[currentQuestion - 1].explanation}
+            </p>
+          </div>
+        )}
+      </div>
+
+      {showConfirmation && (
+        <div className="confirmation-popup">
+          <div className="popup-content">
+            <p>Yakin mau melihat pembahasan sekarang?</p>
+            <div className="popup-buttons">
+              <button
+                className="popup-button no-button"
+                onClick={() => handleConfirmationResponse("no")}
+              >
+                Tidak
+              </button>
+              <button
+                className="popup-button yes-button"
+                onClick={() => handleConfirmationResponse("yes")}
+              >
+                Iya
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
